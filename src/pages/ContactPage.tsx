@@ -3,14 +3,19 @@ import { Footer } from '../components/Footer'
 export function ContactPage() {
   return (
     <>
-      <section className="contact-hero">
-        <img
-          src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80"
-          alt="A warm, intimate space"
-        />
-        <div className="contact-hero-overlay">
+      <section className="services-hero">
+        <div className="services-hero-bg">
+          <img
+            src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80"
+            alt="A warm, intimate space"
+          />
+        </div>
+        <div className="services-hero-content">
           <span className="section-label">Come As You Are</span>
-          <h1 className="section-heading">Let&apos;s find the right space for you.</h1>
+          <h1 className="section-heading">
+            Let&apos;s find the <em>right</em> space for you.
+          </h1>
+          <div className="divider" />
           <p>
             Whether you&apos;re ready to join a gathering or just want to ask a question, this
             is a safe place to begin.

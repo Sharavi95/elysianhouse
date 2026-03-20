@@ -34,16 +34,13 @@ export function Footer() {
           <p className="footer-col-title">Offerings</p>
           <ul className="footer-links">
             <li>
-              <Link to="/services">Circle Gatherings</Link>
+              <Link to="/services">Curated Events</Link>
             </li>
             <li>
-              <Link to="/services">Guided Conversations</Link>
+              <Link to="/services">Inner Circles</Link>
             </li>
             <li>
-              <Link to="/services">Retreat Days</Link>
-            </li>
-            <li>
-              <Link to="/services">Bespoke Programmes</Link>
+              <Link to="/services">One-on-One Reflection Sessions</Link>
             </li>
           </ul>
         </div>
@@ -54,17 +51,14 @@ export function Footer() {
               <a href="#">Instagram</a>
             </li>
             <li>
-              <a href="#">LinkedIn</a>
-            </li>
-            <li>
               <Link to="/contact">hello@elysianhouse.com</Link>
             </li>
           </ul>
         </div>
       </footer>
       <div className="footer-bottom">
-        <p>© 2025 Elysian House. All rights reserved.</p>
-        <p>Crafted with presence.</p>
+        <p>© 2026 Elysian House. All rights reserved.</p>
+        <p>Crafted with presence by Sharavi</p>
       </div>
     </>
   )

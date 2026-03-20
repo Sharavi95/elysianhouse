@@ -28,77 +28,84 @@ export function ServicesPage() {
         </div>
       </section>
 
-      {/* ── SERVICES LIST ── */}
-      <div className="services-list">
-        <Link to="/contact" className="service-row fade-in">
-          <div className="service-num">01</div>
-          <h3 className="service-name">
-            Circle <em>Gatherings</em>
-          </h3>
-          <p className="service-desc">
-            Monthly evening circles for women to gather in honest, unperformed
-            conversation. Theme-guided but never scripted. No one is expected to have
-            answers — only presence.
-          </p>
-          <span className="service-tag">Monthly</span>
-        </Link>
-        <Link to="/contact" className="service-row fade-in">
-          <div className="service-num">02</div>
-          <h3 className="service-name">
-            Guided <em>Conversations</em>
-          </h3>
-          <p className="service-desc">
-            Private 1:1 sessions built around deep listening and reflective questioning.
-            No agenda set in advance — the session begins with where you actually are.
-          </p>
-          <span className="service-tag">1:1 Private</span>
-        </Link>
-        <Link to="/contact" className="service-row fade-in">
-          <div className="service-num">03</div>
-          <h3 className="service-name">
-            Retreat <em>Days</em>
-          </h3>
-          <p className="service-desc">
-            Immersive full-day retreats held in intimate, nature-adjacent spaces. Includes
-            guided reflection, shared meals, and intentional silence. Limited to 8 women.
-          </p>
-          <span className="service-tag">Quarterly</span>
-        </Link>
-        <Link to="/contact" className="service-row fade-in">
-          <div className="service-num">04</div>
-          <h3 className="service-name">
-            Bespoke <em>Programmes</em>
-          </h3>
-          <p className="service-desc">
-            For organizations, teams, or private groups seeking to create space for their
-            women. Designed collaboratively, shaped around what your community actually
-            needs.
-          </p>
-          <span className="service-tag">Custom</span>
-        </Link>
-        <div className="service-row fade-in" style={{ cursor: 'default' }}>
-          <div className="service-num">05</div>
-          <h3 className="service-name">
-            Inner <em>Circles</em>
-          </h3>
-          <p className="service-desc">
-            Small, recurring groups for women who want deeper, ongoing reflective
-            discussion with the same trusted community.
-          </p>
-          <span className="service-tag-coming">Coming Soon</span>
+      {/* ── SERVICES OFFERINGS (home-style horizontal cards) ── */}
+      <section className="services-offerings">
+        <div className="services-offerings-header">
+          <span className="section-label">Our Offerings</span>
+          <h2 className="section-heading">
+            Choose the space that meets you <em>now</em>
+          </h2>
+          <div className="divider" />
         </div>
-        <div className="service-row fade-in" style={{ cursor: 'default' }}>
-          <div className="service-num">06</div>
-          <h3 className="service-name">
-            Reflection <em>Sessions</em>
-          </h3>
-          <p className="service-desc">
-            One-on-one personal conversations to navigate life transitions — held with
-            presence, care, and no agenda beyond your own clarity.
-          </p>
-          <span className="service-tag-coming">Coming Soon</span>
+        <div className="experience-cards">
+          <div className="exp-card available fade-in">
+            <div className="exp-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=900&q=80"
+                alt="Curated Events"
+              />
+              <div className="exp-card-img-overlay" />
+            </div>
+            <div className="exp-card-body">
+              <p className="exp-card-number">01</p>
+              <h3 className="exp-card-title">
+                Curated <em>Events</em>
+              </h3>
+              <p className="exp-card-desc">
+                Guided conversations and community gatherings — thoughtfully designed
+                spaces where women come together around themes that matter. Open to all.
+              </p>
+              <Link to="/services" className="exp-card-cta">
+                Explore upcoming events
+              </Link>
+            </div>
+          </div>
+
+          <div className="exp-card coming-soon fade-in">
+            <div className="exp-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=900&q=80"
+                alt="Inner Circles"
+              />
+              <div className="exp-card-img-overlay" />
+            </div>
+            <div className="exp-card-body">
+              <p className="exp-card-number">02</p>
+              <span className="exp-soon-badge">Coming Soon</span>
+              <h3 className="exp-card-title">
+                Inner <em>Circles</em>
+              </h3>
+              <p className="exp-card-desc">
+                Small, closed groups for deeper reflective discussions. A consistent space
+                with the same women — building trust, continuity, and real depth over time.
+              </p>
+              <span className="exp-card-cta">Join the waitlist</span>
+            </div>
+          </div>
+
+          <div className="exp-card coming-soon fade-in">
+            <div className="exp-card-img">
+              <img
+                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&q=80"
+                alt="One-on-One Reflection Sessions"
+              />
+              <div className="exp-card-img-overlay" />
+            </div>
+            <div className="exp-card-body">
+              <p className="exp-card-number">03</p>
+              <span className="exp-soon-badge">Coming Soon</span>
+              <h3 className="exp-card-title">
+                One-on-One <em>Reflection Sessions</em>
+              </h3>
+              <p className="exp-card-desc">
+                Personal conversations to navigate life transitions. Private, unhurried, and
+                tailored entirely to where you are — no agenda except yours.
+              </p>
+              <span className="exp-card-cta">Express interest</span>
+            </div>
+          </div>
         </div>
-      </div>
+      </section>
 
       {/* ── UPCOMING EVENTS ── */}
       <section className="upcoming-section">
