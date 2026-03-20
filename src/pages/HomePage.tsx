@@ -31,8 +31,8 @@ export function HomePage() {
         </div>
         <div className="hero-right">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80"
-            alt="Women gathering warmly"
+            src="/images/home-hero.jpeg"
+            alt="Portrait of the Elysian House founder"
           />
           <div className="hero-right-overlay" />
           <div className="hero-quote">
@@ -159,21 +159,22 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── HOW WOMEN EXPERIENCE (aligned with pillars: centered intro + card grid) ── */}
+      {/* ── HOW WOMEN EXPERIENCE (index6 layout) ── */}
       <section className="experience-section" id="how-we-experience">
-        <header className="experience-header fade-in">
-          <span className="section-label">How Women Experience It</span>
-          <h2 className="section-heading">
-            Three ways to enter the <em>circle</em>
-          </h2>
-          <div className="divider" />
-          <p className="experience-intro">
-            Whether you&apos;re ready to step in or simply curious, there is a way for you
-            here. Each offering is designed to meet you where you are.
-          </p>
-        </header>
+        <div className="experience-inner">
+          <div className="experience-left fade-in">
+            <span className="section-label">How Women Experience It</span>
+            <h2 className="section-heading">
+              Three ways to enter the <em>circle</em>
+            </h2>
+            <div className="divider" />
+            <p>
+              Whether you&apos;re ready to step in or simply curious, there is a way for you
+              here. Each offering is designed to meet you where you are.
+            </p>
+          </div>
 
-        <div className="experience-cards">
+          <div className="experience-cards">
             <div className="exp-card available fade-in">
               <div className="exp-card-img">
                 <img
@@ -197,17 +198,17 @@ export function HomePage() {
               </div>
             </div>
 
-            <div className="exp-card coming-soon fade-in" aria-label="Inner Circles — coming soon">
+            <div className="exp-card coming-soon fade-in">
               <div className="exp-card-img">
                 <img
                   src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=800&q=80"
-                  alt=""
-                  aria-hidden
+                  alt="Inner Circles"
                 />
                 <div className="exp-card-img-overlay" />
               </div>
               <div className="exp-card-body">
                 <p className="exp-card-number">02</p>
+                <span className="exp-soon-badge">Coming Soon</span>
                 <h3 className="exp-card-title">
                   Inner <em>Circles</em>
                 </h3>
@@ -221,17 +222,17 @@ export function HomePage() {
               </div>
             </div>
 
-            <div className="exp-card coming-soon fade-in" aria-label="One-on-One Reflection Sessions — coming soon">
+            <div className="exp-card coming-soon fade-in">
               <div className="exp-card-img">
                 <img
                   src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80"
-                  alt=""
-                  aria-hidden
+                  alt="One-on-One Reflection Sessions"
                 />
                 <div className="exp-card-img-overlay" />
               </div>
               <div className="exp-card-body">
                 <p className="exp-card-number">03</p>
+                <span className="exp-soon-badge">Coming Soon</span>
                 <h3 className="exp-card-title">
                   One-on-One <em>Reflection Sessions</em>
                 </h3>
@@ -244,10 +245,11 @@ export function HomePage() {
                 </Link>
               </div>
             </div>
+          </div>
         </div>
       </section>
 
-      {/* ── GATHERINGS SECTION — DARK ── */}
+      {/* ── GATHERINGS SECTION — DARK ──
       <section className="gatherings-section">
         <div className="gatherings-header">
           <div>
@@ -329,6 +331,7 @@ export function HomePage() {
           </div>
         </div>
       </section>
+      */}
 
       {/* ── PHOTO STRIP ── */}
       <div className="photo-strip">
