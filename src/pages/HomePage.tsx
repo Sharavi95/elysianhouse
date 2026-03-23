@@ -176,6 +176,9 @@ export function HomePage() {
 
           <div className="experience-cards">
             <div className="exp-card available fade-in">
+              <span className="exp-card-status exp-card-status--open" aria-label="Open">
+                Open
+              </span>
               <div className="exp-card-img">
                 <img
                   src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80"
@@ -185,6 +188,9 @@ export function HomePage() {
               </div>
               <div className="exp-card-body">
                 <p className="exp-card-number">01</p>
+                <div className="exp-card-labels">
+                  <span className="exp-card-type-label">Curated events</span>
+                </div>
                 <h3 className="exp-card-title">
                   Curated <em>Events</em>
                 </h3>
@@ -199,6 +205,9 @@ export function HomePage() {
             </div>
 
             <div className="exp-card coming-soon fade-in">
+              <span className="exp-card-status exp-card-status--soon" aria-label="Coming soon">
+                Coming soon
+              </span>
               <div className="exp-card-img">
                 <img
                   src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=800&q=80"
@@ -208,7 +217,9 @@ export function HomePage() {
               </div>
               <div className="exp-card-body">
                 <p className="exp-card-number">02</p>
-                <span className="exp-soon-badge">Coming Soon</span>
+                <div className="exp-card-labels">
+                  <span className="exp-card-type-label">Inner circles</span>
+                </div>
                 <h3 className="exp-card-title">
                   Inner <em>Circles</em>
                 </h3>
@@ -223,6 +234,9 @@ export function HomePage() {
             </div>
 
             <div className="exp-card coming-soon fade-in">
+              <span className="exp-card-status exp-card-status--soon" aria-label="Coming soon">
+                Coming soon
+              </span>
               <div className="exp-card-img">
                 <img
                   src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80"
@@ -232,7 +246,9 @@ export function HomePage() {
               </div>
               <div className="exp-card-body">
                 <p className="exp-card-number">03</p>
-                <span className="exp-soon-badge">Coming Soon</span>
+                <div className="exp-card-labels">
+                  <span className="exp-card-type-label">One-on-one sessions</span>
+                </div>
                 <h3 className="exp-card-title">
                   One-on-One <em>Reflection Sessions</em>
                 </h3>

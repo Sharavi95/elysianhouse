@@ -1,6 +1,39 @@
+import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router-dom'
 import { Footer } from '../components/Footer'
+import { getEventById, getUpcomingEvents } from '../data/events'
 
 export function ContactPage() {
+  const [searchParams] = useSearchParams()
+  const [interest, setInterest] = useState('')
+  const [message, setMessage] = useState('')
+
+  const upcoming = getUpcomingEvents()
+
+  useEffect(() => {
+    const eventId = searchParams.get('eventId')
+    if (!eventId) return
+    const ev = getEventById(eventId)
+    if (!ev) return
+
+    if (ev.type === 'upcoming') {
+      setInterest(ev.id)
+    } else {
+      setInterest('')
+    }
+
+    const line = `I'm interested in: ${ev.title}`
+    setMessage((prev) => (prev.trim() ? prev : line))
+
+    requestAnimationFrame(() => {
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      document.getElementById('contact-form')?.scrollIntoView({
+        behavior: reduceMotion ? 'auto' : 'smooth',
+        block: 'start',
+      })
+    })
+  }, [searchParams])
+
   return (
     <>
       <section className="services-hero">
@@ -24,7 +57,7 @@ export function ContactPage() {
       </section>
 
       <div className="contact-grid">
-        <div className="contact-form-area">
+        <div id="contact-form" className="contact-form-area" tabIndex={-1}>
           <span className="section-label" style={{ marginBottom: '36px', display: 'block' }}>
             Send a Message
           </span>
@@ -37,21 +70,36 @@ export function ContactPage() {
             <input type="email" className="form-input" placeholder="your@email.com" />
           </div>
           <div className="form-group">
-            <label className="form-label">I&apos;m Interested In</label>
-            <select className="form-select" defaultValue="">
+            <label className="form-label" htmlFor="contact-interest">
+              I&apos;m Interested In
+            </label>
+            <select
+              id="contact-interest"
+              className="form-select"
+              value={interest}
+              onChange={(e) => setInterest(e.target.value)}
+            >
               <option value="">Select an offering</option>
-              <option>Circle Gatherings</option>
-              <option>Guided Conversations (1:1)</option>
-              <option>Retreat Days</option>
-              <option>Bespoke Programme</option>
-              <option>Just exploring</option>
+              {upcoming.map((e) => (
+                <option key={e.id} value={e.id}>
+                  {e.title}
+                </option>
+              ))}
+              <option value="inner-circles-waitlist">Inner Circles — waitlist</option>
+              <option value="reflection-sessions">One-on-One Reflection Sessions</option>
+              <option value="just-exploring">Just exploring</option>
             </select>
           </div>
           <div className="form-group">
-            <label className="form-label">What Brings You Here</label>
+            <label className="form-label" htmlFor="contact-message">
+              What Brings You Here
+            </label>
             <textarea
+              id="contact-message"
               className="form-textarea"
               placeholder="Share as little or as much as you&apos;d like..."
+              value={message}
+              onChange={(e) => setMessage(e.target.value)}
             />
           </div>
           <button className="btn-primary" style={{ width: '100%', textAlign: 'center' }}>
@@ -94,7 +142,7 @@ export function ContactPage() {
                 lineHeight: '1.65',
               }}
             >
-              "There is nothing to perform here. Just arrive."
+              &quot;There is nothing to perform here. Just arrive.&quot;
             </p>
             <p
               style={{
