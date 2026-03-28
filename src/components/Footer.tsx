@@ -13,7 +13,7 @@ export function Footer() {
             of who they are.
           </p>
         </div>
-        <div>
+        <div className="footer-col">
           <p className="footer-col-title">Navigate</p>
           <ul className="footer-links">
             <li>
@@ -30,7 +30,7 @@ export function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="footer-col">
           <p className="footer-col-title">Offerings</p>
           <ul className="footer-links">
             <li>
@@ -44,7 +44,7 @@ export function Footer() {
             </li>
           </ul>
         </div>
-        <div>
+        <div className="footer-col footer-col--connect">
           <p className="footer-col-title">Connect</p>
           <ul className="footer-links">
             <li>

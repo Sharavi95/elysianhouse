@@ -5,7 +5,8 @@ export function ScrollToTop() {
   const { pathname } = useLocation()
 
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: 'smooth' })
+    /* Instant avoids races with child effects and prevents landing mid-page after navigation */
+    window.scrollTo(0, 0)
   }, [pathname])
 
   return null

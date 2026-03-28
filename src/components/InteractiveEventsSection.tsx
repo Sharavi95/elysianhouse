@@ -1,6 +1,14 @@
 import { useCallback, useEffect, useMemo, useRef, useState, type ReactNode } from 'react'
 import { Link } from 'react-router-dom'
 import type { EventRecord, GalleryImage } from '../types/event'
+import {
+  EventCardFields,
+  EventCardHero,
+  EventCardStrip,
+  EventPill,
+  buildEventMetaItems,
+  upcomingStatusPill,
+} from './events'
 
 function galleryFor(event: EventRecord): GalleryImage[] {
   if (event.galleryImages.length > 0) return event.galleryImages
@@ -12,10 +20,11 @@ function initialSelectedId(events: EventRecord[]): string {
   return featured?.id ?? events[0]?.id ?? ''
 }
 
-function badgeClass(variant: EventRecord['badgeVariant'] | undefined): string {
-  if (variant === 'few-left') return 'event-badge few-left'
-  if (variant === 'sold-out') return 'event-badge sold-out'
-  return 'event-badge'
+function descriptionParagraphs(text: string): string[] {
+  return text
+    .split(/\n\n+/)
+    .map((p) => p.trim())
+    .filter(Boolean)
 }
 
 export type InteractiveEventsSectionProps = {
@@ -23,10 +32,8 @@ export type InteractiveEventsSectionProps = {
   events: EventRecord[]
   sectionLabel: string
   heading: ReactNode
-  /** Past section note (right side of header) */
   headerNote?: string
   showExpressInterestLink?: boolean
-  /** For scroll targets / deep links */
   featuredAnchorId: string
 }
 
@@ -60,17 +67,32 @@ export function InteractiveEventsSection({
     const strip = stripRef.current
     const item = stripItemRefs.current.get(selectedId)
     if (!strip || !item) return
-    const reduceMotion =
-      typeof window !== 'undefined' &&
-      window.matchMedia('(prefers-reduced-motion: reduce)').matches
-    const stripRect = strip.getBoundingClientRect()
-    const itemRect = item.getBoundingClientRect()
-    const pad = 8
-    if (itemRect.left < stripRect.left + pad) {
-      item.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'start' })
-    } else if (itemRect.right > stripRect.right - pad) {
-      item.scrollIntoView({ behavior: reduceMotion ? 'auto' : 'smooth', block: 'nearest', inline: 'end' })
+
+    const alignStripToItem = () => {
+      const pad = 8
+      const itemLeft = item.offsetLeft
+      const itemRight = itemLeft + item.offsetWidth
+      const viewLeft = strip.scrollLeft
+      const viewRight = strip.scrollLeft + strip.clientWidth
+
+      let next = strip.scrollLeft
+      if (itemLeft < viewLeft + pad) {
+        next = Math.max(0, itemLeft - pad)
+      } else if (itemRight > viewRight - pad) {
+        next = itemRight - strip.clientWidth + pad
+      }
+
+      if (next !== strip.scrollLeft) {
+        const reduceMotion =
+          typeof window !== 'undefined' &&
+          window.matchMedia('(prefers-reduced-motion: reduce)').matches
+        strip.scrollTo({ left: next, behavior: reduceMotion ? 'auto' : 'smooth' })
+      }
     }
+
+    // After layout — scrollIntoView on the <li> was scrolling the document (page jumped to mid-section on load)
+    const id = requestAnimationFrame(alignStripToItem)
+    return () => cancelAnimationFrame(id)
   }, [selectedId])
 
   const scrollFilmStrip = useCallback((dir: -1 | 1) => {
@@ -112,6 +134,119 @@ export function InteractiveEventsSection({
 
   const sectionClass = variant === 'upcoming' ? 'upcoming-section' : 'past-section'
 
+  const heroMetaItems = buildEventMetaItems(selected)
+  const heroStatusPills =
+    variant === 'past' ? (
+      <>
+        <EventPill variant="past">Past</EventPill>
+        {selected.pastStatusLabel ? (
+          <EventPill variant="completed">Completed</EventPill>
+        ) : null}
+      </>
+    ) : (
+      (() => {
+        const { kind, label } = upcomingStatusPill(selected)
+        return <EventPill variant={kind}>{label}</EventPill>
+      })()
+    )
+
+  const heroDescription = (
+    <>
+      {descriptionParagraphs(selected.description).map((para) => (
+        <p key={para} className="event-cardsys-desc-para">
+          {para}
+        </p>
+      ))}
+    </>
+  )
+
+  const heroEnrichment =
+    variant === 'past' && selected.experienceBlock ? (
+      <>
+        <h4 className="event-cardsys-block-heading">The experience</h4>
+        <p className="event-cardsys-desc-para">{selected.experienceBlock}</p>
+      </>
+    ) : variant === 'upcoming' &&
+      selected.exploreBullets &&
+      selected.exploreBullets.length > 0 ? (
+      <>
+        <h4 className="event-cardsys-block-heading">
+          {selected.exploreSectionTitle ?? 'What we will explore'}
+        </h4>
+        <ul className="event-cardsys-explore-list">
+          {selected.exploreBullets.map((item) => (
+            <li key={item}>{item}</li>
+          ))}
+        </ul>
+        {selected.closingNote ? (
+          <p className="event-cardsys-closing-note">{selected.closingNote}</p>
+        ) : null}
+      </>
+    ) : variant === 'upcoming' && selected.closingNote ? (
+      <p className="event-cardsys-closing-note">{selected.closingNote}</p>
+    ) : null
+
+  const heroAvailability =
+    variant === 'upcoming' ? (
+      selected.ticketsOpenNote ? (
+        <p className="event-cardsys-avail-text">{selected.ticketsOpenNote}</p>
+      ) : selected.spotsLine ? (
+        <p className="event-cardsys-avail-text">
+          Availability:{' '}
+          <span className={selected.spotsSoldOut ? 'is-sold' : undefined}>{selected.spotsLine}</span>
+        </p>
+      ) : null
+    ) : selected.attendeeLine ? (
+      <p className="event-cardsys-avail-text">{selected.attendeeLine}</p>
+    ) : null
+
+  const heroPrimaryAction =
+    variant === 'upcoming' ? (
+      selected.ticketsOpenNote ? null : selected.registrationUrl ? (
+        <a
+          href={selected.registrationUrl}
+          className="event-cardsys-btn event-cardsys-btn--primary"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {selected.ctaLabel ?? 'Register'}
+        </a>
+      ) : selected.ctaLabel ? (
+        <Link
+          to={`/contact?eventId=${encodeURIComponent(selected.id)}`}
+          className="event-cardsys-btn event-cardsys-btn--primary"
+        >
+          {selected.ctaLabel}
+        </Link>
+      ) : null
+    ) : null
+
+  const heroSecondaryActions =
+    variant === 'upcoming' && (selected.paymentUrl || selected.communityUrl) ? (
+      <>
+        {selected.paymentUrl ? (
+          <a
+            href={selected.paymentUrl}
+            className="event-cardsys-btn event-cardsys-btn--ghost"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Pay online
+          </a>
+        ) : null}
+        {selected.communityUrl ? (
+          <a
+            href={selected.communityUrl}
+            className="event-cardsys-btn event-cardsys-btn--ghost"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Join our community
+          </a>
+        ) : null}
+      </>
+    ) : null
+
   return (
     <section className={`${sectionClass} events-interactive`}>
       <div className={variant === 'upcoming' ? 'upcoming-header' : 'past-header'}>
@@ -128,109 +263,72 @@ export function InteractiveEventsSection({
         ) : null}
       </div>
 
-      <article
-        ref={featuredRef}
-        id={featuredAnchorId}
-        className="events-featured"
-        aria-live="polite"
-      >
-        <div className="events-featured-slideshow">
-          <div className="events-slideshow-inner">
-            {slides.map((img, i) => (
-              <div
-                key={`${selected.id}-${img.src}-${i}`}
-                className={`events-slideshow-slide ${i === slideIdx ? 'is-active' : ''}`}
-                aria-hidden={i !== slideIdx}
-              >
-                <img src={img.src} alt={img.alt} />
-              </div>
-            ))}
+      <EventCardHero
+        innerRef={featuredRef}
+        anchorId={featuredAnchorId}
+        media={
+          <div className="event-cardsys-slideshow">
+            <div className="event-cardsys-slideshow-inner">
+              {slides.map((img, i) => (
+                <div
+                  key={`${selected.id}-${img.src}-${i}`}
+                  className={`event-cardsys-slideshow-slide ${i === slideIdx ? 'is-active' : ''}`}
+                  aria-hidden={i !== slideIdx}
+                >
+                  <img src={img.src} alt={img.alt} />
+                </div>
+              ))}
+            </div>
+            <div className="event-cardsys-media-overlay event-cardsys-media-overlay--hero" aria-hidden />
+            {slides.length > 1 ? (
+              <>
+                <button
+                  type="button"
+                  className="carousel-btn carousel-prev event-cardsys-slideshow-btn"
+                  onClick={() => goSlide(-1)}
+                  aria-label="Previous image"
+                >
+                  ←
+                </button>
+                <button
+                  type="button"
+                  className="carousel-btn carousel-next event-cardsys-slideshow-btn"
+                  onClick={() => goSlide(1)}
+                  aria-label="Next image"
+                >
+                  →
+                </button>
+                <div className="carousel-dots event-cardsys-slideshow-dots" role="tablist" aria-label="Gallery">
+                  {slides.map((_, i) => (
+                    <button
+                      key={i}
+                      type="button"
+                      role="tab"
+                      aria-selected={i === slideIdx}
+                      className={`carousel-dot ${i === slideIdx ? 'active' : ''}`}
+                      onClick={() => setSlideIdx(i)}
+                      aria-label={`Image ${i + 1} of ${slides.length}`}
+                    />
+                  ))}
+                </div>
+              </>
+            ) : null}
           </div>
-          <div className="events-slideshow-overlay" aria-hidden />
-          {slides.length > 1 ? (
-            <>
-              <button
-                type="button"
-                className="carousel-btn carousel-prev events-slideshow-btn"
-                onClick={() => goSlide(-1)}
-                aria-label="Previous image"
-              >
-                ←
-              </button>
-              <button
-                type="button"
-                className="carousel-btn carousel-next events-slideshow-btn"
-                onClick={() => goSlide(1)}
-                aria-label="Next image"
-              >
-                →
-              </button>
-              <div className="carousel-dots events-slideshow-dots" role="tablist" aria-label="Gallery">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    type="button"
-                    role="tab"
-                    aria-selected={i === slideIdx}
-                    className={`carousel-dot ${i === slideIdx ? 'active' : ''}`}
-                    onClick={() => setSlideIdx(i)}
-                    aria-label={`Image ${i + 1} of ${slides.length}`}
-                  />
-                ))}
-              </div>
-            </>
-          ) : null}
-        </div>
-
-        <div className="events-featured-body" key={selected.id}>
-          {variant === 'past' ? (
-            <span className="event-past-chip" aria-label="Past gathering">
-              Past
-            </span>
-          ) : null}
-          <p className="events-featured-date">{selected.date}</p>
-          {selected.eventTypeTag ? (
-            <span className="event-type-tag">{selected.eventTypeTag}</span>
-          ) : null}
-          <h3 className="event-title-up events-featured-title">{selected.title}</h3>
-          <p className="event-desc-up events-featured-desc">{selected.description}</p>
-
-          {variant === 'upcoming' && (selected.timeRange || selected.location) ? (
-            <div className="event-meta events-featured-meta">
-              {selected.timeRange ? (
-                <div className="event-meta-item">
-                  <span className="event-meta-icon">◷</span>
-                  <span className="event-meta-text">{selected.timeRange}</span>
-                </div>
-              ) : null}
-              {selected.location ? (
-                <div className="event-meta-item">
-                  <span className="event-meta-icon">◎</span>
-                  <span className="event-meta-text">{selected.location}</span>
-                </div>
-              ) : null}
-            </div>
-          ) : null}
-
-          {variant === 'past' && selected.attendeeLine ? (
-            <p className="events-featured-attendee">{selected.attendeeLine}</p>
-          ) : null}
-
-          {variant === 'upcoming' && selected.spotsLine ? (
-            <div className="events-featured-cta-row">
-              <p className="event-spots">
-                Availability:{' '}
-                <span className={selected.spotsSoldOut ? 'sold' : undefined}>{selected.spotsLine}</span>
-              </p>
-              {selected.ctaLabel ? (
-                <Link to={`/contact?eventId=${encodeURIComponent(selected.id)}`} className="btn-book">
-                  {selected.ctaLabel}
-                </Link>
-              ) : null}
-            </div>
-          ) : null}
-        </div>
-      </article>
+        }
+      >
+        <EventCardFields
+          key={selected.id}
+          layout="hero"
+          event={selected}
+          statusPills={heroStatusPills}
+          description={heroDescription}
+          metaItems={heroMetaItems}
+          enrichment={heroEnrichment}
+          availability={heroAvailability}
+          primaryAction={heroPrimaryAction}
+          secondaryActions={heroSecondaryActions}
+        />
+      </EventCardHero>
 
       <div className="events-film-strip-outer">
         <button
@@ -268,70 +366,12 @@ export function InteractiveEventsSection({
                 }}
                 className="events-film-strip-item"
               >
-                <button
-                  type="button"
-                  className={`event-card-upcoming events-film-card fade-in ${active ? 'is-active' : ''}`}
-                  onClick={() => selectEvent(ev.id)}
-                  aria-current={active ? 'true' : undefined}
-                >
-                  {active ? (
-                    <span className="events-film-viewing" aria-hidden>
-                      Viewing
-                    </span>
-                  ) : null}
-                  <div className="event-card-img">
-                    <img src={ev.primaryImage} alt="" />
-                    <div className="event-card-img-overlay" aria-hidden />
-                  </div>
-                  {variant === 'past' ? (
-                    <span className="event-badge">Past</span>
-                  ) : (
-                    <span className={badgeClass(ev.badgeVariant)}>{ev.badge ?? 'Open'}</span>
-                  )}
-                  <div className="event-card-top">
-                    {ev.dateDay && ev.dateMonth && ev.dateYear ? (
-                      <div className="event-date-block">
-                        <div className="event-day">{ev.dateDay}</div>
-                        <div className="event-month-year">
-                          <span className="event-month">{ev.dateMonth}</span>
-                          <span className="event-year">{ev.dateYear}</span>
-                        </div>
-                      </div>
-                    ) : (
-                      <p className="events-film-date-fallback">{ev.date}</p>
-                    )}
-                    {ev.eventTypeTag ? <span className="event-type-tag">{ev.eventTypeTag}</span> : null}
-                    <h3 className="event-title-up">{ev.title}</h3>
-                    <p className="event-desc-up events-film-strip-desc">{ev.description}</p>
-                  </div>
-                  {ev.timeRange || ev.location ? (
-                    <div className="event-meta">
-                      {ev.timeRange ? (
-                        <div className="event-meta-item">
-                          <span className="event-meta-icon">◷</span>
-                          <span className="event-meta-text">{ev.timeRange}</span>
-                        </div>
-                      ) : null}
-                      {ev.location ? (
-                        <div className="event-meta-item">
-                          <span className="event-meta-icon">◎</span>
-                          <span className="event-meta-text">{ev.location}</span>
-                        </div>
-                      ) : null}
-                    </div>
-                  ) : null}
-                  <div className="event-card-bottom">
-                    {variant === 'upcoming' && ev.spotsLine ? (
-                      <p className="event-spots">
-                        Availability:{' '}
-                        <span className={ev.spotsSoldOut ? 'sold' : undefined}>{ev.spotsLine}</span>
-                      </p>
-                    ) : null}
-                    {variant === 'past' && ev.attendeeLine ? (
-                      <p className="event-spots">{ev.attendeeLine}</p>
-                    ) : null}
-                  </div>
-                </button>
+                <EventCardStrip
+                  event={ev}
+                  sectionVariant={variant}
+                  isActive={active}
+                  onSelect={() => selectEvent(ev.id)}
+                />
               </li>
             )
           })}

@@ -37,6 +37,11 @@ export function Navbar() {
         <li>
           <NavLink to="/contact">Contact</NavLink>
         </li>
+        <li className="nav-mobile-cta-item">
+          <Link to="/contact" className="nav-mobile-cta">
+            Join a Gathering
+          </Link>
+        </li>
       </ul>
       <Link to="/contact" className="nav-cta">
         Join a Gathering
@@ -45,6 +50,7 @@ export function Navbar() {
         type="button"
         className="hamburger"
         aria-label="Toggle mobile menu"
+        aria-expanded={mobileOpen}
         onClick={() => setMobileOpen((open) => !open)}
       >
         <span />

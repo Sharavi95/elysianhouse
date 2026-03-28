@@ -1,6 +1,6 @@
 export type EventType = 'upcoming' | 'past'
 
-export type EventBadgeVariant = 'few-left' | 'sold-out' | 'default'
+export type EventBadgeVariant = 'few-left' | 'sold-out' | 'default' | 'coming-soon'
 
 export type GalleryImage = {
   src: string
@@ -11,6 +11,10 @@ export type EventRecord = {
   id: string
   type: EventType
   title: string
+  /** Tagline under the title */
+  subtitle?: string
+  /** Short line for film-strip cards (falls back to description) */
+  summary?: string
   /** Display date line (hero + accessibility) */
   date: string
   description: string
@@ -26,11 +30,25 @@ export type EventRecord = {
   eventTypeTag?: string
   timeRange?: string
   location?: string
+  ticketPrice?: string
+  capacity?: string
   spotsLine?: string
   /** When true, availability line uses sold-out styling */
   spotsSoldOut?: boolean
+  /** Upcoming: shown when tickets are not yet on sale */
+  ticketsOpenNote?: string
   /** Upcoming only */
   ctaLabel?: string
+  registrationUrl?: string
+  paymentUrl?: string
+  communityUrl?: string
+  exploreSectionTitle?: string
+  exploreBullets?: string[]
+  closingNote?: string
+  /** Past: second narrative block (“The experience”) */
+  experienceBlock?: string
+  /** Past: status line (e.g. Completed) */
+  pastStatusLabel?: string
   /** Past archive extras */
   attendeeLine?: string
   quote?: string

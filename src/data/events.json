@@ -1,204 +1,142 @@
 {
   "upcoming": [
     {
-      "id": "spring-retreat-april-2026",
+      "id": "becoming-her-april-2026",
       "type": "upcoming",
       "featured": true,
-      "title": "The Unbecoming: A Spring Retreat for Women in Transition",
-      "date": "April 12, 2026",
-      "description": "A rare full-day space for women navigating major life shifts — in identity, relationship, career, or calling. We don't ask you to have it figured out. Just arrive. Includes guided reflection sessions, shared meals, and time for stillness in a carefully chosen private villa setting.",
-      "primaryImage": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=900&q=80",
+      "title": "Becoming Her",
+      "subtitle": "The Woman You're Meant to Be",
+      "date": "Saturday, 25 April 2026",
+      "summary": "Pause, reflect, and reconnect with the woman emerging within you — identity, courage, and becoming.",
+      "description": "After seasons of survival and healing, many women arrive at a powerful moment of reflection: Who am I becoming now?\n\nBecoming Her is an invitation to pause, reflect, and reconnect with the woman emerging within you. Through honest conversations, shared experiences, and guided reflection, we will explore identity, courage, and the journey of becoming.\n\nThis gathering creates a space for women to transform past pain into personal power and begin stepping more confidently into the next chapter of their lives.\n\nCome as you are. Leave with clarity, connection, and renewed confidence in the woman you are becoming.",
+      "primaryImage": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=900&q=80",
       "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80", "alt": "Retreat day setting" },
-        { "src": "https://images.unsplash.com/photo-1609220136736-395190cffeec?w=1200&q=80", "alt": "Shared meal at retreat" },
-        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "Women in reflection" }
+        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Women in circle at a gathering" },
+        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Intimate conversation among women" },
+        { "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80", "alt": "Reflective moment together" }
       ],
-      "dateDay": "12",
+      "dateDay": "25",
       "dateMonth": "April",
       "dateYear": "2026",
-      "badge": "3 Spots Left",
-      "badgeVariant": "few-left",
-      "eventTypeTag": "Full-Day Retreat",
-      "timeRange": "9:00 AM – 5:00 PM",
-      "location": "Alserkal Avenue, Dubai",
-      "spotsLine": "3 of 8 spots remain",
-      "ctaLabel": "Reserve Spot"
-    },
-    {
-      "id": "belonging-april-2026",
-      "type": "upcoming",
-      "title": "On Belonging: Finding Home in Yourself",
-      "date": "April 28, 2026",
-      "description": "An intimate evening circle exploring what it means to belong — to place, to people, and most importantly, to yourself. Come as you are.",
-      "primaryImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80",
-      "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Circle gathering" },
-        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Women together" },
-        { "src": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1200&q=80", "alt": "Conversation in circle" }
-      ],
-      "dateDay": "28",
-      "dateMonth": "April",
-      "dateYear": "2026",
-      "badge": "Open",
+      "badge": "Tickets available",
       "badgeVariant": "default",
-      "eventTypeTag": "Circle Gathering",
-      "timeRange": "6:30 – 9:00 PM",
-      "location": "DIFC, Dubai",
-      "spotsLine": "7 of 12 spots remain",
-      "ctaLabel": "Register"
+      "eventTypeTag": "Gathering",
+      "timeRange": "Afternoon",
+      "location": "Dubai (venue to be announced)",
+      "ticketPrice": "AED 120",
+      "capacity": "Limited seats",
+      "spotsLine": "Limited seats",
+      "ctaLabel": "Register",
+      "registrationUrl": "https://docs.google.com/forms/d/1pexDypt52VIAmDsnmaJPY-_fBIwOkaY6CBrpY94KVNg/viewform",
+      "paymentUrl": "https://pay.ziina.com/Elysianhouseeve/Fwk0uwF7Ez",
+      "communityUrl": "https://chat.whatsapp.com/ErrFgOSI5YP4rvySaLWHQE",
+      "exploreSectionTitle": "What we will explore",
+      "exploreBullets": [
+        "Understanding emotional wounds and how they shape identity",
+        "Breaking generational patterns and societal expectations",
+        "Self-forgiveness and releasing the past",
+        "Rebuilding inner confidence and self-trust",
+        "Stepping into the woman you are becoming"
+      ],
+      "closingNote": "Women leave feeling lighter, clearer, and more connected to themselves and each other."
     },
     {
-      "id": "quiet-ambition-may-2026",
+      "id": "courage-choose-june-2026",
       "type": "upcoming",
-      "title": "Quiet Ambition: On Wanting Without Performing",
-      "date": "May 15, 2026",
-      "description": "A conversation for women who want things deeply but have learned to hide it. We make space for desire that has been waiting to be spoken.",
-      "primaryImage": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=700&q=80",
+      "title": "The Courage to Choose Yourself",
+      "subtitle": "Boundaries, self-trust, and living a life that is true to you",
+      "date": "Saturday, 21 June 2026",
+      "summary": "Boundaries, self-trust, and authenticity. Tickets open 6 May 2026.",
+      "description": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them.\n\nDetails and registration will open on 6 May 2026.",
+      "primaryImage": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=900&q=80",
       "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80", "alt": "Intimate gathering" },
-        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Evening circle" },
-        { "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1200&q=80", "alt": "Reflective listening" }
+        { "src": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80", "alt": "Women gathering in conversation" },
+        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "Circle of support" },
+        { "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1200&q=80", "alt": "Thoughtful listening" }
       ],
-      "dateDay": "15",
-      "dateMonth": "May",
-      "dateYear": "2026",
-      "badge": "Sold Out",
-      "badgeVariant": "sold-out",
-      "eventTypeTag": "Circle Gathering",
-      "timeRange": "6:30 – 9:00 PM",
-      "location": "JLT, Dubai",
-      "spotsLine": "Fully booked",
-      "spotsSoldOut": true,
-      "ctaLabel": "Join Waitlist"
-    },
-    {
-      "id": "midyear-stillness-june-2026",
-      "type": "upcoming",
-      "title": "Midyear Stillness: A Half-Day Women's Retreat",
-      "date": "June 7, 2026",
-      "description": "A lighter-format retreat to pause at the midpoint of the year. For women who need to exhale before they plan their next move.",
-      "primaryImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=700&q=80",
-      "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "Women retreat" },
-        { "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80", "alt": "Retreat space" },
-        { "src": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&q=80", "alt": "Quiet conversation" }
-      ],
-      "dateDay": "07",
+      "dateDay": "21",
       "dateMonth": "June",
       "dateYear": "2026",
-      "badge": "Open",
-      "badgeVariant": "default",
-      "eventTypeTag": "Half-Day Retreat",
-      "timeRange": "9:00 AM – 1:00 PM",
-      "location": "Location TBA, Dubai",
-      "spotsLine": "10 of 12 spots remain",
-      "ctaLabel": "Reserve Spot"
+      "badge": "Coming soon",
+      "badgeVariant": "coming-soon",
+      "eventTypeTag": "Gathering",
+      "location": "Dubai, UAE",
+      "ticketPrice": "AED 150",
+      "capacity": "30–50 women",
+      "ticketsOpenNote": "Tickets open 6 May 2026"
+    },
+    {
+      "id": "healing-woman-within-aug-2026",
+      "type": "upcoming",
+      "title": "Healing the Woman Within",
+      "subtitle": "Transforming past pain into personal power",
+      "date": "Saturday, 29 August 2026",
+      "summary": "From pain to power — inner healing in community. Tickets open 11 July 2026.",
+      "description": "A space to meet the woman within with compassion — and to alchemize old pain into strength and clarity, alongside others walking a similar path.\n\nDetails and registration will open on 11 July 2026.",
+      "primaryImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80",
+      "galleryImages": [
+        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Evening gathering" },
+        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Women together in reflection" },
+        { "src": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80", "alt": "Shared presence" }
+      ],
+      "dateDay": "29",
+      "dateMonth": "August",
+      "dateYear": "2026",
+      "badge": "Coming soon",
+      "badgeVariant": "coming-soon",
+      "eventTypeTag": "Gathering",
+      "location": "Dubai, UAE",
+      "ticketPrice": "AED 150",
+      "capacity": "30–50 women",
+      "ticketsOpenNote": "Tickets open 11 July 2026"
+    },
+    {
+      "id": "life-i-truly-want-oct-2026",
+      "type": "upcoming",
+      "title": "The Life I Truly Want",
+      "subtitle": "Creating a life aligned with your truth",
+      "date": "Saturday, 24 October 2026",
+      "summary": "Design a life that matches your truth — not the script. Tickets open 5 September 2026.",
+      "description": "An invitation to get honest about the life you actually want — and to begin aligning your choices, boundaries, and vision with that truth, in the company of other women doing the same.\n\nDetails and registration will open on 5 September 2026.",
+      "primaryImage": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=900&q=80",
+      "galleryImages": [
+        { "src": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1200&q=80", "alt": "Women in dialogue" },
+        { "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80", "alt": "Calm, intentional space" },
+        { "src": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&q=80", "alt": "Quiet connection" }
+      ],
+      "dateDay": "24",
+      "dateMonth": "October",
+      "dateYear": "2026",
+      "badge": "Coming soon",
+      "badgeVariant": "coming-soon",
+      "eventTypeTag": "Gathering",
+      "location": "Dubai, UAE",
+      "ticketPrice": "AED 150",
+      "capacity": "30–50 women",
+      "ticketsOpenNote": "Tickets open 5 September 2026"
     }
   ],
   "past": [
     {
-      "id": "grief-growth-feb-2026",
+      "id": "transform-thrive-past",
       "type": "past",
       "featured": true,
-      "title": "On Grief & Growth: Holding Both at Once",
-      "date": "February 2026",
-      "description": "An evening circle inviting women to sit with the grief that accompanies growth — the quiet loss of who we used to be. The room was honest, unhurried, and full. Women arrived carrying things they had never said aloud. By the end of the evening, something had shifted.\n\n\"I finally said it out loud.\"",
-      "primaryImage": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80",
-      "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Women in circle — evening gathering" },
-        { "src": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80", "alt": "Intimate conversation" },
-        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Group sharing" },
-        { "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80", "alt": "Reflective moment" },
-        { "src": "https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=1200&q=80", "alt": "Warm connection" }
-      ],
-      "eventTypeTag": "Circle Gathering",
-      "location": "DIFC, Dubai",
-      "attendeeLine": "12 women gathered"
-    },
-    {
-      "id": "new-year-retreat-jan-2026",
-      "type": "past",
-      "title": "New Year, True Self: A Winter Retreat",
-      "date": "January 2026",
-      "description": "Instead of goal-setting, we asked different questions. What are you ready to release? Eight women spent the day in reflection, silence, and honest conversation — and left with a quieter kind of clarity.\n\n\"The best start to a year I've had.\"",
-      "primaryImage": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80",
-      "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80", "alt": "Retreat setting" },
-        { "src": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&q=80", "alt": "Quiet space" },
-        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "Women together" },
-        { "src": "https://images.unsplash.com/photo-1609220136736-395190cffeec?w=1200&q=80", "alt": "Shared meal" }
-      ],
-      "eventTypeTag": "Full-Day Retreat",
-      "location": "JLT, Dubai",
-      "attendeeLine": "8 women gathered"
-    },
-    {
-      "id": "enough-dec-2025",
-      "type": "past",
-      "title": "Enough: On Rest, Worth & Slowing Down",
-      "date": "December 2025",
-      "description": "Our end-of-year circle became a permission slip. Twelve women gave themselves space to acknowledge how much they had carried — and to put some of it down before crossing into a new year.\n\n\"I didn't know I needed this.\"",
-      "primaryImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80",
-      "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Circle in winter light" },
-        { "src": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1200&q=80", "alt": "Conversation in the round" },
-        { "src": "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=1200&q=80", "alt": "Listening deeply" },
-        { "src": "https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=1200&q=80", "alt": "Closing reflections" }
-      ],
-      "eventTypeTag": "Circle Gathering",
-      "location": "Alserkal Avenue, Dubai",
-      "attendeeLine": "12 women gathered"
-    },
-    {
-      "id": "voices-inherited-nov-2025",
-      "type": "past",
-      "title": "The Voices We Inherited: On Identity & Expectation",
-      "date": "November 2025",
-      "description": "A deep conversation about the voices we carry from family, culture, and society — and learning to tell them apart from our own. Women arrived guarded and left lighter, having named things that had gone unnamed for years.\n\n\"I heard myself differently.\"",
-      "primaryImage": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1200&q=80",
-      "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1200&q=80", "alt": "Women in intimate dialogue" },
-        { "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1200&q=80", "alt": "Thoughtful presence" },
-        { "src": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=1200&q=80", "alt": "Circle moment" },
-        { "src": "https://images.unsplash.com/photo-1499557354967-2b2d8910bcca?w=1200&q=80", "alt": "Shared silence" }
-      ],
-      "eventTypeTag": "Circle Gathering",
-      "location": "Downtown Dubai",
-      "attendeeLine": "10 women gathered"
-    },
-    {
-      "id": "transform-thrive-oct-2025",
-      "type": "past",
-      "title": "Transform & Thrive — A Gathering for Women in Transition",
-      "date": "October 2025",
-      "description": "A full day for women in the messy middle — not crisis, not resolution, but somewhere uncertain in between. A day of presence, reflection, and gentle companionship for those who needed to remember they were not alone in it.\n\n\"I didn't feel so alone in it.\"",
+      "title": "Transform and Thrive",
+      "subtitle": "From Survival to Thriving",
+      "date": "Past gathering · Dubai, UAE",
+      "summary": "The first Elysian House gathering — from surviving to choosing to thrive.",
+      "description": "Transform and Thrive was the first Elysian House gathering: a curated, intimate space for women ready to move beyond surviving and begin the journey of truly thriving.\n\nWomen came together in a room built on safety, honesty, and shared experience. Through guided reflection and open conversation, they began to explore what it means to not just manage their lives, but to choose them — intentionally.\n\nWhat started as one room became the foundation of a growing community of women finding their way home to themselves.",
+      "experienceBlock": "An intimate gathering where women arrived as strangers and left as a community. Honest conversations, shared stories, and a space where no performance was required — only presence.",
       "primaryImage": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80",
       "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80", "alt": "Retreat day opening" },
-        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "Workshop circle" },
-        { "src": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80", "alt": "Afternoon break" },
-        { "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80", "alt": "Stillness outdoors" }
+        { "src": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80", "alt": "Transform and Thrive gathering" },
+        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "Women in circle" },
+        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Connection in the room" },
+        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Shared stories" }
       ],
-      "eventTypeTag": "Retreat Day",
-      "location": "Dubai Hills, UAE",
-      "attendeeLine": "8 women gathered"
-    },
-    {
-      "id": "first-gathering-sep-2025",
-      "type": "past",
-      "title": "First Gathering: On Beginning Again",
-      "date": "September 2025",
-      "description": "The circle that started it all. Twelve strangers arrived unsure what to expect. By the end of the evening, several had shared things they had not said to anyone. Elysian House began here.\n\n\"Where has this been all my life?\"",
-      "primaryImage": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80",
-      "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "First circle" },
-        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Welcome in" },
-        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Shared laughter" },
-        { "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80", "alt": "One voice at a time" }
-      ],
-      "eventTypeTag": "Circle Gathering",
-      "location": "DIFC, Dubai",
-      "attendeeLine": "12 women gathered"
+      "eventTypeTag": "Gathering",
+      "location": "Dubai, UAE",
+      "pastStatusLabel": "Status: Completed"
     }
   ]
 }
