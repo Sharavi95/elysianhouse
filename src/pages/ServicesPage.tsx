@@ -10,8 +10,8 @@ export function ServicesPage() {
       <section className="services-hero">
         <div className="services-hero-bg">
           <img
-            src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1600&q=80"
-            alt="Women gathering warmly"
+            src="/images/elysian/elysian-founder-keynote-roadmap-stage-0533.webp"
+            alt="Facilitator on stage at an Elysian House gathering"
           />
         </div>
         <div className="services-hero-content">
@@ -44,8 +44,8 @@ export function ServicesPage() {
             </span>
             <div className="exp-card-img">
               <img
-                src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=900&q=80"
-                alt="Curated Events"
+                src="/images/elysian/elysian-gathering-circle-seating-wide-0684.webp"
+                alt="Curated events and community gatherings"
               />
               <div className="exp-card-img-overlay" />
             </div>
@@ -73,8 +73,8 @@ export function ServicesPage() {
             </span>
             <div className="exp-card-img">
               <img
-                src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=900&q=80"
-                alt="Inner Circles"
+                src="/images/elysian/elysian-panel-discussion-resilience-prompt-0686.webp"
+                alt="Inner circles and deeper discussion"
               />
               <div className="exp-card-img-overlay" />
             </div>
@@ -100,8 +100,8 @@ export function ServicesPage() {
             </span>
             <div className="exp-card-img">
               <img
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=900&q=80"
-                alt="One-on-One Reflection Sessions"
+                src="/images/elysian/elysian-founder-desk-focus-tablet-1574.webp"
+                alt="One-on-one reflection and private focus"
               />
               <div className="exp-card-img-overlay" />
             </div>

@@ -1,7 +1,7 @@
 import type { EventRecord } from '../../types/event'
 import { EventCardFields } from './EventCardFields'
 import { EventPill } from './EventPill'
-import { buildEventMetaItems, filmStripDescription, upcomingStatusPill } from './eventCardUtils'
+import { buildEventMetaItems, getCardTeaser, upcomingStatusPill } from './eventCardUtils'
 
 type EventCardStripProps = {
   event: EventRecord
@@ -12,7 +12,7 @@ type EventCardStripProps = {
 
 export function EventCardStrip({ event, sectionVariant, isActive, onSelect }: EventCardStripProps) {
   const metaItems = buildEventMetaItems(event)
-  const summary = filmStripDescription(event)
+  const teaser = getCardTeaser(event)
 
   const statusPills =
     sectionVariant === 'past' ? (
@@ -48,6 +48,8 @@ export function EventCardStrip({ event, sectionVariant, isActive, onSelect }: Ev
       </>
     )
 
+  const commerceStrip = sectionVariant === 'upcoming'
+
   return (
     <button
       type="button"
@@ -63,8 +65,15 @@ export function EventCardStrip({ event, sectionVariant, isActive, onSelect }: Ev
       <EventCardFields
         layout="strip"
         event={event}
-        description={<p className="event-cardsys-desc-para">{summary}</p>}
-        metaItems={metaItems}
+        visualStyle={commerceStrip ? 'commerce' : 'default'}
+        description={
+          teaser ? (
+            <p className="event-cardsys-desc-para">{teaser}</p>
+          ) : (
+            <p className="event-cardsys-desc-para event-cardsys-desc-para--placeholder"> </p>
+          )
+        }
+        metaItems={commerceStrip ? [] : metaItems}
         availability={availability}
       />
     </button>

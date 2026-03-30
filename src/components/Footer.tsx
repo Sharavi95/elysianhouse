@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import { SITE_CONTACT_EMAIL } from '../constants/contact'
 
 export function Footer() {
   return (
@@ -51,7 +52,7 @@ export function Footer() {
               <a href="#">Instagram</a>
             </li>
             <li>
-              <Link to="/contact">hello@elysianhouse.com</Link>
+              <Link to="/contact">{SITE_CONTACT_EMAIL}</Link>
             </li>
           </ul>
         </div>

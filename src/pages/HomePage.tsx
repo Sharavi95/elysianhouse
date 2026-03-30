@@ -1,7 +1,14 @@
 import { Link } from 'react-router-dom'
 import { Footer } from '../components/Footer'
+import { HomeNextGatheringHighlight } from '../components/HomeNextGatheringHighlight'
+import { getNextUpcomingEvent } from '../data/events'
+
+const WHATSAPP_COMMUNITY_URL =
+  'https://chat.whatsapp.com/ErrFgOSI5YP4rvySaLWHQE?mode=gi_t'
 
 export function HomePage() {
+  const nextGathering = getNextUpcomingEvent()
+
   return (
     <>
       {/* ── HERO ── */}
@@ -31,7 +38,7 @@ export function HomePage() {
         </div>
         <div className="hero-right">
           <img
-            src="/images/home-hero.jpeg"
+            src="/images/elysian/elysian-founder-portrait-yellow-blazer-9479.webp"
             alt="Portrait of the Elysian House founder"
           />
           <div className="hero-right-overlay" />
@@ -40,7 +47,7 @@ export function HomePage() {
             <blockquote>
               "The most important relationship a woman has is the one she has with herself."
             </blockquote>
-            <cite>Elysian House · Core Belief</cite>
+            <cite>Acha Zita . ElysianHouse Founder</cite>
           </div>
         </div>
       </section>
@@ -100,14 +107,14 @@ export function HomePage() {
         <div className="about-visual fade-in">
           <div className="about-img-main">
             <img
-              src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=900&q=80"
-              alt="Woman in quiet reflection"
+              src="/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp"
+              alt="Woman in quiet reflection in a warm, softly lit room"
             />
           </div>
           <div className="about-img-accent">
             <img
-              src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=600&q=80"
-              alt="Women in warm connection"
+              src="/images/elysian/elysian-collaboration-two-women-rug-gallery-7880.webp"
+              alt="Two women in conversation in a creative space"
             />
           </div>
           <div className="about-quote-chip">
@@ -181,8 +188,8 @@ export function HomePage() {
               </span>
               <div className="exp-card-img">
                 <img
-                  src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80"
-                  alt="Curated events and community gatherings"
+                  src="/images/elysian/elysian-gathering-circle-seating-wide-0684.webp"
+                  alt="Women gathered in circle for conversation"
                 />
                 <div className="exp-card-img-overlay" />
               </div>
@@ -210,8 +217,8 @@ export function HomePage() {
               </span>
               <div className="exp-card-img">
                 <img
-                  src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=800&q=80"
-                  alt="Inner Circles"
+                  src="/images/elysian/elysian-panel-discussion-resilience-prompt-0686.webp"
+                  alt="Panel discussion at an Elysian House gathering"
                 />
                 <div className="exp-card-img-overlay" />
               </div>
@@ -239,8 +246,8 @@ export function HomePage() {
               </span>
               <div className="exp-card-img">
                 <img
-                  src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80"
-                  alt="One-on-One Reflection Sessions"
+                  src="/images/elysian/elysian-founder-desk-focus-tablet-1574.webp"
+                  alt="Focused reflection and planning at a quiet desk"
                 />
                 <div className="exp-card-img-overlay" />
               </div>
@@ -288,7 +295,7 @@ export function HomePage() {
           <div className="gathering-card fade-in">
             <div className="gathering-card-img">
               <img
-                src="https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=800&q=80"
+                src="/images/elysian/elysian-gathering-circle-seating-wide-0684.webp"
                 alt="Women in circle"
               />
               <div className="gathering-card-img-overlay" />
@@ -308,7 +315,7 @@ export function HomePage() {
           <div className="gathering-card fade-in">
             <div className="gathering-card-img">
               <img
-                src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=800&q=80"
+                src="/images/elysian/elysian-founder-desk-writing-glasses-1586.webp"
                 alt="One on one coaching"
               />
               <div className="gathering-card-img-overlay" />
@@ -328,7 +335,7 @@ export function HomePage() {
           <div className="gathering-card fade-in">
             <div className="gathering-card-img">
               <img
-                src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800&q=80"
+                src="/images/elysian/elysian-deep-work-laptop-rug-space-7888.webp"
                 alt="Retreat day"
               />
               <div className="gathering-card-img-overlay" />
@@ -353,8 +360,8 @@ export function HomePage() {
       <div className="photo-strip">
         <div className="photo-strip-item">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=600&q=80"
-            alt=""
+            src="/images/elysian/elysian-event-transform-thrive-attendee-seated-0527.webp"
+            alt="Guest seated at an Elysian House event"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"I finally felt seen."</p>
@@ -362,8 +369,8 @@ export function HomePage() {
         </div>
         <div className="photo-strip-item">
           <img
-            src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=600&q=80"
-            alt=""
+            src="/images/elysian/elysian-community-event-group-selfie-0565.webp"
+            alt="Women celebrating together at a gathering"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"A room full of presence."</p>
@@ -371,8 +378,8 @@ export function HomePage() {
         </div>
         <div className="photo-strip-item">
           <img
-            src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=600&q=80"
-            alt=""
+            src="/images/elysian/elysian-event-transform-thrive-group-step-repeat-0571.webp"
+            alt="Group of women at a Transform and Thrive celebration"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"She arrived. She stayed."</p>
@@ -380,8 +387,8 @@ export function HomePage() {
         </div>
         <div className="photo-strip-item">
           <img
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&q=80"
-            alt=""
+            src="/images/elysian/elysian-founder-speaker-transform-thrive-podium-0705.webp"
+            alt="Speaker welcoming the room at Transform and Thrive"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"Nothing to prove here."</p>
@@ -389,7 +396,7 @@ export function HomePage() {
         </div>
       </div>
 
-      {/* ── TESTIMONIALS ── */}
+      {/* ── TESTIMONIALS (commented out — replaced by next-gathering highlight below) ──
       <section className="testimonials-section">
         <div className="testimonials-header">
           <span className="section-label">What Women Say</span>
@@ -402,7 +409,7 @@ export function HomePage() {
           <div className="testimonial-card fade-in">
             <div className="testimonial-card-img">
               <img
-                src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=600&q=80"
+                src="/images/elysian/elysian-portrait-studio-turquoise-blazer-6426.webp"
                 alt=""
               />
             </div>
@@ -425,7 +432,7 @@ export function HomePage() {
           <div className="testimonial-card fade-in">
             <div className="testimonial-card-img">
               <img
-                src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=600&q=80"
+                src="/images/elysian/elysian-portrait-black-dress-joy-sofa-7810.webp"
                 alt=""
               />
             </div>
@@ -447,7 +454,7 @@ export function HomePage() {
           <div className="testimonial-card fade-in">
             <div className="testimonial-card-img">
               <img
-                src="https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=600&q=80"
+                src="/images/elysian/elysian-focus-laptop-creative-space-7883.webp"
                 alt=""
               />
             </div>
@@ -468,6 +475,26 @@ export function HomePage() {
           </div>
         </div>
       </section>
+      */}
+
+      {nextGathering ? (
+        <section className="testimonials-section home-next-gathering-highlight events-interactive">
+          <div className="testimonials-header">
+            <span className="section-label">Next gathering</span>
+            <h2 className="section-heading">
+              The next time we <em>meet</em>
+            </h2>
+            <div className="divider" />
+            <p className="home-next-gathering-lede">
+              Chosen by date — the upcoming circle closest to today.{' '}
+              <Link to="/services">View all gatherings</Link>
+            </p>
+          </div>
+          <div className="home-next-gathering-hero-slot fade-in">
+            <HomeNextGatheringHighlight event={nextGathering} />
+          </div>
+        </section>
+      ) : null}
 
       {/* ── CTA BANNER ── */}
       <div className="cta-banner fade-in">
@@ -476,11 +503,19 @@ export function HomePage() {
             Ready to come <em style={{ color: 'rgba(245,241,234,0.8)' }}>home</em> to
             yourself?
           </h2>
-          <p>Gatherings are held in intimate, limited groups. Reserve your place today.</p>
+          <p>
+            Stay connected between gatherings — join our WhatsApp community for updates and
+            conversation.
+          </p>
         </div>
-        <Link to="/contact" className="btn-white">
-          Join a Gathering
-        </Link>
+        <a
+          href={WHATSAPP_COMMUNITY_URL}
+          className="btn-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join the community
+        </a>
       </div>
 
       <Footer />

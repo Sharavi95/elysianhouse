@@ -7,18 +7,19 @@
       "title": "Becoming Her",
       "subtitle": "The Woman You're Meant to Be",
       "date": "Saturday, 25 April 2026",
-      "summary": "Pause, reflect, and reconnect with the woman emerging within you — identity, courage, and becoming.",
-      "description": "After seasons of survival and healing, many women arrive at a powerful moment of reflection: Who am I becoming now?\n\nBecoming Her is an invitation to pause, reflect, and reconnect with the woman emerging within you. Through honest conversations, shared experiences, and guided reflection, we will explore identity, courage, and the journey of becoming.\n\nThis gathering creates a space for women to transform past pain into personal power and begin stepping more confidently into the next chapter of their lives.\n\nCome as you are. Leave with clarity, connection, and renewed confidence in the woman you are becoming.",
-      "primaryImage": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=900&q=80",
+      "descriptionShort": "After seasons of survival and healing, many women reach a moment of reflection: Who am I becoming now? This gathering is a space to pause, reflect, and reconnect with yourself.",
+      "descriptionMedium": "After seasons of survival and healing, many women arrive at a powerful moment of reflection: Who am I becoming now?\n\nBecoming Her is an invitation to pause, reflect, and reconnect with the woman emerging within you. Through honest conversations, shared experiences, and guided reflection, we will explore identity, courage, and the journey of becoming.",
+      "descriptionFull": "After seasons of survival and healing, many women arrive at a powerful moment of reflection: Who am I becoming now?\n\nBecoming Her is an invitation to pause, reflect, and reconnect with the woman emerging within you. Through honest conversations, shared experiences, and guided reflection, we will explore identity, courage, and the journey of becoming.\n\nThis gathering creates a space for women to transform past pain into personal power and begin stepping more confidently into the next chapter of their lives.",
+      "primaryImage": "/images/elysian/elysian-founder-keynote-elysian-house-slide-0517.webp",
       "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Women in circle at a gathering" },
-        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Intimate conversation among women" },
-        { "src": "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=1200&q=80", "alt": "Reflective moment together" }
+        { "src": "/images/elysian/elysian-founder-keynote-roadmap-stage-0533.webp", "alt": "Facilitator on stage with a roadmap presentation" },
+        { "src": "/images/elysian/elysian-founder-keynote-audience-0536.webp", "alt": "Guests engaged during a gathering" },
+        { "src": "/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp", "alt": "Quiet moment of reflection" }
       ],
       "dateDay": "25",
       "dateMonth": "April",
       "dateYear": "2026",
-      "badge": "Tickets available",
+      "badge": "Spaces open",
       "badgeVariant": "default",
       "eventTypeTag": "Gathering",
       "timeRange": "Afternoon",
@@ -26,11 +27,11 @@
       "ticketPrice": "AED 120",
       "capacity": "Limited seats",
       "spotsLine": "Limited seats",
-      "ctaLabel": "Register",
+      "ctaLabel": "Reserve your space",
       "registrationUrl": "https://docs.google.com/forms/d/1pexDypt52VIAmDsnmaJPY-_fBIwOkaY6CBrpY94KVNg/viewform",
       "paymentUrl": "https://pay.ziina.com/Elysianhouseeve/Fwk0uwF7Ez",
       "communityUrl": "https://chat.whatsapp.com/ErrFgOSI5YP4rvySaLWHQE",
-      "exploreSectionTitle": "What we will explore",
+      "exploreSectionTitle": "What you'll receive",
       "exploreBullets": [
         "Understanding emotional wounds and how they shape identity",
         "Breaking generational patterns and societal expectations",
@@ -38,7 +39,7 @@
         "Rebuilding inner confidence and self-trust",
         "Stepping into the woman you are becoming"
       ],
-      "closingNote": "Women leave feeling lighter, clearer, and more connected to themselves and each other."
+      "closingNote": "Come as you are. Leave with clarity, connection, and renewed confidence in the woman you are becoming."
     },
     {
       "id": "courage-choose-june-2026",
@@ -46,13 +47,14 @@
       "title": "The Courage to Choose Yourself",
       "subtitle": "Boundaries, self-trust, and living a life that is true to you",
       "date": "Saturday, 21 June 2026",
-      "summary": "Boundaries, self-trust, and authenticity. Tickets open 6 May 2026.",
-      "description": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them.\n\nDetails and registration will open on 6 May 2026.",
-      "primaryImage": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=900&q=80",
+      "descriptionShort": "A one-day container to help you return home to your own knowing and begin making choices from that place.",
+      "descriptionMedium": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them.\n\nRegistration and full details will open on 6 May 2026.",
+      "descriptionFull": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them. We make space for honesty about what you need, what you are no longer available for, and how you want to move through the world.\n\nDetails and registration will open on 6 May 2026.",
+      "primaryImage": "/images/elysian/elysian-panel-discussion-resilience-prompt-0686.webp",
       "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80", "alt": "Women gathering in conversation" },
-        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "Circle of support" },
-        { "src": "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=1200&q=80", "alt": "Thoughtful listening" }
+        { "src": "/images/elysian/elysian-founder-speaker-transform-thrive-screen-0680.webp", "alt": "Speaker presenting on stage" },
+        { "src": "/images/elysian/elysian-founder-speaker-transform-thrive-podium-0705.webp", "alt": "Welcome and framing for the room" },
+        { "src": "/images/elysian/elysian-event-transform-thrive-group-step-repeat-0571.webp", "alt": "Women together at Transform and Thrive" }
       ],
       "dateDay": "21",
       "dateMonth": "June",
@@ -71,13 +73,14 @@
       "title": "Healing the Woman Within",
       "subtitle": "Transforming past pain into personal power",
       "date": "Saturday, 29 August 2026",
-      "summary": "From pain to power — inner healing in community. Tickets open 11 July 2026.",
-      "description": "A space to meet the woman within with compassion — and to alchemize old pain into strength and clarity, alongside others walking a similar path.\n\nDetails and registration will open on 11 July 2026.",
-      "primaryImage": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=900&q=80",
+      "descriptionShort": "Authentic conversations around identity, womanhood, and the audacity to be seen for exactly who you are becoming.",
+      "descriptionMedium": "A space to meet the woman within with compassion — and to alchemize old pain into strength and clarity, alongside others walking a similar path.\n\nRegistration opens 11 July 2026.",
+      "descriptionFull": "A space to meet the woman within with compassion — and to alchemize old pain into strength and clarity, alongside others walking a similar path. Through shared reflection and honest conversation, we tend to the parts of our stories that still ask for healing.\n\nDetails and registration will open on 11 July 2026.",
+      "primaryImage": "/images/elysian/elysian-gathering-circle-seating-wide-0684.webp",
       "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Evening gathering" },
-        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Women together in reflection" },
-        { "src": "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=1200&q=80", "alt": "Shared presence" }
+        { "src": "/images/elysian/elysian-event-transform-thrive-luncheon-wide-0674.webp", "alt": "Shared meal and conversation" },
+        { "src": "/images/elysian/elysian-community-event-group-celebration-0676.webp", "alt": "Community celebrating together" },
+        { "src": "/images/elysian/elysian-community-event-group-selfie-0565.webp", "alt": "Joy and connection in the room" }
       ],
       "dateDay": "29",
       "dateMonth": "August",
@@ -96,13 +99,14 @@
       "title": "The Life I Truly Want",
       "subtitle": "Creating a life aligned with your truth",
       "date": "Saturday, 24 October 2026",
-      "summary": "Design a life that matches your truth — not the script. Tickets open 5 September 2026.",
-      "description": "An invitation to get honest about the life you actually want — and to begin aligning your choices, boundaries, and vision with that truth, in the company of other women doing the same.\n\nDetails and registration will open on 5 September 2026.",
-      "primaryImage": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=900&q=80",
+      "descriptionShort": "For women who know what they want but need the map to get there — with honesty and grace.",
+      "descriptionMedium": "An invitation to get honest about the life you actually want — and to begin aligning your choices, boundaries, and vision with that truth, in the company of other women doing the same.\n\nRegistration opens 5 September 2026.",
+      "descriptionFull": "An invitation to get honest about the life you actually want — and to begin aligning your choices, boundaries, and vision with that truth, in the company of other women doing the same. We leave space for desire, doubt, and the quiet clarity that comes from naming what matters.\n\nDetails and registration will open on 5 September 2026.",
+      "primaryImage": "/images/elysian/elysian-collaboration-two-women-rug-gallery-7880.webp",
       "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1200&q=80", "alt": "Women in dialogue" },
-        { "src": "https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1200&q=80", "alt": "Calm, intentional space" },
-        { "src": "https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1200&q=80", "alt": "Quiet connection" }
+        { "src": "/images/elysian/elysian-focus-laptop-creative-space-7883.webp", "alt": "Intentional focus in a calm space" },
+        { "src": "/images/elysian/elysian-deep-work-laptop-rug-space-7888.webp", "alt": "Deep work and clarity" },
+        { "src": "/images/elysian/elysian-founder-desk-reviewing-papers-1588.webp", "alt": "Reviewing what matters on paper" }
       ],
       "dateDay": "24",
       "dateMonth": "October",
@@ -124,15 +128,16 @@
       "title": "Transform and Thrive",
       "subtitle": "From Survival to Thriving",
       "date": "Past gathering · Dubai, UAE",
-      "summary": "The first Elysian House gathering — from surviving to choosing to thrive.",
-      "description": "Transform and Thrive was the first Elysian House gathering: a curated, intimate space for women ready to move beyond surviving and begin the journey of truly thriving.\n\nWomen came together in a room built on safety, honesty, and shared experience. Through guided reflection and open conversation, they began to explore what it means to not just manage their lives, but to choose them — intentionally.\n\nWhat started as one room became the foundation of a growing community of women finding their way home to themselves.",
-      "experienceBlock": "An intimate gathering where women arrived as strangers and left as a community. Honest conversations, shared stories, and a space where no performance was required — only presence.",
-      "primaryImage": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80",
+      "descriptionShort": "The first Elysian House gathering where women came together in a space of honesty, reflection, and shared experience to move beyond surviving and begin thriving.",
+      "descriptionMedium": "Transform and Thrive was the first Elysian House gathering, a curated, intimate space for women ready to move beyond surviving and begin the journey of truly thriving.\n\nWomen came together in a room built on safety, honesty, and shared experience. Through guided reflection and open conversation, they explored what it means to not just manage their lives, but to choose them intentionally.\n\nWhat started as one room became the foundation of a growing community of women finding their way home to themselves.",
+      "descriptionFull": "Transform and Thrive was the first Elysian House gathering, a curated, intimate space for women ready to move beyond surviving and begin the journey of truly thriving.\n\nWomen came together in a room built on safety, honesty, and shared experience. Through guided reflection and open conversation, they explored what it means to not just manage their lives, but to choose them intentionally.\n\nWhat started as one room became the foundation of a growing community of women finding their way home to themselves.",
+      "experienceBlock": "An intimate gathering where women arrived as strangers and left as a community. Honest conversations, shared stories, and a space where no performance was required, only presence.",
+      "primaryImage": "/images/elysian/elysian-founder-speaker-transform-thrive-screen-0680.webp",
       "galleryImages": [
-        { "src": "https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1200&q=80", "alt": "Transform and Thrive gathering" },
-        { "src": "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=1200&q=80", "alt": "Women in circle" },
-        { "src": "https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?w=1200&q=80", "alt": "Connection in the room" },
-        { "src": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1200&q=80", "alt": "Shared stories" }
+        { "src": "/images/elysian/elysian-founder-speaker-transform-thrive-podium-0705.webp", "alt": "Transform and Thrive on stage" },
+        { "src": "/images/elysian/elysian-community-event-group-selfie-0565.webp", "alt": "Women celebrating at the gathering" },
+        { "src": "/images/elysian/elysian-event-transform-thrive-group-step-repeat-0571.webp", "alt": "Group photo at Transform and Thrive" },
+        { "src": "/images/elysian/elysian-event-transform-thrive-luncheon-wide-0674.webp", "alt": "Luncheon and conversation" }
       ],
       "eventTypeTag": "Gathering",
       "location": "Dubai, UAE",

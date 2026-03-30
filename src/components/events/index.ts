@@ -6,7 +6,10 @@ export { EventCardStrip } from './EventCardStrip'
 export { EventPill } from './EventPill'
 export {
   buildEventMetaItems,
-  filmStripDescription,
+  getCardTeaser,
+  getHeroOverview,
+  getFullStory,
+  cappedExploreBullets,
   upcomingStatusPill,
   type EventMetaItem,
   type StatusPillKind,

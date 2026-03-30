@@ -7,8 +7,8 @@ export function AboutPage() {
       {/* ── HERO — full-bleed image with overlay ── */}
       <section className="about-hero">
         <img
-          src="https://images.unsplash.com/photo-1573497491208-6b1acb260507?w=1600&q=80"
-          alt="Women in intimate conversation"
+          src="/images/elysian/elysian-gathering-circle-seating-wide-0684.webp"
+          alt="Women gathered in circle for an intimate conversation"
         />
         <div className="about-hero-overlay">
           <div className="about-hero-content">
@@ -106,20 +106,20 @@ export function AboutPage() {
       <div className="three-img-row fade-in">
         <div className="three-img-row-item">
           <img
-            src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=700&q=80"
-            alt="Women in joyful connection"
+            src="/images/elysian/elysian-founder-keynote-audience-0536.webp"
+            alt="Speaker and guests at an Elysian House gathering"
           />
         </div>
         <div className="three-img-row-item">
           <img
-            src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=700&q=80"
-            alt="Peaceful retreat space"
+            src="/images/elysian/elysian-community-event-group-celebration-0676.webp"
+            alt="Community celebrating together at an event"
           />
         </div>
         <div className="three-img-row-item">
           <img
-            src="https://images.unsplash.com/photo-1516062423079-7ca13cdc7f5a?w=700&q=80"
-            alt="Women in circle together"
+            src="/images/elysian/elysian-founder-desk-writing-notebook-1577.webp"
+            alt="Thoughtful work at a calm desk"
           />
         </div>
       </div>
@@ -127,8 +127,8 @@ export function AboutPage() {
       {/* ── IMAGE BREAK ── */}
       <div className="img-break">
         <img
-          src="https://images.unsplash.com/photo-1543269664-56d93c1b41a6?w=1800&q=80"
-          alt="Women sharing an intimate moment"
+          src="/images/elysian/elysian-event-transform-thrive-luncheon-wide-0674.webp"
+          alt="Women sharing a meal and conversation at Transform and Thrive"
         />
         <div className="img-break-overlay">
           <div className="img-break-text">

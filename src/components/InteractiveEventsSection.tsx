@@ -7,6 +7,8 @@ import {
   EventCardStrip,
   EventPill,
   buildEventMetaItems,
+  cappedExploreBullets,
+  getHeroOverview,
   upcomingStatusPill,
 } from './events'
 
@@ -150,9 +152,10 @@ export function InteractiveEventsSection({
       })()
     )
 
+  const heroMedium = getHeroOverview(selected)
   const heroDescription = (
     <>
-      {descriptionParagraphs(selected.description).map((para) => (
+      {descriptionParagraphs(heroMedium).map((para) => (
         <p key={para} className="event-cardsys-desc-para">
           {para}
         </p>
@@ -174,7 +177,7 @@ export function InteractiveEventsSection({
           {selected.exploreSectionTitle ?? 'What we will explore'}
         </h4>
         <ul className="event-cardsys-explore-list">
-          {selected.exploreBullets.map((item) => (
+          {cappedExploreBullets(selected).map((item) => (
             <li key={item}>{item}</li>
           ))}
         </ul>
@@ -200,9 +203,16 @@ export function InteractiveEventsSection({
       <p className="event-cardsys-avail-text">{selected.attendeeLine}</p>
     ) : null
 
-  const heroPrimaryAction =
-    variant === 'upcoming' ? (
-      selected.ticketsOpenNote ? null : selected.registrationUrl ? (
+  const detailPath = `/gatherings/${encodeURIComponent(selected.id)}`
+  const readDetailsBtn = (
+    <Link to={detailPath} className="event-cardsys-btn event-cardsys-btn--ghost">
+      Read full details
+    </Link>
+  )
+
+  const heroRegisterBtn =
+    variant === 'upcoming' && !selected.ticketsOpenNote ? (
+      selected.registrationUrl ? (
         <a
           href={selected.registrationUrl}
           className="event-cardsys-btn event-cardsys-btn--primary"
@@ -221,31 +231,29 @@ export function InteractiveEventsSection({
       ) : null
     ) : null
 
-  const heroSecondaryActions =
-    variant === 'upcoming' && (selected.paymentUrl || selected.communityUrl) ? (
-      <>
-        {selected.paymentUrl ? (
-          <a
-            href={selected.paymentUrl}
-            className="event-cardsys-btn event-cardsys-btn--ghost"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Pay online
-          </a>
-        ) : null}
-        {selected.communityUrl ? (
-          <a
-            href={selected.communityUrl}
-            className="event-cardsys-btn event-cardsys-btn--ghost"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Join our community
-          </a>
-        ) : null}
-      </>
+  const heroPayBtn =
+    variant === 'upcoming' && selected.paymentUrl ? (
+      <a
+        href={selected.paymentUrl}
+        className="event-cardsys-btn event-cardsys-btn--ghost"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Pay online
+      </a>
     ) : null
+
+  const heroPrimaryAction =
+    variant === 'upcoming' ? (
+      <div className="event-cardsys-primary-actions">
+        {heroRegisterBtn}
+        {heroPayBtn}
+      </div>
+    ) : (
+      <div className="event-cardsys-primary-actions">{readDetailsBtn}</div>
+    )
+
+  const heroSecondaryActions = null
 
   return (
     <section className={`${sectionClass} events-interactive`}>
@@ -320,9 +328,10 @@ export function InteractiveEventsSection({
           key={selected.id}
           layout="hero"
           event={selected}
+          visualStyle={variant === 'upcoming' ? 'commerce' : 'default'}
           statusPills={heroStatusPills}
           description={heroDescription}
-          metaItems={heroMetaItems}
+          metaItems={variant === 'upcoming' ? [] : heroMetaItems}
           enrichment={heroEnrichment}
           availability={heroAvailability}
           primaryAction={heroPrimaryAction}

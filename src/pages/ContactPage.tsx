@@ -1,12 +1,36 @@
-import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router-dom'
+import { type FormEvent, useEffect, useState } from 'react'
+import { Link, useSearchParams } from 'react-router-dom'
 import { Footer } from '../components/Footer'
-import { getEventById, getUpcomingEvents } from '../data/events'
+import { SITE_CONTACT_EMAIL } from '../constants/contact'
+import { getEventById, getEventTitleById, getUpcomingEvents } from '../data/events'
+
+const STATIC_INTEREST_LABELS: Record<string, string> = {
+  'inner-circles-waitlist': 'Inner Circles — waitlist',
+  'reflection-sessions': 'One-on-One Reflection Sessions',
+  'just-exploring': 'Just exploring',
+}
+
+function interestLabelForValue(value: string): string {
+  if (!value.trim()) return ''
+  const title = getEventTitleById(value)
+  if (title) return title
+  return STATIC_INTEREST_LABELS[value] ?? value
+}
+
+const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
 
 export function ContactPage() {
   const [searchParams] = useSearchParams()
+  const [firstName, setFirstName] = useState('')
+  const [lastName, setLastName] = useState('')
+  const [email, setEmail] = useState('')
+  const [phone, setPhone] = useState('')
   const [interest, setInterest] = useState('')
   const [message, setMessage] = useState('')
+  const [errors, setErrors] = useState<Record<string, string>>({})
+  const [formError, setFormError] = useState<string | null>(null)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitted, setSubmitted] = useState(false)
 
   const upcoming = getUpcomingEvents()
 
@@ -34,12 +58,145 @@ export function ContactPage() {
     })
   }, [searchParams])
 
+  const validate = (): boolean => {
+    const next: Record<string, string> = {}
+    if (!firstName.trim()) next.firstName = 'First name is required'
+    if (!lastName.trim()) next.lastName = 'Last name is required'
+    if (!email.trim()) next.email = 'Email is required'
+    else if (!emailRe.test(email.trim())) next.email = 'Please enter a valid email address'
+    if (!message.trim()) next.message = 'Please share a short message'
+    setErrors(next)
+    return Object.keys(next).length === 0
+  }
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    setFormError(null)
+    if (!validate()) return
+
+    setIsSubmitting(true)
+    try {
+      const apiBase = (import.meta.env.VITE_API_BASE_URL ?? '').replace(/\/$/, '')
+      const url = `${apiBase}/api/send-contact`
+      const requestedService = interest ? interestLabelForValue(interest) : undefined
+      const response = await fetch(url, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          firstName: firstName.trim(),
+          lastName: lastName.trim(),
+          email: email.trim(),
+          phone: phone.trim(),
+          service: interest,
+          requestedService,
+          vision: message.trim(),
+        }),
+      })
+
+      if (!response.ok) {
+        if (response.status === 502) {
+          throw new Error(
+            'The contact API is not available (502). On localhost, run "npm run dev:api" in a second terminal so Vercel serves /api on port 3000, while "npm run dev" keeps this site on port 5173.',
+          )
+        }
+        let errorData: { error?: string; details?: string | Record<string, unknown> } = {}
+        try {
+          errorData = await response.json()
+        } catch {
+          errorData = { error: `Server error: ${response.status} ${response.statusText}` }
+        }
+        const detailsStr =
+          errorData.details != null
+            ? typeof errorData.details === 'string'
+              ? errorData.details
+              : typeof errorData.details === 'object' &&
+                  errorData.details !== null &&
+                  'message' in errorData.details
+                ? String((errorData.details as { message: unknown }).message)
+                : JSON.stringify(errorData.details)
+            : ''
+        const msg = detailsStr
+          ? `${errorData.error ?? 'Request failed'}: ${detailsStr}`
+          : (errorData.error ?? 'Failed to submit form')
+        throw new Error(msg)
+      }
+
+      setSubmitted(true)
+    } catch (err) {
+      const isNetworkError =
+        err instanceof TypeError &&
+        (err.message === 'Failed to fetch' || err.message.includes('NetworkError'))
+      setFormError(
+        isNetworkError
+          ? 'Unable to reach the server. If you are running locally, run "npm run dev:api" in another terminal (port 3000), then try again.'
+          : err instanceof Error
+            ? err.message
+            : 'Something went wrong. Please try again.',
+      )
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  if (submitted) {
+    return (
+      <>
+        <section className="services-hero contact-success-hero">
+          <div className="services-hero-bg">
+            <img
+              src="/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp"
+              alt="Warm, welcoming space"
+            />
+          </div>
+          <div className="services-hero-content">
+            <span className="section-label">Message received</span>
+            <h1 className="section-heading">Thank you for reaching out.</h1>
+            <div className="divider" />
+            <p>
+              Your note is in our hands. We read every message and reply with care, usually within two
+              business days.
+            </p>
+          </div>
+        </section>
+
+        <div className="contact-success-panel">
+          <div className="contact-success-panel__inner">
+            <div className="contact-success-panel__mark" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.75">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
+              </svg>
+            </div>
+            <p className="contact-success-panel__lede">
+              There is nothing to perform here. Just arrive.
+            </p>
+            <p className="contact-success-panel__meta">
+              Prefer email?{' '}
+              <a href={`mailto:${SITE_CONTACT_EMAIL}`} className="contact-success-panel__link">
+                {SITE_CONTACT_EMAIL}
+              </a>
+            </p>
+            <div className="contact-success-panel__actions">
+              <button type="button" className="btn-ghost" onClick={() => setSubmitted(false)}>
+                Send another message
+              </button>
+              <Link to="/" className="btn-primary">
+                Back to home
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        <Footer />
+      </>
+    )
+  }
+
   return (
     <>
       <section className="services-hero">
         <div className="services-hero-bg">
           <img
-            src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?w=1600&q=80"
+            src="/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp"
             alt="A warm, intimate space"
           />
         </div>
@@ -57,21 +214,90 @@ export function ContactPage() {
       </section>
 
       <div className="contact-grid">
-        <div id="contact-form" className="contact-form-area" tabIndex={-1}>
-          <span className="section-label" style={{ marginBottom: '36px', display: 'block' }}>
-            Send a Message
-          </span>
+        <form id="contact-form" className="contact-form-area" tabIndex={-1} onSubmit={handleSubmit}>
+          <span className="section-label">Send a Message</span>
           <div className="form-group">
-            <label className="form-label">Your Name</label>
-            <input type="text" className="form-input" placeholder="First name" />
+            <label className="form-label" htmlFor="contact-first">
+              First name
+            </label>
+            <input
+              id="contact-first"
+              type="text"
+              className="form-input"
+              placeholder="First name"
+              value={firstName}
+              onChange={(e) => {
+                setFirstName(e.target.value)
+                if (errors.firstName) setErrors((o) => ({ ...o, firstName: '' }))
+              }}
+              aria-invalid={Boolean(errors.firstName)}
+            />
+            {errors.firstName ? (
+              <p className="form-error" style={{ color: 'var(--gold)', fontSize: '0.85rem', marginTop: '8px' }}>
+                {errors.firstName}
+              </p>
+            ) : null}
           </div>
           <div className="form-group">
-            <label className="form-label">Email Address</label>
-            <input type="email" className="form-input" placeholder="your@email.com" />
+            <label className="form-label" htmlFor="contact-last">
+              Last name
+            </label>
+            <input
+              id="contact-last"
+              type="text"
+              className="form-input"
+              placeholder="Last name"
+              value={lastName}
+              onChange={(e) => {
+                setLastName(e.target.value)
+                if (errors.lastName) setErrors((o) => ({ ...o, lastName: '' }))
+              }}
+              aria-invalid={Boolean(errors.lastName)}
+            />
+            {errors.lastName ? (
+              <p className="form-error" style={{ color: 'var(--gold)', fontSize: '0.85rem', marginTop: '8px' }}>
+                {errors.lastName}
+              </p>
+            ) : null}
+          </div>
+          <div className="form-group">
+            <label className="form-label" htmlFor="contact-email">
+              Email address
+            </label>
+            <input
+              id="contact-email"
+              type="email"
+              className="form-input"
+              placeholder="your@email.com"
+              value={email}
+              onChange={(e) => {
+                setEmail(e.target.value)
+                if (errors.email) setErrors((o) => ({ ...o, email: '' }))
+              }}
+              aria-invalid={Boolean(errors.email)}
+            />
+            {errors.email ? (
+              <p className="form-error" style={{ color: 'var(--gold)', fontSize: '0.85rem', marginTop: '8px' }}>
+                {errors.email}
+              </p>
+            ) : null}
+          </div>
+          <div className="form-group">
+            <label className="form-label" htmlFor="contact-phone">
+              Phone <span style={{ opacity: 0.7 }}>(optional)</span>
+            </label>
+            <input
+              id="contact-phone"
+              type="tel"
+              className="form-input"
+              placeholder="+971 …"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
           </div>
           <div className="form-group">
             <label className="form-label" htmlFor="contact-interest">
-              I&apos;m Interested In
+              I&apos;m interested in
             </label>
             <select
               id="contact-interest"
@@ -80,9 +306,9 @@ export function ContactPage() {
               onChange={(e) => setInterest(e.target.value)}
             >
               <option value="">Select an offering</option>
-              {upcoming.map((e) => (
-                <option key={e.id} value={e.id}>
-                  {e.title}
+              {upcoming.map((ev) => (
+                <option key={ev.id} value={ev.id}>
+                  {ev.title}
                 </option>
               ))}
               <option value="inner-circles-waitlist">Inner Circles — waitlist</option>
@@ -92,27 +318,52 @@ export function ContactPage() {
           </div>
           <div className="form-group">
             <label className="form-label" htmlFor="contact-message">
-              What Brings You Here
+              What brings you here
             </label>
             <textarea
               id="contact-message"
               className="form-textarea"
               placeholder="Share as little or as much as you&apos;d like..."
               value={message}
-              onChange={(e) => setMessage(e.target.value)}
+              onChange={(e) => {
+                setMessage(e.target.value)
+                if (errors.message) setErrors((o) => ({ ...o, message: '' }))
+              }}
+              aria-invalid={Boolean(errors.message)}
             />
+            {errors.message ? (
+              <p className="form-error" style={{ color: 'var(--gold)', fontSize: '0.85rem', marginTop: '8px' }}>
+                {errors.message}
+              </p>
+            ) : null}
           </div>
-          <button className="btn-primary" style={{ width: '100%', textAlign: 'center' }}>
-            Send Message
+          {formError ? (
+            <p
+              role="alert"
+              style={{
+                color: 'var(--gold)',
+                fontSize: '0.9rem',
+                marginBottom: '16px',
+                lineHeight: 1.5,
+              }}
+            >
+              {formError}
+            </p>
+          ) : null}
+          <button
+            type="submit"
+            className="btn-primary"
+            style={{ width: '100%', textAlign: 'center' }}
+            disabled={isSubmitting}
+          >
+            {isSubmitting ? 'Sending…' : 'Send Message'}
           </button>
-        </div>
+        </form>
         <div className="contact-info-area">
-          <span className="section-label" style={{ marginBottom: '48px', display: 'block' }}>
-            Ways to Connect
-          </span>
+          <span className="section-label">Ways to Connect</span>
           <div className="contact-info-item">
             <p className="contact-info-label">Email</p>
-            <p className="contact-info-value">hello@elysianhouse.com</p>
+            <p className="contact-info-value">{SITE_CONTACT_EMAIL}</p>
             <p className="contact-info-sub">
               We respond thoughtfully usually within 2 business days.
             </p>
@@ -128,8 +379,7 @@ export function ContactPage() {
             <p className="contact-info-label">Location</p>
             <p className="contact-info-value">Dubai, UAE</p>
             <p className="contact-info-sub">
-              Gatherings are held in carefully chosen spaces across the city. Details
-              shared upon registration.
+              Gatherings are held in carefully chosen spaces across the city. Details shared upon registration.
             </p>
           </div>
           <div style={{ marginTop: '56px', paddingTop: '40px', borderTop: '1px solid #333' }}>

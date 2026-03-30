@@ -13,11 +13,18 @@ export type EventRecord = {
   title: string
   /** Tagline under the title */
   subtitle?: string
-  /** Short line for film-strip cards (falls back to description) */
+  /** Strip cards only — 2–3 line teaser */
+  descriptionShort?: string
+  /** Hero overview — paragraphs joined with \\n\\n */
+  descriptionMedium?: string
+  /** Detail page — full narrative */
+  descriptionFull?: string
+  /** @deprecated Use descriptionShort; still read as fallback in loaders */
   summary?: string
   /** Display date line (hero + accessibility) */
   date: string
-  description: string
+  /** @deprecated Use descriptionFull; still read as fallback */
+  description?: string
   primaryImage: string
   galleryImages: GalleryImage[]
   featured?: boolean

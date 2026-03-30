@@ -9,10 +9,7 @@ type EventCardMetaProps = {
 export function EventCardMeta({ items, layout }: EventCardMetaProps) {
   if (!items.length) return null
   return (
-    <div
-      className={`event-cardsys-meta ${layout === 'hero' ? 'event-cardsys-meta--hero' : 'event-cardsys-meta--strip'}`}
-      role="list"
-    >
+    <div className={`event-cardsys-meta event-cardsys-meta--in-foot event-cardsys-meta--${layout}`} role="list">
       {items.map((item) => (
         <div key={`${item.icon}-${item.text}`} className="event-cardsys-meta-item" role="listitem">
           <span className="event-cardsys-meta-icon" aria-hidden>
