@@ -6,6 +6,9 @@ import { getNextUpcomingEvent } from '../data/events'
 const WHATSAPP_COMMUNITY_URL =
   'https://chat.whatsapp.com/ErrFgOSI5YP4rvySaLWHQE?mode=gi_t'
 
+const ABOUT_PURPOSE_VIDEO_SRC =
+  '/videos/' + encodeURIComponent('WhatsApp Video 2026-03-30 at 22.09.15.mp4')
+
 export function HomePage() {
   const nextGathering = getNextUpcomingEvent()
 
@@ -52,7 +55,8 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── VALUES STRIP ── */}
+      {/*
+      ── VALUES STRIP ──
       <div className="values-strip">
         <div className="value-item">
           <p className="value-number">01</p>
@@ -79,6 +83,7 @@ export function HomePage() {
           <p className="value-name">Honest Living</p>
         </div>
       </div>
+      */}
 
       {/* ── ABOUT SECTION ── */}
       <section className="about-section">
@@ -105,17 +110,32 @@ export function HomePage() {
           </Link>
         </div>
         <div className="about-visual fade-in">
+          <div className="about-video-wrap">
+            <video
+              src={ABOUT_PURPOSE_VIDEO_SRC}
+              autoPlay
+              muted
+              loop
+              playsInline
+              controls
+              aria-label="Moments from an Elysian House gathering"
+            />
+          </div>
           <div className="about-img-main">
+            {/*
             <img
               src="/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp"
               alt="Woman in quiet reflection in a warm, softly lit room"
             />
+            */}
           </div>
           <div className="about-img-accent">
+            {/*
             <img
               src="/images/elysian/elysian-collaboration-two-women-rug-gallery-7880.webp"
               alt="Two women in conversation in a creative space"
             />
+            */}
           </div>
           <div className="about-quote-chip">
             <p>"Growth does not come from pushing harder but from listening deeper."</p>
@@ -165,6 +185,28 @@ export function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* ── COMMUNITY CTA ── */}
+      <div className="cta-banner fade-in">
+        <div className="cta-banner-text">
+          <h2 className="section-heading">
+            Ready to come <em style={{ color: 'rgba(245,241,234,0.8)' }}>home</em> to
+            yourself?
+          </h2>
+          <p>
+            Stay connected between gatherings — join our WhatsApp community for updates and
+            conversation.
+          </p>
+        </div>
+        <a
+          href={WHATSAPP_COMMUNITY_URL}
+          className="btn-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Join the community
+        </a>
+      </div>
 
       {/* ── HOW WOMEN EXPERIENCE (index6 layout) ── */}
       <section className="experience-section" id="how-we-experience">
@@ -257,7 +299,9 @@ export function HomePage() {
                   <span className="exp-card-type-label">One-on-one sessions</span>
                 </div>
                 <h3 className="exp-card-title">
-                  One-on-One <em>Reflection Sessions</em>
+                  One-on-One
+                  <br />
+                  <em>Reflection Sessions</em>
                 </h3>
                 <p className="exp-card-desc">
                   Personal conversations to navigate life transitions. Private, unhurried, and
@@ -495,28 +539,6 @@ export function HomePage() {
           </div>
         </section>
       ) : null}
-
-      {/* ── CTA BANNER ── */}
-      <div className="cta-banner fade-in">
-        <div className="cta-banner-text">
-          <h2 className="section-heading">
-            Ready to come <em style={{ color: 'rgba(245,241,234,0.8)' }}>home</em> to
-            yourself?
-          </h2>
-          <p>
-            Stay connected between gatherings — join our WhatsApp community for updates and
-            conversation.
-          </p>
-        </div>
-        <a
-          href={WHATSAPP_COMMUNITY_URL}
-          className="btn-white"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Join the community
-        </a>
-      </div>
 
       <Footer />
     </>

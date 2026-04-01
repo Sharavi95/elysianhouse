@@ -10,8 +10,8 @@ export function ServicesPage() {
       <section className="services-hero">
         <div className="services-hero-bg">
           <img
-            src="/images/elysian/elysian-founder-keynote-roadmap-stage-0533.webp"
-            alt="Facilitator on stage at an Elysian House gathering"
+            src="/images/elysian/elysian-focus-laptop-creative-space-7883.webp"
+            alt="Intentional focus in a calm, creative space"
           />
         </div>
         <div className="services-hero-content">

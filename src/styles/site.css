@@ -287,7 +287,9 @@ nav.scrolled {
 }
 
 .section-label {
+  font-family: "Jost", sans-serif;
   font-size: 0.65rem;
+  font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
@@ -358,20 +360,18 @@ dt {
   min-width: 0;
 }
 
-/* Two-column hero: lock to one viewport so the band doesn’t extend past the first screen */
+/* Two-column hero: at least one viewport tall; grows with content so the page scrolls normally */
 @media (min-width: 768px) {
   .hero {
-    min-height: unset;
-    height: 100svh;
-    max-height: 100svh;
+    min-height: 100svh;
+    height: auto;
+    max-height: none;
     padding-top: var(--space-hero-top);
     box-sizing: border-box;
   }
 
   .hero-left {
     min-height: 0;
-    overflow-y: auto;
-    overscroll-behavior: contain;
   }
 }
 
@@ -396,7 +396,9 @@ dt {
 }
 
 .hero-eyebrow {
+  font-family: "Jost", sans-serif;
   font-size: 0.68rem;
+  font-weight: 500;
   letter-spacing: 0.3em;
   text-transform: uppercase;
   color: var(--gold);
@@ -560,6 +562,17 @@ dt {
   min-height: min(520px, 75vw);
   max-height: 560px;
   aspect-ratio: 5 / 4;
+}
+
+/* Portrait source video (e.g. phone) — frame matches 9:16, no cropping */
+.about-visual:has(.about-video-wrap) {
+  width: 100%;
+  max-width: min(100%, 336px);
+  margin-inline: auto;
+  min-height: unset;
+  max-height: unset;
+  aspect-ratio: 9 / 16;
+  height: auto;
 }
 
 .about-card {
@@ -1457,6 +1470,23 @@ footer {
   object-fit: cover;
 }
 
+.about-video-wrap {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  background: rgba(46, 46, 46, 0.06);
+}
+
+.about-video-wrap video {
+  display: block;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: contain;
+  object-position: center;
+}
+
 .about-quote-chip {
   position: absolute;
   bottom: 52%;
@@ -2076,6 +2106,35 @@ footer {
   margin-top: 8px;
 }
 
+/* Contact — same laptop / rugs asset as Gatherings; crop further right than /services */
+.contact-page-hero .services-hero-bg {
+  overflow: hidden;
+}
+
+.contact-page-hero .services-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(24, 20, 18, 0.88) 0%,
+    rgba(32, 26, 22, 0.74) 22%,
+    rgba(40, 32, 28, 0.42) 48%,
+    rgba(12, 10, 9, 0.58) 100%
+  );
+}
+
+.contact-page-hero .services-hero-bg img {
+  opacity: 0.55;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: center bottom;
+}
+
 /*
  * Gatherings (/services) — section rhythm:
  * Hero + Offerings: Warm Ivory → Upcoming: Muted Sand (panel) → Past: Warm Ivory → CTA: Dusty Rose → Footer: Warm Ivory
@@ -2086,27 +2145,72 @@ footer {
   border-bottom: 1px solid rgba(184, 164, 122, 0.22);
 }
 
-.page-gatherings .services-hero-bg img {
-  opacity: 0.14;
+.page-gatherings .services-hero:not(.event-detail-hero) {
+  background: #1c1a18;
+  border-bottom-color: rgba(0, 0, 0, 0.2);
 }
 
-.page-gatherings .services-hero-content .section-label {
+/* Gatherings list hero only — event detail uses its own treatment */
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg {
+  overflow: hidden;
+}
+
+/* Warm dark scrim (no white wash); eases off toward the right so the photo reads */
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    105deg,
+    rgba(24, 20, 18, 0.9) 0%,
+    rgba(32, 26, 22, 0.78) 22%,
+    rgba(40, 32, 28, 0.45) 48%,
+    rgba(12, 10, 9, 0.62) 100%
+  );
+}
+
+/* Crop shifted right: founder moves off the text column; rugs / table fill the left */
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg img {
+  opacity: 0.55;
+  object-position: 60% 42%;
+}
+
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-label {
+  color: rgba(212, 190, 152, 0.92);
+}
+
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-heading {
+  color: var(--ivory);
+  text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35);
+}
+
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-heading em {
+  color: #e5aeb4;
+}
+
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content p {
+  color: rgba(245, 241, 234, 0.78);
+}
+
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .divider {
+  background: rgba(184, 164, 122, 0.75);
+}
+
+.event-detail-page .event-detail-hero .services-hero-content .section-label {
   color: var(--gold);
 }
 
-.page-gatherings .services-hero-content .section-heading {
+.event-detail-page .event-detail-hero .services-hero-content .section-heading {
   color: var(--ink);
 }
 
-.page-gatherings .services-hero-content .section-heading em {
+.event-detail-page .event-detail-hero .services-hero-content .section-heading em {
   color: var(--rose);
 }
 
-.page-gatherings .services-hero-content p {
-  color: rgba(46, 46, 46, 0.72);
-}
-
-.page-gatherings .services-hero-content .divider {
+.event-detail-page .event-detail-hero .services-hero-content .divider {
   background: var(--gold);
 }
 
@@ -3155,6 +3259,13 @@ footer {
     aspect-ratio: 5 / 4;
   }
 
+  .about-visual:has(.about-video-wrap) {
+    min-height: unset;
+    max-height: unset;
+    aspect-ratio: 9 / 16;
+    max-width: min(100%, 336px);
+  }
+
   .gatherings-section {
     padding: var(--space-section-y) var(--space-section-x);
   }
@@ -3434,7 +3545,6 @@ footer {
   }
 
   .hero-right {
-    order: -1;
     min-height: 200px;
     height: min(38svh, 360px);
     max-height: 400px;
@@ -3512,6 +3622,13 @@ footer {
     max-height: 400px;
     height: auto;
     aspect-ratio: 4 / 5;
+  }
+
+  .about-visual:has(.about-video-wrap) {
+    min-height: unset;
+    max-height: unset;
+    aspect-ratio: 9 / 16;
+    max-width: min(100%, 300px);
   }
 
   .about-quote-chip {
@@ -4517,16 +4634,17 @@ footer {
 
 .event-cardsys-foot-commerce-row {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: flex-start;
   justify-content: space-between;
   gap: 12px 16px;
   width: 100%;
 }
 
+/* Enough min width for price + availability; min-width:0 was collapsing this column beside CTAs */
 .event-cardsys-foot-commerce-primary {
   flex: 1 1 auto;
-  min-width: 0;
+  min-width: min(100%, 12rem);
   max-width: 100%;
 }
 
@@ -4546,9 +4664,9 @@ footer {
 }
 
 .event-cardsys-foot-commerce-actions {
-  flex: 0 0 auto;
+  flex: 0 1 auto;
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   align-items: center;
   align-self: flex-start;
   justify-content: flex-end;
@@ -4562,12 +4680,7 @@ footer {
 }
 
 @media (max-width: 520px) {
-  .event-cardsys-foot-commerce-row {
-    flex-wrap: wrap;
-  }
-
   .event-cardsys-foot-commerce-actions {
-    flex-wrap: wrap;
     width: 100%;
     justify-content: flex-start;
   }

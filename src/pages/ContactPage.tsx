@@ -141,11 +141,11 @@ export function ContactPage() {
   if (submitted) {
     return (
       <>
-        <section className="services-hero contact-success-hero">
+        <section className="services-hero contact-page-hero contact-success-hero">
           <div className="services-hero-bg">
             <img
-              src="/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp"
-              alt="Warm, welcoming space"
+              src="/images/elysian/elysian-focus-laptop-creative-space-7883.webp"
+              alt="Intentional focus in a calm, creative space"
             />
           </div>
           <div className="services-hero-content">
@@ -193,11 +193,11 @@ export function ContactPage() {
 
   return (
     <>
-      <section className="services-hero">
+      <section className="services-hero contact-page-hero">
         <div className="services-hero-bg">
           <img
-            src="/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp"
-            alt="A warm, intimate space"
+            src="/images/elysian/elysian-focus-laptop-creative-space-7883.webp"
+            alt="Intentional focus in a calm, creative space"
           />
         </div>
         <div className="services-hero-content">

@@ -85,13 +85,6 @@ export function HomeNextGatheringHighlight({ event }: HomeNextGatheringHighlight
     </p>
   ) : null
 
-  const detailPath = `/gatherings/${encodeURIComponent(event.id)}`
-  const readDetailsBtn = (
-    <Link to={detailPath} className="event-cardsys-btn event-cardsys-btn--ghost">
-      Read full details
-    </Link>
-  )
-
   const heroRegisterBtn =
     !event.ticketsOpenNote && event.registrationUrl ? (
       <a
@@ -111,38 +104,26 @@ export function HomeNextGatheringHighlight({ event }: HomeNextGatheringHighlight
       </Link>
     ) : null
 
-  const heroPrimaryAction = (
-    <div className="event-cardsys-primary-actions">
-      {readDetailsBtn}
-      {heroRegisterBtn}
-    </div>
-  )
+  const heroPayBtn = event.paymentUrl ? (
+    <a
+      href={event.paymentUrl}
+      className="event-cardsys-btn event-cardsys-btn--ghost"
+      target="_blank"
+      rel="noopener noreferrer"
+    >
+      Pay online
+    </a>
+  ) : null
 
-  const heroSecondaryActions =
-    event.paymentUrl || event.communityUrl ? (
-      <>
-        {event.paymentUrl ? (
-          <a
-            href={event.paymentUrl}
-            className="event-cardsys-btn event-cardsys-btn--ghost"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Pay online
-          </a>
-        ) : null}
-        {event.communityUrl ? (
-          <a
-            href={event.communityUrl}
-            className="event-cardsys-btn event-cardsys-btn--ghost"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Join our community
-          </a>
-        ) : null}
-      </>
+  const heroPrimaryAction =
+    heroRegisterBtn || heroPayBtn ? (
+      <div className="event-cardsys-primary-actions">
+        {heroRegisterBtn}
+        {heroPayBtn}
+      </div>
     ) : null
+
+  const heroSecondaryActions = null
 
   return (
     <EventCardHero

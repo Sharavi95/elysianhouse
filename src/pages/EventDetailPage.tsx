@@ -96,16 +96,6 @@ export function EventDetailPage() {
                   Pay online
                 </a>
               ) : null}
-              {event.communityUrl ? (
-                <a
-                  href={event.communityUrl}
-                  className="btn-ghost"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  Join our community
-                </a>
-              ) : null}
             </div>
           ) : null}
         </div>
