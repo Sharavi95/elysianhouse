@@ -1,3 +1,4 @@
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Footer } from '../components/Footer'
 import { HomeNextGatheringHighlight } from '../components/HomeNextGatheringHighlight'
@@ -11,6 +12,8 @@ const ABOUT_PURPOSE_VIDEO_SRC =
 
 export function HomePage() {
   const nextGathering = getNextUpcomingEvent()
+  const aboutVideoRef = useRef<HTMLVideoElement>(null)
+  const [aboutVideoPaused, setAboutVideoPaused] = useState(true)
 
   return (
     <>
@@ -55,8 +58,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/*
-      ── VALUES STRIP ──
+      {/* ── VALUES STRIP ── */}
       <div className="values-strip">
         <div className="value-item">
           <p className="value-number">01</p>
@@ -83,7 +85,6 @@ export function HomePage() {
           <p className="value-name">Honest Living</p>
         </div>
       </div>
-      */}
 
       {/* ── ABOUT SECTION ── */}
       <section className="about-section">
@@ -105,13 +106,14 @@ export function HomePage() {
             help women bring together the parts of themselves they learned to separate in
             order to survive.
           </p>
-          <Link to="/services" className="btn-ghost" style={{ marginTop: '16px' }}>
+          <Link to="/services" className="btn-ghost about-purpose-cta">
             Our Gatherings
           </Link>
         </div>
         <div className="about-visual fade-in">
           <div className="about-video-wrap">
             <video
+              ref={aboutVideoRef}
               src={ABOUT_PURPOSE_VIDEO_SRC}
               autoPlay
               muted
@@ -119,7 +121,25 @@ export function HomePage() {
               playsInline
               controls
               aria-label="Moments from an Elysian House gathering"
+              onLoadedData={(e) => setAboutVideoPaused(e.currentTarget.paused)}
+              onPlay={() => setAboutVideoPaused(false)}
+              onPause={() => setAboutVideoPaused(true)}
             />
+            {aboutVideoPaused ? (
+              <div className="about-video-play-hint">
+                <button
+                  type="button"
+                  className="about-video-play-btn"
+                  aria-label="Play video"
+                  onClick={() => void aboutVideoRef.current?.play()}
+                >
+                  <svg className="about-video-play-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <circle cx="12" cy="12" r="11" fill="rgba(46, 46, 46, 0.42)" stroke="rgba(245, 241, 234, 0.55)" strokeWidth="1" />
+                    <path d="M10.5 8.5v7l6-3.5-6-3.5z" fill="rgba(245, 241, 234, 0.95)" />
+                  </svg>
+                </button>
+              </div>
+            ) : null}
           </div>
           <div className="about-img-main">
             {/*
@@ -137,9 +157,11 @@ export function HomePage() {
             />
             */}
           </div>
+          {/*
           <div className="about-quote-chip">
             <p>"Growth does not come from pushing harder but from listening deeper."</p>
           </div>
+          */}
         </div>
       </section>
 
