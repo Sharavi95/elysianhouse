@@ -1,6 +1,7 @@
+import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Footer } from '../components/Footer'
-import { HomeNextGatheringHighlight } from '../components/HomeNextGatheringHighlight'
+import { EventCard, toEventCardProps } from '../components/events'
 import { getNextUpcomingEvent } from '../data/events'
 
 const WHATSAPP_COMMUNITY_URL =
@@ -11,6 +12,8 @@ const ABOUT_PURPOSE_VIDEO_SRC =
 
 export function HomePage() {
   const nextGathering = getNextUpcomingEvent()
+  const aboutVideoRef = useRef<HTMLVideoElement>(null)
+  const [aboutVideoPaused, setAboutVideoPaused] = useState(true)
 
   return (
     <>
@@ -55,8 +58,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/*
-      ── VALUES STRIP ──
+      {/* ── VALUES STRIP ── */}
       <div className="values-strip">
         <div className="value-item">
           <p className="value-number">01</p>
@@ -83,7 +85,6 @@ export function HomePage() {
           <p className="value-name">Honest Living</p>
         </div>
       </div>
-      */}
 
       {/* ── ABOUT SECTION ── */}
       <section className="about-section">
@@ -105,13 +106,14 @@ export function HomePage() {
             help women bring together the parts of themselves they learned to separate in
             order to survive.
           </p>
-          <Link to="/services" className="btn-ghost" style={{ marginTop: '16px' }}>
+          <Link to="/services" className="btn-ghost about-purpose-cta">
             Our Gatherings
           </Link>
         </div>
         <div className="about-visual fade-in">
           <div className="about-video-wrap">
             <video
+              ref={aboutVideoRef}
               src={ABOUT_PURPOSE_VIDEO_SRC}
               autoPlay
               muted
@@ -119,7 +121,25 @@ export function HomePage() {
               playsInline
               controls
               aria-label="Moments from an Elysian House gathering"
+              onLoadedData={(e) => setAboutVideoPaused(e.currentTarget.paused)}
+              onPlay={() => setAboutVideoPaused(false)}
+              onPause={() => setAboutVideoPaused(true)}
             />
+            {aboutVideoPaused ? (
+              <div className="about-video-play-hint">
+                <button
+                  type="button"
+                  className="about-video-play-btn"
+                  aria-label="Play video"
+                  onClick={() => void aboutVideoRef.current?.play()}
+                >
+                  <svg className="about-video-play-icon" viewBox="0 0 24 24" fill="none" aria-hidden>
+                    <circle cx="12" cy="12" r="11" fill="rgba(46, 46, 46, 0.42)" stroke="rgba(245, 241, 234, 0.55)" strokeWidth="1" />
+                    <path d="M10.5 8.5v7l6-3.5-6-3.5z" fill="rgba(245, 241, 234, 0.95)" />
+                  </svg>
+                </button>
+              </div>
+            ) : null}
           </div>
           <div className="about-img-main">
             {/*
@@ -137,9 +157,11 @@ export function HomePage() {
             />
             */}
           </div>
+          {/*
           <div className="about-quote-chip">
             <p>"Growth does not come from pushing harder but from listening deeper."</p>
           </div>
+          */}
         </div>
       </section>
 
@@ -247,9 +269,11 @@ export function HomePage() {
                   Guided conversations and community gatherings — thoughtfully designed
                   spaces where women come together around themes that matter. Open to all.
                 </p>
-                <Link to="/services" className="exp-card-cta">
-                  Explore upcoming events
-                </Link>
+                <div className="exp-card-footer">
+                  <Link to="/services" className="exp-card-cta">
+                    Explore upcoming events
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -276,9 +300,11 @@ export function HomePage() {
                   Small, closed groups for deeper reflective discussions. A consistent space
                   with the same women — building trust, continuity, and real depth over time.
                 </p>
-                <Link to="/contact" className="exp-card-cta">
-                  Join the waitlist
-                </Link>
+                <div className="exp-card-footer">
+                  <Link to="/contact" className="exp-card-cta">
+                    Join the waitlist
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -299,17 +325,17 @@ export function HomePage() {
                   <span className="exp-card-type-label">One-on-one sessions</span>
                 </div>
                 <h3 className="exp-card-title">
-                  One-on-One
-                  <br />
-                  <em>Reflection Sessions</em>
+                  One-on-One <em>Reflection Sessions</em>
                 </h3>
                 <p className="exp-card-desc">
                   Personal conversations to navigate life transitions. Private, unhurried, and
                   tailored entirely to where you are — no agenda except yours.
                 </p>
-                <Link to="/contact" className="exp-card-cta">
-                  Express interest
-                </Link>
+                <div className="exp-card-footer">
+                  <Link to="/contact" className="exp-card-cta">
+                    Express interest
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -535,10 +561,29 @@ export function HomePage() {
             </p>
           </div>
           <div className="home-next-gathering-hero-slot fade-in">
-            <HomeNextGatheringHighlight event={nextGathering} />
+            <EventCard variant="hero" {...toEventCardProps(nextGathering)} />
           </div>
         </section>
       ) : null}
+
+      <section
+        className="cta-banner home-prefooter-cta fade-in"
+        aria-labelledby="home-prefooter-cta-heading"
+      >
+        <div className="cta-banner-text">
+          <h2 id="home-prefooter-cta-heading" className="section-heading">
+            Questions, an idea, or a quiet{' '}
+            <em style={{ color: 'rgba(245,241,234,0.8)' }}>hello</em> — we&apos;re here.
+          </h2>
+          <p>
+            Reach out through our contact page for gatherings, one-to-one reflection, or
+            anything you&apos;d like to explore together.
+          </p>
+        </div>
+        <Link to="/contact" className="btn-white">
+          Contact us
+        </Link>
+      </section>
 
       <Footer />
     </>
