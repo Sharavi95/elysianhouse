@@ -113,6 +113,11 @@ function parseContactToEmails(): string[] {
     .filter(Boolean)
 }
 
+/** When true, send with Resend's test sender (production included). Recipients must be allowed by Resend (typically the account owner email). */
+function contactUseResendSandbox(): boolean {
+  return /^(1|true|yes)$/i.test((process.env.CONTACT_USE_RESEND_SANDBOX || '').trim())
+}
+
 function getCorsHeaders(origin: string | null) {
   const allowedOrigins = [
     'http://localhost:5173',
@@ -196,11 +201,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     const emailBody = formatEmailBody(sanitized)
 
     const isVercelProduction = process.env.VERCEL_ENV === 'production'
+    const useResendSandbox = contactUseResendSandbox()
 
-    // Until a domain is verified: use Resend's sandbox sender everywhere except Vercel production.
-    // CONTACT_FROM_EMAIL / CONTACT_FORM_EMAIL stay in env for when you go live on production.
+    // Non-production and optional sandbox mode use Resend's test sender. In sandbox mode, set
+    // CONTACT_TO_EMAIL to the Resend account owner (Resend only delivers test sends to allowed addresses).
+    // Otherwise production uses CONTACT_FROM_EMAIL / CONTACT_FORM_EMAIL on a verified domain.
     let from: string
-    if (!isVercelProduction) {
+    if (!isVercelProduction || useResendSandbox) {
       from = 'Elysian House <onboarding@resend.dev>'
     } else {
       from = (process.env.CONTACT_FORM_EMAIL || process.env.CONTACT_FROM_EMAIL)?.trim() ?? ''
@@ -215,7 +222,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
         return res.status(500).json({
           error: 'Contact form email not configured for production',
           details:
-            'Set CONTACT_FROM_EMAIL or CONTACT_FORM_EMAIL in Vercel to an address on your verified Resend domain.',
+            'Set CONTACT_FROM_EMAIL or CONTACT_FORM_EMAIL in Vercel to an address on your verified Resend domain, or set CONTACT_USE_RESEND_SANDBOX=true temporarily (CONTACT_TO_EMAIL must be your Resend account email).',
         })
       }
     }
@@ -240,9 +247,13 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             : typeof sendError === 'string'
               ? sendError
               : 'Unknown send error'
+      const domainHint =
+        /domain is not verified|verify your domain/i.test(detailMsg)
+          ? ' The sender address (CONTACT_FROM_EMAIL / CONTACT_FORM_EMAIL) must use a domain you added and verified in Resend — not @live.com, @gmail.com, etc.'
+          : ''
       return res.status(500).json({
         error: 'Failed to send email',
-        details: detailMsg,
+        details: detailMsg + domainHint,
       })
     }
 
@@ -261,7 +272,14 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
           : typeof error === 'object' && error !== null && 'message' in error
             ? String((error as { message: unknown }).message)
             : JSON.stringify(error)
-      return res.status(500).json({ error: 'Failed to send email', details: detailMsg })
+      const domainHint =
+        /domain is not verified|verify your domain/i.test(detailMsg)
+          ? ' The sender address (CONTACT_FROM_EMAIL / CONTACT_FORM_EMAIL) must use a domain you added and verified in Resend — not @live.com, @gmail.com, etc.'
+          : ''
+      return res.status(500).json({
+        error: 'Failed to send email',
+        details: detailMsg + domainHint,
+      })
     }
 
     return res.status(200).json({ success: true, messageId: data?.id })
