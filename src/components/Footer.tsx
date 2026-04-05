@@ -1,8 +1,9 @@
 import { Link } from 'react-router-dom'
+import { SITE_INSTAGRAM_URL } from '../constants/social'
 
 const SOCIAL_LINKS = [
   {
-    href: 'https://www.instagram.com/elysianzita/',
+    href: SITE_INSTAGRAM_URL,
     label: 'Instagram',
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
@@ -52,7 +53,7 @@ export function Footer() {
             of who they are.
           </p>
         </div>
-        <div className="footer-col">
+        <div className="footer-col footer-col--nav">
           <p className="footer-col-title">Navigate</p>
           <ul className="footer-links">
             <li>
@@ -69,7 +70,7 @@ export function Footer() {
             </li>
           </ul>
         </div>
-        <div className="footer-col">
+        <div className="footer-col footer-col--offerings">
           <p className="footer-col-title">Offerings</p>
           <ul className="footer-links">
             <li>

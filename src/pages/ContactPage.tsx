@@ -2,6 +2,11 @@ import { type FormEvent, useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router-dom'
 import { Footer } from '../components/Footer'
 import { SITE_CONTACT_EMAIL } from '../constants/contact'
+import {
+  SITE_INSTAGRAM_HANDLE,
+  SITE_INSTAGRAM_URL,
+  WHATSAPP_COMMUNITY_URL,
+} from '../constants/social'
 import { getEventById, getEventTitleById, getUpcomingEvents } from '../data/events'
 
 const STATIC_INTEREST_LABELS: Record<string, string> = {
@@ -370,9 +375,34 @@ export function ContactPage() {
           </div>
           <div className="contact-info-item">
             <p className="contact-info-label">Instagram</p>
-            <p className="contact-info-value">@elysianhouse</p>
+            <p className="contact-info-value">
+              <a
+                className="contact-info-value-link"
+                href={SITE_INSTAGRAM_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {SITE_INSTAGRAM_HANDLE}
+              </a>
+            </p>
             <p className="contact-info-sub">
               Where we share reflections, upcoming gatherings, and quiet reminders.
+            </p>
+          </div>
+          <div className="contact-info-item">
+            <p className="contact-info-label">WhatsApp community</p>
+            <p className="contact-info-value">
+              <a
+                className="contact-info-value-link"
+                href={WHATSAPP_COMMUNITY_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Join the community
+              </a>
+            </p>
+            <p className="contact-info-sub">
+              Stay connected between gatherings — updates and conversation.
             </p>
           </div>
           <div className="contact-info-item">
@@ -382,29 +412,9 @@ export function ContactPage() {
               Gatherings are held in carefully chosen spaces across the city. Details shared upon registration.
             </p>
           </div>
-          <div style={{ marginTop: '56px', paddingTop: '40px', borderTop: '1px solid #333' }}>
-            <p
-              style={{
-                fontFamily: "'Cormorant Garamond', serif",
-                fontSize: '1.4rem',
-                fontStyle: 'italic',
-                color: 'var(--ivory)',
-                lineHeight: '1.65',
-              }}
-            >
-              &quot;There is nothing to perform here. Just arrive.&quot;
-            </p>
-            <p
-              style={{
-                fontSize: '0.65rem',
-                letterSpacing: '0.2em',
-                textTransform: 'uppercase',
-                color: 'var(--gold)',
-                marginTop: '16px',
-              }}
-            >
-              Elysian House
-            </p>
+          <div className="contact-info-aside-quote">
+            <p>&quot;There is nothing to perform here. Just arrive.&quot;</p>
+            <p>Elysian House</p>
           </div>
         </div>
       </div>

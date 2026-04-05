@@ -2,10 +2,8 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Footer } from '../components/Footer'
 import { EventCard, toEventCardProps } from '../components/events'
+import { WHATSAPP_COMMUNITY_URL } from '../constants/social'
 import { getNextUpcomingEvent } from '../data/events'
-
-const WHATSAPP_COMMUNITY_URL =
-  'https://chat.whatsapp.com/ErrFgOSI5YP4rvySaLWHQE?mode=gi_t'
 
 const ABOUT_PURPOSE_VIDEO_SRC =
   '/videos/' + encodeURIComponent('WhatsApp Video 2026-03-30 at 22.09.15.mp4')
