@@ -16,8 +16,8 @@ export function ServicesPage() {
     pastEventsData.find((e) => e.featured)?.id ?? pastEventsData[0]?.id ?? null
   )
 
-  const upcomingHeroRef = useRef<HTMLElement>(null)
-  const pastHeroRef = useRef<HTMLElement>(null)
+  const upcomingHeroRef = useRef<HTMLDivElement>(null)
+  const pastHeroRef = useRef<HTMLDivElement>(null)
 
   // Find selected event or fall back to first
   const selectedUpcoming = upcomingEventsData.find((e) => e.id === selectedUpcomingId) ?? upcomingEventsData[0]
