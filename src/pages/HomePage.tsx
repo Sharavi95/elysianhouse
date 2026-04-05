@@ -269,9 +269,11 @@ export function HomePage() {
                   Guided conversations and community gatherings — thoughtfully designed
                   spaces where women come together around themes that matter. Open to all.
                 </p>
-                <Link to="/services" className="exp-card-cta">
-                  Explore upcoming events
-                </Link>
+                <div className="exp-card-footer">
+                  <Link to="/services" className="exp-card-cta">
+                    Explore upcoming events
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -298,9 +300,11 @@ export function HomePage() {
                   Small, closed groups for deeper reflective discussions. A consistent space
                   with the same women — building trust, continuity, and real depth over time.
                 </p>
-                <Link to="/contact" className="exp-card-cta">
-                  Join the waitlist
-                </Link>
+                <div className="exp-card-footer">
+                  <Link to="/contact" className="exp-card-cta">
+                    Join the waitlist
+                  </Link>
+                </div>
               </div>
             </div>
 
@@ -321,17 +325,17 @@ export function HomePage() {
                   <span className="exp-card-type-label">One-on-one sessions</span>
                 </div>
                 <h3 className="exp-card-title">
-                  One-on-One
-                  <br />
-                  <em>Reflection Sessions</em>
+                  One-on-One <em>Reflection Sessions</em>
                 </h3>
                 <p className="exp-card-desc">
                   Personal conversations to navigate life transitions. Private, unhurried, and
                   tailored entirely to where you are — no agenda except yours.
                 </p>
-                <Link to="/contact" className="exp-card-cta">
-                  Express interest
-                </Link>
+                <div className="exp-card-footer">
+                  <Link to="/contact" className="exp-card-cta">
+                    Express interest
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
@@ -561,6 +565,25 @@ export function HomePage() {
           </div>
         </section>
       ) : null}
+
+      <section
+        className="cta-banner home-prefooter-cta fade-in"
+        aria-labelledby="home-prefooter-cta-heading"
+      >
+        <div className="cta-banner-text">
+          <h2 id="home-prefooter-cta-heading" className="section-heading">
+            Questions, an idea, or a quiet{' '}
+            <em style={{ color: 'rgba(245,241,234,0.8)' }}>hello</em> — we&apos;re here.
+          </h2>
+          <p>
+            Reach out through our contact page for gatherings, one-to-one reflection, or
+            anything you&apos;d like to explore together.
+          </p>
+        </div>
+        <Link to="/contact" className="btn-white">
+          Contact us
+        </Link>
+      </section>
 
       <Footer />
     </>
