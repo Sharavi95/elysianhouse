@@ -7,6 +7,11 @@
  * - xs: <= 480 — mobile large
  * - 2xs: <= 360 — mobile small (extra-tight overrides at end of mobile block)
  * Nav switches to hamburger at max-width: 991.98px (between md and sm).
+ *
+ * Non-desktop/laptop (<=1279px): tune shared layout tokens on :root in the
+ * max-width:1279 block, then scale down/up in nested 767 / 480 blocks so
+ * tablet and phone stay visually proportional—avoid one-off magic numbers on
+ * a single breakpoint.
  */
 :root {
   /* Brand palette — hex aligned to design system */
@@ -47,6 +52,13 @@
   --space-nav-y-scrolled: 18px;
   /* Offset for fixed nav */
   --space-hero-top: 72px;
+
+  /* Values strip + stacked hero portrait — overridden <=1279 and <=767/480 */
+  --values-strip-pad-block: clamp(18px, 2.2vw, 26px);
+  --hero-stacked-ar-w: 4;
+  --hero-stacked-ar-h: 5;
+  --hero-stacked-max-height: min(60svh, 450px);
+  --hero-stacked-min-height: 240px;
 
   /* Event card system — hero + strip share tokens */
   --event-card-radius: 2px;
@@ -513,7 +525,7 @@ dt {
 
 .values-strip {
   background: var(--sand);
-  padding: clamp(18px, 2.2vw, 26px) var(--space-section-x);
+  padding: var(--values-strip-pad-block) var(--space-section-x);
   display: flex;
   gap: 0;
   overflow: hidden;
@@ -3406,6 +3418,8 @@ footer {
     --space-strip-y: 40px;
     --space-nav-y: 22px;
     --space-nav-y-scrolled: 16px;
+    /* ~94% of xl strip — keeps tablet/small laptop aligned with phone tiers */
+    --values-strip-pad-block: clamp(17px, 2.05vw, 24px);
   }
 
   nav {
@@ -3810,6 +3824,12 @@ footer {
     --space-nav-y-scrolled: 12px;
     /* Match nav clearance; do not subtract — eyebrow must clear the bar */
     --space-hero-top: 72px;
+    /* Stacked hero + horizontal values strip — scale together vs <=1279 tier */
+    --values-strip-pad-block: clamp(20px, 3.5vw, 30px);
+    --hero-stacked-ar-w: 4;
+    --hero-stacked-ar-h: 5;
+    --hero-stacked-max-height: min(60svh, 450px);
+    --hero-stacked-min-height: 240px;
   }
 
   nav {
@@ -3834,10 +3854,10 @@ footer {
 
   .hero-right {
     width: 100%;
-    aspect-ratio: 4 / 5;
+    aspect-ratio: var(--hero-stacked-ar-w) / var(--hero-stacked-ar-h);
     height: auto;
-    min-height: 240px;
-    max-height: min(60svh, 450px);
+    min-height: var(--hero-stacked-min-height);
+    max-height: var(--hero-stacked-max-height);
     align-self: stretch;
   }
 
@@ -3891,7 +3911,7 @@ footer {
     display: flex;
     flex-wrap: nowrap;
     gap: 0;
-    padding: clamp(20px, 3.5vw, 30px) var(--space-section-x);
+    padding: var(--values-strip-pad-block) var(--space-section-x);
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
@@ -4174,17 +4194,28 @@ footer {
     grid-template-columns: unset;
     height: auto;
     min-height: 0;
-    gap: 10px;
-    padding: 0 var(--space-section-x) 14px;
+    gap: 0;
+    padding: 0;
     overflow-x: auto;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
-    scroll-padding-inline: var(--space-section-x);
+    scroll-padding-inline: 0;
     -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
+  .photo-strip::-webkit-scrollbar {
+    display: none;
+    width: 0;
+    height: 0;
+    background: transparent;
+  }
+
+  /* Half viewport per tile = two-up, flush (desktop is four-up, no gutters) */
   .photo-strip-item {
-    flex: 0 0 min(82vw, 300px);
+    flex: 0 0 50vw;
+    width: 50vw;
     scroll-snap-align: start;
     height: 220px;
     min-height: 200px;
@@ -4423,6 +4454,11 @@ footer {
 }
 
 @media (max-width: 480px) {
+  :root {
+    --hero-stacked-max-height: min(54svh, 400px);
+    --hero-stacked-min-height: 220px;
+  }
+
   .hero-title {
     font-size: clamp(2.2rem, 10.5vw, 2.95rem);
     margin-bottom: 28px;
@@ -4430,11 +4466,6 @@ footer {
 
   .hero-body {
     max-width: none;
-  }
-
-  .hero-right {
-    max-height: min(54svh, 400px);
-    min-height: 220px;
   }
 
   .photo-strip-item {

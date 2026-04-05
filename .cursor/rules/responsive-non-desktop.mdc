@@ -1,0 +1,17 @@
+---
+description: Responsive CSS scales proportionally across tablet and mobile (non-desktop)
+alwaysApply: true
+---
+
+# Non-desktop responsive work (`site.css`, `event-card.css`)
+
+Treat **non desktop/laptop** as **`max-width: 1279px`** (tablet md through phone xs), matching the bands documented at the top of `site.css`.
+
+Applies to **`src/styles/site.css`** and **`src/styles/event-card.css`** (and any CSS that mirrors these breakpoints).
+
+When adjusting spacing, typography, or component panel sizes for touch layouts:
+
+1. Prefer **` :root` custom properties** already grouped by breakpoint (e.g. `--values-strip-pad-block`, `--hero-stacked-*`, section `--space-*`). Change the token at the **widest tier first** (`max-width: 1279px`), then adjust **nested `767px` / `480px` / `360px`** overrides so the step between tiers stays visually proportional—not only the smallest viewport.
+2. Avoid tuning **only** `max-width: 767px` while leaving `768px–1279px` on unrelated hard-coded values unless the layout truly diverges (e.g. stacked vs two-column hero).
+3. If you add new non-desktop sizing, define it once on `:root` for the appropriate tier and reference it with `var(...)` in selectors; do not duplicate `clamp()` literals across unrelated rules without linking tiers.
+4. For `event-card.css`, mirror the same breakpoint names and keep card padding/media constraints aligned with `site.css` `--space-*` rhythm where those pages share the grid.
