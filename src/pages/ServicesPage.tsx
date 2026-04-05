@@ -1,9 +1,51 @@
 import { Link } from 'react-router-dom'
+import { useRef, useCallback, useState } from 'react'
 import { Footer } from '../components/Footer'
-import { InteractiveEventsSection } from '../components/InteractiveEventsSection'
+import { EventCard, EventCardScrollRow, toEventCardProps } from '../components/events'
 import { getPastEvents, getUpcomingEvents } from '../data/events'
 
 export function ServicesPage() {
+  const upcomingEventsData = getUpcomingEvents()
+  const pastEventsData = getPastEvents()
+
+  // Selection state for featured events
+  const [selectedUpcomingId, setSelectedUpcomingId] = useState<string | null>(
+    upcomingEventsData.find((e) => e.featured)?.id ?? upcomingEventsData[0]?.id ?? null
+  )
+  const [selectedPastId, setSelectedPastId] = useState<string | null>(
+    pastEventsData.find((e) => e.featured)?.id ?? pastEventsData[0]?.id ?? null
+  )
+
+  const upcomingHeroRef = useRef<HTMLElement>(null)
+  const pastHeroRef = useRef<HTMLElement>(null)
+
+  // Find selected event or fall back to first
+  const selectedUpcoming = upcomingEventsData.find((e) => e.id === selectedUpcomingId) ?? upcomingEventsData[0]
+  const selectedPast = pastEventsData.find((e) => e.id === selectedPastId) ?? pastEventsData[0]
+
+  // Remaining events for strips
+  const remainingUpcoming = selectedUpcoming
+    ? upcomingEventsData.filter((e) => e.id !== selectedUpcoming.id)
+    : []
+  const remainingPast = selectedPast
+    ? pastEventsData.filter((e) => e.id !== selectedPast.id)
+    : []
+
+  // Scroll to hero on selection
+  const selectUpcoming = useCallback((id: string) => {
+    setSelectedUpcomingId(id)
+    setTimeout(() => {
+      upcomingHeroRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 0)
+  }, [])
+
+  const selectPast = useCallback((id: string) => {
+    setSelectedPastId(id)
+    setTimeout(() => {
+      pastHeroRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+    }, 0)
+  }, [])
+
   return (
     <div className="page-gatherings">
       {/* ── HERO — main light surface (scoped in CSS; Contact keeps dark hero) ── */}
@@ -123,31 +165,79 @@ export function ServicesPage() {
         </div>
       </section>
 
-      <InteractiveEventsSection
-        variant="upcoming"
-        events={getUpcomingEvents()}
-        sectionLabel="What's Coming"
-        heading={
-          <>
-            Upcoming <em>Gatherings</em>
-          </>
-        }
-        showExpressInterestLink
-        featuredAnchorId="events-featured-upcoming"
-      />
+      {upcomingEventsData.length > 0 && selectedUpcoming && (
+        <section className="upcoming-section events-interactive">
+          <div className="upcoming-header">
+            <div>
+              <span className="section-label">What's Coming</span>
+              <h2 className="section-heading">
+                Upcoming <em>Gatherings</em>
+              </h2>
+            </div>
+            <Link to="/contact" className="btn-ghost events-upcoming-header-cta">
+              Express Interest
+            </Link>
+          </div>
 
-      <InteractiveEventsSection
-        variant="past"
-        events={getPastEvents()}
-        sectionLabel="Where We've Been"
-        heading={
-          <>
-            Past <em>Gatherings</em>
-          </>
-        }
-        headerNote="Every gathering leaves something behind — in the room, and in the women who were there."
-        featuredAnchorId="events-featured-past"
-      />
+          <div className="ec-hero-wrap">
+            <div ref={upcomingHeroRef} style={{ width: '100%' }}>
+              <EventCard variant="hero" {...toEventCardProps(selectedUpcoming)} />
+            </div>
+          </div>
+
+          {remainingUpcoming.length > 0 && (
+            <div className="ec-strip-section">
+              <EventCardScrollRow>
+                {remainingUpcoming.map((e) => (
+                  <EventCard
+                    key={e.id}
+                    variant="strip"
+                    {...toEventCardProps(e, { forStrip: true })}
+                    onSelect={() => selectUpcoming(e.id)}
+                  />
+                ))}
+              </EventCardScrollRow>
+            </div>
+          )}
+        </section>
+      )}
+
+      {pastEventsData.length > 0 && selectedPast && (
+        <section className="past-section events-interactive">
+          <div className="past-header">
+            <div>
+              <span className="section-label">Where We've Been</span>
+              <h2 className="section-heading">
+                Past <em>Gatherings</em>
+              </h2>
+            </div>
+            <p className="past-header-note">
+              Every gathering leaves something behind — in the room, and in the women who were there.
+            </p>
+          </div>
+
+          <div className="ec-hero-wrap">
+            <div ref={pastHeroRef} style={{ width: '100%' }}>
+              <EventCard variant="hero" {...toEventCardProps(selectedPast)} />
+            </div>
+          </div>
+
+          {remainingPast.length > 0 && (
+            <div className="ec-strip-section">
+              <EventCardScrollRow>
+                {remainingPast.map((e) => (
+                  <EventCard
+                    key={e.id}
+                    variant="strip"
+                    {...toEventCardProps(e, { forStrip: true })}
+                    onSelect={() => selectPast(e.id)}
+                  />
+                ))}
+              </EventCardScrollRow>
+            </div>
+          )}
+        </section>
+      )}
 
       {/* ── CTA BANNER ── */}
       <div className="cta-banner fade-in">

@@ -1,7 +1,7 @@
 import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Footer } from '../components/Footer'
-import { HomeNextGatheringHighlight } from '../components/HomeNextGatheringHighlight'
+import { EventCard, toEventCardProps } from '../components/events'
 import { getNextUpcomingEvent } from '../data/events'
 
 const WHATSAPP_COMMUNITY_URL =
@@ -561,7 +561,7 @@ export function HomePage() {
             </p>
           </div>
           <div className="home-next-gathering-hero-slot fade-in">
-            <HomeNextGatheringHighlight event={nextGathering} />
+            <EventCard variant="hero" {...toEventCardProps(nextGathering)} />
           </div>
         </section>
       ) : null}

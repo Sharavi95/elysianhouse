@@ -1,0 +1,496 @@
+/* ============================================================
+   EventCard — hero / strip variants
+   Aligned with site's Cormorant Garamond / Jost design language
+   ============================================================ */
+
+/* ── Hero ─────────────────────────────────────────────────── */
+
+.ec--hero {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
+  max-width: clamp(100%, 90vw, 1200px);
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--bg-warm-ivory);
+  box-shadow: var(--event-card-shadow);
+  transition: box-shadow 550ms ease;
+}
+
+.ec--hero:hover {
+  box-shadow: var(--event-card-shadow-hover);
+}
+
+/* ── Strip ────────────────────────────────────────────────── */
+
+.ec--strip {
+  flex: 0 0 280px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 2px;
+  overflow: hidden;
+  background: var(--bg-warm-ivory);
+  box-shadow: var(--event-card-shadow);
+  transition: transform 500ms ease, box-shadow 500ms ease;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  text-align: left;
+}
+
+.ec--strip:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--event-card-shadow-hover);
+}
+
+.ec--strip:focus,
+.ec--strip:focus-visible {
+  outline: 2px solid var(--sage);
+  outline-offset: 2px;
+}
+
+/* ── Past state ───────────────────────────────────────────── */
+
+.ec--past {
+  opacity: 0.82;
+}
+
+.ec--past .ec-slide {
+  filter: saturate(0.55);
+}
+
+/* ── Image pane ───────────────────────────────────────────── */
+
+.ec-image-pane {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hero: fixed min-height for consistent card dimensions */
+.ec-image-pane--hero {
+  min-height: clamp(350px, 50vw, 500px);
+}
+
+.ec-image-pane--strip {
+  height: 180px;
+}
+
+/* ── Slideshow ────────────────────────────────────────────── */
+
+.ec-slides {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: transform 550ms ease;
+}
+
+.ec--strip .ec-slides {
+  height: 180px;
+  transition: transform 500ms ease;
+}
+
+.ec--hero:hover .ec-slides {
+  transform: scale(1.03);
+}
+
+.ec--strip:hover .ec-slides {
+  transform: scale(1.05);
+}
+
+.ec-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+  opacity: 0;
+  transition: opacity 600ms ease;
+}
+
+.ec-slide--active {
+  opacity: 1;
+}
+
+/* ── Status pill ──────────────────────────────────────────── */
+
+.ec-pill {
+  position: absolute;
+  z-index: 2;
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 5px 12px;
+  border-radius: 2px;
+  line-height: 1;
+  white-space: nowrap;
+  background: var(--sage);
+  color: var(--ivory);
+}
+
+.ec-image-pane--hero .ec-pill {
+  top: 16px;
+  left: 16px;
+}
+
+.ec-image-pane--strip .ec-pill {
+  top: 12px;
+  left: 12px;
+}
+
+.ec-pill--open {
+  background: var(--sage);
+  color: var(--ivory);
+}
+
+.ec-pill--coming {
+  background: var(--ivory-dark);
+  color: var(--ink);
+  border: 1px solid var(--gold);
+}
+
+.ec-pill--past {
+  background: rgba(245, 241, 234, 0.85);
+  color: #9a9a90;
+  backdrop-filter: blur(4px);
+}
+
+/* ── Hero body ────────────────────────────────────────────── */
+
+.ec-body--hero {
+  display: flex;
+  flex-direction: column;
+  padding: clamp(28px, 4vw, 40px);
+  gap: clamp(14px, 2vw, 20px);
+}
+
+/* ── Strip body ───────────────────────────────────────────── */
+
+.ec-body--strip {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 18px 20px 20px;
+  flex: 1;
+}
+
+/* ── Eyebrow ──────────────────────────────────────────────── */
+
+.ec-eyebrow {
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin-bottom: 0;
+}
+
+.ec-eyebrow--strip {
+  font-size: 0.65rem;
+}
+
+/* ── Title ────────────────────────────────────────────────── */
+
+.ec-title {
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 300;
+  font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+  line-height: 1.15;
+  color: var(--ink);
+}
+
+.ec-title em {
+  font-style: italic;
+  color: var(--rose);
+}
+
+.ec-title--strip {
+  font-size: clamp(1.2rem, 1.8vw, 1.5rem);
+  line-height: 1.2;
+}
+
+/* ── Description ──────────────────────────────────────────── */
+
+.ec-desc {
+  font-family: "Jost", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  line-height: 1.75;
+  color: #6a6a6a;
+}
+
+.ec-desc--strip {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #8a8a80;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* ── Bullets (hero only) ──────────────────────────────────── */
+
+.ec-section-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--gold);
+  margin: 8px 0 10px 0;
+}
+
+.ec-bullets {
+  list-style: none;
+}
+
+.ec-bullet {
+  font-family: "Jost", sans-serif;
+  font-size: 0.95rem;
+  font-weight: 300;
+  color: #6a6a6a;
+  line-height: 1.75;
+  margin-bottom: 8px;
+}
+
+.ec-bullet:last-child {
+  margin-bottom: 0;
+}
+
+/* ── Facilitator (hero only) ──────────────────────────────── */
+
+.ec-facilitator {
+  font-family: "Cormorant Garamond", serif;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: #8a8a80;
+}
+
+/* ── Footer ───────────────────────────────────────────────── */
+
+.ec-footer {
+  margin-top: auto;
+  padding-top: clamp(14px, 2vw, 18px);
+  border-top: 1px solid rgba(184, 164, 122, 0.2);
+}
+
+.ec-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.ec-price {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.ec-price-amount {
+  font-family: "Cormorant Garamond", serif;
+  font-size: clamp(1.2rem, 1.8vw, 1.4rem);
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.2;
+}
+
+.ec-price-label {
+  font-family: "Jost", sans-serif;
+  font-size: 0.65rem;
+  font-weight: 300;
+  color: #8a8a80;
+}
+
+.ec-btns {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+/* ── Buttons ──────────────────────────────────────────────── */
+
+.ec-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Jost", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  padding: 10px 18px;
+  border-radius: 2px;
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all 180ms ease;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.ec-btn--primary {
+  background: var(--sage);
+  color: var(--ivory);
+  border-color: var(--sage);
+}
+
+.ec-btn--primary:hover {
+  background: #3d5a4e;
+  border-color: #3d5a4e;
+}
+
+.ec-btn--outline {
+  background: transparent;
+  color: var(--sage);
+  border-color: var(--sage);
+}
+
+.ec-btn--outline:hover {
+  background: var(--sage);
+  color: var(--ivory);
+}
+
+.ec-btn--blush {
+  background: var(--bg-dusty-rose);
+  color: var(--ivory);
+  border-color: var(--bg-dusty-rose);
+}
+
+.ec-btn--blush:hover {
+  background: #b5949a;
+  border-color: #b5949a;
+}
+
+.ec-btn--sm {
+  font-size: 0.7rem;
+  padding: 8px 14px;
+}
+
+/* ── Closed text ──────────────────────────────────────────── */
+
+.ec-closed-text {
+  font-family: "Jost", sans-serif;
+  font-size: 0.7rem;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #8a8a80;
+}
+
+/* ── Strip scroll row wrapper ─────────────────────────────── */
+
+.ec-scroll-row {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  padding-bottom: 12px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sand) transparent;
+}
+
+/* ── Responsive ───────────────────────────────────────────── */
+
+@media (max-width: 1023px) {
+  .ec--hero {
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+
+  .ec-image-pane--hero {
+    min-height: 300px;
+  }
+
+  .ec-body--hero {
+    padding: clamp(20px, 4vw, 32px);
+  }
+}
+
+@media (max-width: 767px) {
+  .ec--strip {
+    flex: 0 0 calc(100vw - 32px);
+  }
+
+  .ec-image-pane--hero {
+    height: auto;
+    min-height: auto;
+  }
+
+  .ec-image-pane--strip {
+    height: 160px;
+  }
+
+  .ec--strip .ec-slides {
+    height: 160px;
+  }
+
+  .ec-body--strip {
+    padding: 16px 18px;
+    gap: 6px;
+  }
+
+  .ec-title--strip {
+    font-size: 1.1rem;
+  }
+
+  .ec-desc--strip {
+    font-size: 0.8rem;
+  }
+
+  .ec-btns {
+    gap: 6px;
+  }
+
+  .ec-btn {
+    padding: 8px 12px;
+    font-size: 0.65rem;
+  }
+
+  .ec-btn--sm {
+    padding: 6px 10px;
+  }
+}
+
+/* ── Reduced motion ───────────────────────────────────────── */
+
+@media (prefers-reduced-motion: reduce) {
+  .ec-slide {
+    transition: none;
+  }
+
+  .ec--hero,
+  .ec--strip {
+    transition: none;
+  }
+
+  .ec-slides {
+    transition: none;
+  }
+
+  .ec--hero:hover .ec-slides,
+  .ec--strip:hover .ec-slides {
+    transform: none;
+  }
+}
+
+/* ── Section layout helpers ───────────────────────────────── */
+
+/* Centers hero card inside a padded section */
+.ec-hero-wrap {
+  display: flex;
+  justify-content: center;
+  margin-top: clamp(20px, 3vw, 40px);
+  width: 100%;
+}
+
+/* Spacing above a strip scroll row that follows a hero card */
+.ec-strip-section {
+  margin-top: clamp(24px, 3.5vw, 42px);
+  width: 100%;
+}

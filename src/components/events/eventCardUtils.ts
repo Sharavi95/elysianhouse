@@ -1,4 +1,5 @@
 import type { EventRecord } from '../../types/event'
+import type { EventCardProps } from './EventCard'
 
 export type EventMetaItem = {
   icon: string
@@ -64,4 +65,41 @@ export function compactEventDateline(ev: EventRecord): string {
 /** Uppercase strip footer status (e.g. CLOSING SOON, SPACES OPEN) */
 export function stripCommerceStatusLabel(ev: EventRecord): string {
   return upcomingStatusPill(ev).label.toUpperCase()
+}
+
+/**
+ * Maps an EventRecord to EventCard props (minus `variant`).
+ * Pass `{ forStrip: true }` to prefer the short teaser description.
+ */
+export function toEventCardProps(
+  ev: EventRecord,
+  { forStrip = false }: { forStrip?: boolean } = {},
+): Omit<EventCardProps, 'variant'> {
+  const images =
+    ev.galleryImages.length > 0
+      ? ev.galleryImages.map((g) => g.src)
+      : [ev.primaryImage]
+
+  const status: 'open' | 'coming' | 'past' =
+    ev.type === 'past' ? 'past' : ev.ticketsOpenNote ? 'coming' : 'open'
+
+  const medium = ev.descriptionMedium?.split(/\n\n+/)[0]?.trim() ?? ''
+  const description = forStrip
+    ? (ev.descriptionShort?.trim() || medium)
+    : (medium || ev.descriptionShort?.trim() || '')
+
+  return {
+    status,
+    title: ev.title,
+    images,
+    eventType: ev.eventTypeTag ?? 'Gathering',
+    date: ev.date,
+    location: ev.location ?? '',
+    description,
+    bullets: ev.exploreBullets,
+    price: ev.ticketPrice,
+    registerUrl: ev.registrationUrl,
+    payUrl: ev.paymentUrl,
+    waitlistUrl: ev.communityUrl ?? `/contact?eventId=${encodeURIComponent(ev.id)}`,
+  }
 }
