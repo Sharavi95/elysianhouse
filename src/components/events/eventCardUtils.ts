@@ -15,7 +15,7 @@ export function buildEventMetaItems(ev: EventRecord): EventMetaItem[] {
   return items
 }
 
-/** Strip / small cards only — no fallback to full body */
+/** Strip / small cards only: no fallback to full body */
 export function getCardTeaser(ev: EventRecord): string {
   return ev.descriptionShort?.trim() ?? ev.summary?.trim() ?? ''
 }

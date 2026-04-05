@@ -27,7 +27,7 @@ type HomeNextGatheringHighlightProps = {
 }
 
 /**
- * Single upcoming hero card — same structure and commerce styling as InteractiveEventsSection hero.
+ * Single upcoming hero card: same structure and commerce styling as InteractiveEventsSection hero.
  */
 export function HomeNextGatheringHighlight({ event }: HomeNextGatheringHighlightProps) {
   const [slideIdx, setSlideIdx] = useState(0)

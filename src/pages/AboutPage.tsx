@@ -4,7 +4,7 @@ import { Footer } from '../components/Footer'
 export function AboutPage() {
   return (
     <>
-      {/* ── HERO — full-bleed image with overlay ── */}
+      {/* ── HERO / full-bleed image with overlay ── */}
       <section className="about-hero">
         <img
           src="/images/elysian/elysian-gathering-circle-seating-wide-0684.webp"
@@ -35,7 +35,7 @@ export function AboutPage() {
           <p>
             Elysian House creates reflective spaces where women can slow down, reconnect
             with themselves, and integrate the parts of their lives they have carried
-            alone — through guided conversations, intimate gatherings, and thoughtful
+            alone, through guided conversations, intimate gatherings, and thoughtful
             coaching.
           </p>
           <p>

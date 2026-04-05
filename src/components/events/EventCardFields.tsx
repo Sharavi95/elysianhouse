@@ -24,8 +24,8 @@ export type EventCardFieldsProps = {
   /** Secondary actions (pay, community) */
   secondaryActions?: ReactNode
   /**
-   * `commerce` — mockup-style compact kicker + price/status footers (upcoming).
-   * `default` — classic date block + icon meta row (past, legacy).
+   * `commerce`: mockup-style compact kicker + price/status footers (upcoming).
+   * `default`: classic date block + icon meta row (past, legacy).
    */
   visualStyle?: EventCardVisualStyle
 }
@@ -90,7 +90,12 @@ export function EventCardFields({
           {event.ticketPrice ? (
             <span className="event-cardsys-foot-commerce-price">{event.ticketPrice}</span>
           ) : (
-            <span className="event-cardsys-foot-commerce-price event-cardsys-foot-commerce-price--muted">—</span>
+            <span
+              className="event-cardsys-foot-commerce-price event-cardsys-foot-commerce-price--muted"
+              aria-hidden="true"
+            >
+              -
+            </span>
           )}
           <span className="event-cardsys-foot-commerce-status">{stripCommerceStatusLabel(event)}</span>
         </div>

@@ -48,7 +48,7 @@ export function ServicesPage() {
 
   return (
     <div className="page-gatherings">
-      {/* ── HERO — main light surface (scoped in CSS; Contact keeps dark hero) ── */}
+      {/* ── HERO / main light surface (scoped in CSS; Contact keeps dark hero) ── */}
       <section className="services-hero">
         <div className="services-hero-bg">
           <img
@@ -59,12 +59,12 @@ export function ServicesPage() {
         <div className="services-hero-content">
           <span className="section-label">Our Gatherings</span>
           <h1 className="section-heading">
-            Every offering is a space — not a <em>programme.</em>
+            Every offering is a space, not a <em>programme.</em>
           </h1>
           <div className="divider" />
           <p>
             We hold space with care. Each gathering is intentionally small, deliberately
-            unhurried, and designed to meet you where you are — not where you think you
+            unhurried, and designed to meet you where you are, not where you think you
             should be.
           </p>
         </div>
@@ -100,7 +100,7 @@ export function ServicesPage() {
                 Curated <em>Events</em>
               </h3>
               <p className="exp-card-desc">
-                Guided conversations and community gatherings — thoughtfully designed
+                Guided conversations and community gatherings, thoughtfully designed
                 spaces where women come together around themes that matter. Open to all.
               </p>
               <a href="#upcoming-gatherings" className="exp-card-cta">
@@ -130,7 +130,7 @@ export function ServicesPage() {
               </h3>
               <p className="exp-card-desc">
                 Small, closed groups for deeper reflective discussions. A consistent space
-                with the same women — building trust, continuity, and real depth over time.
+                with the same women, building trust, continuity, and real depth over time.
               </p>
               <Link to="/contact" className="exp-card-cta">
                 Join the waitlist
@@ -159,7 +159,7 @@ export function ServicesPage() {
               </h3>
               <p className="exp-card-desc">
                 Personal conversations to navigate life transitions. Private, unhurried, and
-                tailored entirely to where you are — no agenda except yours.
+                tailored entirely to where you are, no agenda except yours.
               </p>
               <Link to="/contact" className="exp-card-cta">
                 Express interest
@@ -216,7 +216,7 @@ export function ServicesPage() {
               </h2>
             </div>
             <p className="past-header-note">
-              Every gathering leaves something behind — in the room, and in the women who were there.
+              Every gathering leaves something behind in the room, and in the women who were there.
             </p>
           </div>
 
@@ -249,7 +249,9 @@ export function ServicesPage() {
           <h2 className="section-heading">
             Not sure which is <em style={{ color: 'rgba(245,241,234,0.8)' }}>right for you?</em>
           </h2>
-          <p>Reach out. We'll have a short, honest conversation — no pressure, no pitch.</p>
+          <p>
+            Reach out. We&apos;ll have a short, honest conversation, with no pressure and no pitch.
+          </p>
         </div>
         <Link to="/contact" className="btn-white">
           Get in Touch

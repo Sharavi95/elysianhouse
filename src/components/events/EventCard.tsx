@@ -218,7 +218,10 @@ export function EventCard(props: EventCardProps) {
               <p className="ec-section-label">What you'll receive</p>
               <ul className="ec-bullets">
                 {bullets.map((b, i) => (
-                  <li key={i} className="ec-bullet">— {b}</li>
+                  <li key={i} className="ec-bullet">
+                    <span aria-hidden="true">• </span>
+                    {b}
+                  </li>
                 ))}
               </ul>
             </>

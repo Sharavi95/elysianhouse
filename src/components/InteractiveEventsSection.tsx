@@ -92,7 +92,7 @@ export function InteractiveEventsSection({
       }
     }
 
-    // After layout — scrollIntoView on the <li> was scrolling the document (page jumped to mid-section on load)
+    // After layout, scrollIntoView on the <li> was scrolling the document (page jumped to mid-section on load)
     const id = requestAnimationFrame(alignStripToItem)
     return () => cancelAnimationFrame(id)
   }, [selectedId])

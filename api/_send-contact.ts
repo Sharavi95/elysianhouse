@@ -249,7 +249,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
               : 'Unknown send error'
       const domainHint =
         /domain is not verified|verify your domain/i.test(detailMsg)
-          ? ' The sender address (CONTACT_FROM_EMAIL / CONTACT_FORM_EMAIL) must use a domain you added and verified in Resend — not @live.com, @gmail.com, etc.'
+          ? ' The sender address (CONTACT_FROM_EMAIL / CONTACT_FORM_EMAIL) must use a domain you added and verified in Resend, not @live.com, @gmail.com, etc.'
           : ''
       return res.status(500).json({
         error: 'Failed to send email',
@@ -274,7 +274,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
             : JSON.stringify(error)
       const domainHint =
         /domain is not verified|verify your domain/i.test(detailMsg)
-          ? ' The sender address (CONTACT_FROM_EMAIL / CONTACT_FORM_EMAIL) must use a domain you added and verified in Resend — not @live.com, @gmail.com, etc.'
+          ? ' The sender address (CONTACT_FROM_EMAIL / CONTACT_FORM_EMAIL) must use a domain you added and verified in Resend, not @live.com, @gmail.com, etc.'
           : ''
       return res.status(500).json({
         error: 'Failed to send email',

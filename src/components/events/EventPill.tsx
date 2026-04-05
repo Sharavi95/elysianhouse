@@ -14,7 +14,7 @@ type EventPillProps = {
   children: ReactNode
 } & HTMLAttributes<HTMLSpanElement>
 
-/** Status / state pill — shared typography, padding, radius; colors by variant. */
+/** Status / state pill: shared typography, padding, radius; colors by variant. */
 export function EventPill({ variant, children, className = '', ...rest }: EventPillProps) {
   return (
     <span className={`event-pill event-pill--${variant} ${className}`.trim()} {...rest}>

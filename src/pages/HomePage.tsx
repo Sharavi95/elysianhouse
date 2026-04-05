@@ -179,7 +179,7 @@ export function HomePage() {
               Love &amp; <em>Relationships</em>
             </h3>
             <p className="pillar-text">
-              Exploring emotional connection, boundaries and conscious partnership — the
+              Exploring emotional connection, boundaries and conscious partnership, the
               relationships that shape and reveal who we truly are.
             </p>
           </div>
@@ -214,7 +214,7 @@ export function HomePage() {
             yourself?
           </h2>
           <p>
-            Stay connected between gatherings — join our WhatsApp community for updates and
+            Stay connected between gatherings. Join our WhatsApp community for updates and
             conversation.
           </p>
         </div>
@@ -264,7 +264,7 @@ export function HomePage() {
                   Curated <em>Events</em>
                 </h3>
                 <p className="exp-card-desc">
-                  Guided conversations and community gatherings — thoughtfully designed
+                  Guided conversations and community gatherings, thoughtfully designed
                   spaces where women come together around themes that matter. Open to all.
                 </p>
                 <div className="exp-card-footer">
@@ -296,7 +296,7 @@ export function HomePage() {
                 </h3>
                 <p className="exp-card-desc">
                   Small, closed groups for deeper reflective discussions. A consistent space
-                  with the same women — building trust, continuity, and real depth over time.
+                  with the same women, building trust, continuity, and real depth over time.
                 </p>
                 <div className="exp-card-footer">
                   <Link to="/contact" className="exp-card-cta">
@@ -327,7 +327,7 @@ export function HomePage() {
                 </h3>
                 <p className="exp-card-desc">
                   Personal conversations to navigate life transitions. Private, unhurried, and
-                  tailored entirely to where you are — no agenda except yours.
+                  tailored entirely to where you are, no agenda except yours.
                 </p>
                 <div className="exp-card-footer">
                   <Link to="/contact" className="exp-card-cta">
@@ -340,7 +340,7 @@ export function HomePage() {
         </div>
       </section>
 
-      {/* ── GATHERINGS SECTION — DARK ──
+      {/* ── GATHERINGS SECTION / DARK ──
       <section className="gatherings-section">
         <div className="gatherings-header">
           <div>
@@ -392,7 +392,7 @@ export function HomePage() {
               <p className="gathering-type">1:1 Coaching</p>
               <h3 className="gathering-title">Guided Conversations</h3>
               <p className="gathering-desc">
-                Private sessions designed to help you understand yourself more deeply —
+                Private sessions designed to help you understand yourself more deeply,
                 before any strategy, goal, or plan is ever made.
               </p>
               <Link to="/contact" className="gathering-link">
@@ -464,7 +464,7 @@ export function HomePage() {
         </div>
       </div>
 
-      {/* ── TESTIMONIALS (commented out — replaced by next-gathering highlight below) ──
+      {/* ── TESTIMONIALS (commented out; replaced by next-gathering highlight below) ──
       <section className="testimonials-section">
         <div className="testimonials-header">
           <span className="section-label">What Women Say</span>
@@ -484,7 +484,7 @@ export function HomePage() {
             <div className="testimonial-body">
               <div className="testimonial-quote-mark">"</div>
               <p className="testimonial-text">
-                I came in carrying so much. I left feeling lighter — not because my
+                I came in carrying so much. I left feeling lighter, not because my
                 problems were solved, but because I finally felt seen. That changed
                 everything.
               </p>
@@ -529,7 +529,7 @@ export function HomePage() {
             <div className="testimonial-body">
               <div className="testimonial-quote-mark">"</div>
               <p className="testimonial-text">
-                The retreat day gave me something I didn't know I needed — space. Real,
+                The retreat day gave me something I didn&apos;t know I needed: space. Real,
                 unhurried space to just be myself. I returned home a different woman.
               </p>
               <div className="testimonial-author">
@@ -554,7 +554,7 @@ export function HomePage() {
             </h2>
             <div className="divider" />
             <p className="home-next-gathering-lede">
-              Chosen by date — the upcoming circle closest to today.{' '}
+              Chosen by date, the upcoming circle closest to today.{' '}
               <Link to="/services">View all gatherings</Link>
             </p>
           </div>
@@ -571,7 +571,7 @@ export function HomePage() {
         <div className="cta-banner-text">
           <h2 id="home-prefooter-cta-heading" className="section-heading">
             Questions, an idea, or a quiet{' '}
-            <em style={{ color: 'rgba(245,241,234,0.8)' }}>hello</em> — we&apos;re here.
+            <em style={{ color: 'rgba(245,241,234,0.8)' }}>hello</em>. We&apos;re here.
           </h2>
           <p>
             Reach out through our contact page for gatherings, one-to-one reflection, or

@@ -10,7 +10,7 @@ import {
 import { getEventById, getEventTitleById, getUpcomingEvents } from '../data/events'
 
 const STATIC_INTEREST_LABELS: Record<string, string> = {
-  'inner-circles-waitlist': 'Inner Circles — waitlist',
+  'inner-circles-waitlist': 'Inner Circles waitlist',
   'reflection-sessions': 'One-on-One Reflection Sessions',
   'just-exploring': 'Just exploring',
 }
@@ -316,7 +316,7 @@ export function ContactPage() {
                   {ev.title}
                 </option>
               ))}
-              <option value="inner-circles-waitlist">Inner Circles — waitlist</option>
+              <option value="inner-circles-waitlist">Inner Circles waitlist</option>
               <option value="reflection-sessions">One-on-One Reflection Sessions</option>
               <option value="just-exploring">Just exploring</option>
             </select>
@@ -402,7 +402,7 @@ export function ContactPage() {
               </a>
             </p>
             <p className="contact-info-sub">
-              Stay connected between gatherings — updates and conversation.
+              Stay connected between gatherings for updates and conversation.
             </p>
           </div>
           <div className="contact-info-item">
