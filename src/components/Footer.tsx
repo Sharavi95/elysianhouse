@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 
 const SOCIAL_LINKS = [
   {
-    href: 'https://www.instagram.com/elysianhouse/',
+    href: 'https://www.instagram.com/elysianzita/',
     label: 'Instagram',
     icon: (
       <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
