@@ -268,7 +268,7 @@ export function HomePage() {
                   spaces where women come together around themes that matter. Open to all.
                 </p>
                 <div className="exp-card-footer">
-                  <Link to="/services" className="exp-card-cta">
+                  <Link to="/services#upcoming-gatherings" className="exp-card-cta">
                     Explore upcoming events
                   </Link>
                 </div>

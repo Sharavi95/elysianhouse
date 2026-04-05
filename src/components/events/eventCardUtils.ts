@@ -75,18 +75,27 @@ export function toEventCardProps(
   ev: EventRecord,
   { forStrip = false }: { forStrip?: boolean } = {},
 ): Omit<EventCardProps, 'variant'> {
-  const images =
+  const allImageSrcs =
     ev.galleryImages.length > 0
       ? ev.galleryImages.map((g) => g.src)
       : [ev.primaryImage]
 
+  /* Upcoming: one static image per card (primary); full gallery remains in data for later */
+  const images = ev.type === 'upcoming' ? [ev.primaryImage] : allImageSrcs
+
   const status: 'open' | 'coming' | 'past' =
     ev.type === 'past' ? 'past' : ev.ticketsOpenNote ? 'coming' : 'open'
 
-  const medium = ev.descriptionMedium?.split(/\n\n+/)[0]?.trim() ?? ''
+  const mediumFull = ev.descriptionMedium?.trim() ?? ''
+  const mediumFirst = mediumFull.split(/\n\n+/)[0]?.trim() ?? ''
+  const isPastHero = ev.type === 'past' && !forStrip
+  const experiencePass = isPastHero ? ev.experienceBlock?.trim() : undefined
+
   const description = forStrip
-    ? (ev.descriptionShort?.trim() || medium)
-    : (medium || ev.descriptionShort?.trim() || '')
+    ? (ev.descriptionShort?.trim() || mediumFirst)
+    : isPastHero
+      ? mediumFull
+      : (mediumFirst || ev.descriptionShort?.trim() || '')
 
   return {
     status,
@@ -96,6 +105,7 @@ export function toEventCardProps(
     date: ev.date,
     location: ev.location ?? '',
     description,
+    experienceBlock: experiencePass,
     bullets: ev.exploreBullets,
     price: ev.ticketPrice,
     registerUrl: ev.registrationUrl,

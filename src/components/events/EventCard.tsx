@@ -10,6 +10,8 @@ export type EventCardProps = {
   date: string
   location: string
   description: string
+  /** Past gatherings: second narrative under “The experience” */
+  experienceBlock?: string
   bullets?: string[]     // hero only
   facilitator?: string   // hero only
   price?: string
@@ -61,20 +63,24 @@ type ImagePaneProps = {
 
 function ImagePane({ images, variant, status, active, className }: ImagePaneProps) {
   const pillLabel = status === 'open' ? 'Open' : status === 'coming' ? 'Coming Soon' : 'Past'
+  const singleSlide = images.length <= 1
 
   return (
     <div className={`ec-image-pane ec-image-pane--${variant} ${className || ''}`}>
       <span className={`ec-pill ec-pill--${status}`}>{pillLabel}</span>
       <div className={`ec-slides ec-slides--${variant}`}>
-        {images.map((src, i) => (
-          <img
-            key={i}
-            src={src}
-            alt=""
-            aria-hidden
-            className={`ec-slide${i === active ? ' ec-slide--active' : ''}`}
-          />
-        ))}
+        {images.map((src, i) => {
+          const slideActive = singleSlide ? i === 0 : i === active
+          return (
+            <img
+              key={i}
+              src={src}
+              alt=""
+              aria-hidden
+              className={`ec-slide${slideActive ? ' ec-slide--active' : ''}`}
+            />
+          )
+        })}
       </div>
     </div>
   )
@@ -152,6 +158,7 @@ export function EventCard(props: EventCardProps) {
     date,
     location,
     description,
+    experienceBlock,
     bullets,
     facilitator,
     price,
@@ -189,7 +196,22 @@ export function EventCard(props: EventCardProps) {
             dangerouslySetInnerHTML={{ __html: title }}
           />
 
-          <p className="ec-desc">{description}</p>
+          {experienceBlock ? (
+            <>
+              <p className="ec-section-label">The Gathering</p>
+              <p className="ec-desc ec-desc--past-gathering">
+                {description
+                  .split(/\n\n+/)
+                  .map((p) => p.trim())
+                  .filter(Boolean)
+                  .join(' ')}
+              </p>
+              <p className="ec-section-label">The experience</p>
+              <p className="ec-desc ec-desc--past-experience">{experienceBlock}</p>
+            </>
+          ) : (
+            <p className="ec-desc">{description}</p>
+          )}
 
           {bullets && bullets.length > 0 && (
             <>

@@ -103,9 +103,9 @@ export function ServicesPage() {
                 Guided conversations and community gatherings — thoughtfully designed
                 spaces where women come together around themes that matter. Open to all.
               </p>
-              <Link to="/services" className="exp-card-cta">
+              <a href="#upcoming-gatherings" className="exp-card-cta">
                 Explore upcoming events
-              </Link>
+              </a>
             </div>
           </div>
 
@@ -132,7 +132,9 @@ export function ServicesPage() {
                 Small, closed groups for deeper reflective discussions. A consistent space
                 with the same women — building trust, continuity, and real depth over time.
               </p>
-              <span className="exp-card-cta">Join the waitlist</span>
+              <Link to="/contact" className="exp-card-cta">
+                Join the waitlist
+              </Link>
             </div>
           </div>
 
@@ -159,14 +161,16 @@ export function ServicesPage() {
                 Personal conversations to navigate life transitions. Private, unhurried, and
                 tailored entirely to where you are — no agenda except yours.
               </p>
-              <span className="exp-card-cta">Express interest</span>
+              <Link to="/contact" className="exp-card-cta">
+                Express interest
+              </Link>
             </div>
           </div>
         </div>
       </section>
 
       {upcomingEventsData.length > 0 && selectedUpcoming && (
-        <section className="upcoming-section events-interactive">
+        <section id="upcoming-gatherings" className="upcoming-section events-interactive">
           <div className="upcoming-header">
             <div>
               <span className="section-label">What's Coming</span>

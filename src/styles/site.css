@@ -427,6 +427,14 @@ dt {
   }
 }
 
+/* Portrait tablets (e.g. iPad Pro): 100svh is excessive; cap so copy + image stay balanced */
+@media (min-width: 768px) and (max-width: 1366px) and (orientation: portrait) {
+  .hero {
+    height: 100svh;
+    max-height: min(76svh, 820px);
+  }
+}
+
 .hero-left {
   display: flex;
   flex-direction: column;
@@ -1624,8 +1632,9 @@ footer {
   max-height: 520px;
   overflow: hidden;
   background: transparent;
-  border-radius: 12px;
-  box-shadow: none;
+  border-radius: 6px;
+  border-right: 0.5px solid rgba(184, 164, 122, 1);
+  box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.10);
 }
 
 .about-video-wrap video {
@@ -2545,6 +2554,10 @@ footer {
   padding: var(--space-section-y-tight) var(--space-section-x);
   background: var(--bg-muted-sand);
   border-top: 1px solid rgba(184, 164, 122, 0.22);
+}
+
+#upcoming-gatherings {
+  scroll-margin-top: 96px;
 }
 
 .upcoming-header {
@@ -3506,7 +3519,7 @@ footer {
     width: min(100%, 400px);
     max-width: 400px;
     max-height: 480px;
-    border-radius: 12px;
+    border-radius: 6px;
   }
 
   .about-visual {
@@ -3985,7 +3998,7 @@ footer {
     margin-inline: 0;
     max-height: min(58vh, 420px);
     aspect-ratio: 3 / 4;
-    border-radius: 10px;
+    border-radius: 6px;
   }
 
   .about-quote-chip {
