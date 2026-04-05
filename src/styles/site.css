@@ -1,6 +1,6 @@
 /*
  * Breakpoints (shared across site.css + event-card.css):
- * - xl: >= 1280 — large desktop; content max ~1200px via fluid horizontal padding
+ * - xl: >= 1280 — large desktop; content max ~1360px via fluid horizontal padding
  * - lg: 1025px–1279 — laptop / small desktop
  * - md: 769px–1024 — tablet landscape (inherits “tablet” spacing from max-width:1279 block where noted)
  * - sm: 481px–768 — tablet portrait / large phone
@@ -44,6 +44,8 @@
   --surface-card: var(--bg-warm-ivory);
 
   /* Section rhythm ≈ Tailwind py-24 / py-16 / py-10 (desktop / tablet / mobile overrides below) */
+  /* Centered content width at xl; nav/sections share this for aligned gutters */
+  --layout-max-width: 1360px;
   --space-section-x: 60px;
   --space-section-y: 96px;
   --space-section-y-tight: 80px;
@@ -76,7 +78,7 @@
 
 @media (min-width: 1280px) {
   :root {
-    --space-section-x: max(60px, calc((100vw - 1200px) / 2));
+    --space-section-x: max(60px, calc((100vw - var(--layout-max-width)) / 2));
   }
 }
 
@@ -845,7 +847,7 @@ dt {
 .home-next-gathering-highlight .home-next-gathering-hero-slot {
   margin-top: clamp(12px, 2.5vw, 28px);
   width: 100%;
-  max-width: min(1200px, 100%);
+  max-width: min(var(--layout-max-width), 100%);
   margin-inline: auto;
 }
 

@@ -15,7 +15,7 @@
   height: var(--ec-hero-h);
   min-height: var(--ec-hero-h);
   max-height: var(--ec-hero-h);
-  max-width: clamp(100%, 90vw, 1200px);
+  max-width: clamp(100%, 90vw, var(--layout-max-width, 1360px));
   margin-inline: auto;
   border-radius: 2px;
   overflow: hidden;
