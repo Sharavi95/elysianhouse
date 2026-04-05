@@ -2292,6 +2292,12 @@ footer {
 .page-gatherings .services-hero:not(.event-detail-hero),
 .contact-page-hero.services-hero {
   min-height: min(600px, 92svh);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  /* Symmetric vertical padding so flex centering matches the visual middle of the band */
+  padding-block: clamp(120px, 14vw, 160px);
+  padding-inline: var(--space-section-x);
 }
 
 .services-hero-bg {
@@ -4157,6 +4163,11 @@ footer {
   .page-gatherings .services-hero:not(.event-detail-hero),
   .contact-page-hero.services-hero {
     min-height: min(400px, 58svh);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-block: calc(var(--space-hero-top) + var(--space-section-y-tight));
+    padding-inline: var(--space-section-x);
   }
 
   .services-list,
