@@ -6,8 +6,7 @@ import { CALENDLY_INTRO_CALL_URL } from '../constants/contact'
 import { WHATSAPP_COMMUNITY_URL } from '../constants/social'
 import { getNextUpcomingEvent } from '../data/events'
 
-const ABOUT_PURPOSE_VIDEO_SRC =
-  '/videos/' + encodeURIComponent('WhatsApp Video 2026-03-30 at 22.09.15.mp4')
+const ABOUT_PURPOSE_VIDEO_SRC = '/videos/elysian_house_intro.MP4'
 
 export function HomePage() {
   const nextGathering = getNextUpcomingEvent()
@@ -39,14 +38,6 @@ export function HomePage() {
             <Link to="/services" className="btn-ghost">
               Our Offerings
             </Link>
-            <a
-              href={CALENDLY_INTRO_CALL_URL}
-              className="btn-ghost"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Book a 30-minute conversation
-            </a>
           </div>
         </div>
         <div className="hero-right">
@@ -583,13 +574,18 @@ export function HomePage() {
             <em style={{ color: 'rgba(245,241,234,0.8)' }}>hello</em>. We&apos;re here.
           </h2>
           <p>
-            Reach out through our contact page for gatherings, one-to-one reflection, or
-            anything you&apos;d like to explore together.
+            Book a short introductory call, or reach out through our contact page for
+            gatherings, one-to-one reflection, or anything you&apos;d like to explore together.
           </p>
         </div>
-        <Link to="/contact" className="btn-white">
-          Contact us
-        </Link>
+        <a
+          href={CALENDLY_INTRO_CALL_URL}
+          className="btn-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Book a 30-minute call
+        </a>
       </section>
 
       <Footer />

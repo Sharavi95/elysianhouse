@@ -48,12 +48,12 @@ export function ServicesPage() {
 
   return (
     <div className="page-gatherings">
-      {/* ── HERO / main light surface (scoped in CSS; Contact keeps dark hero) ── */}
+      {/* ── HERO: styled with Gatherings list hero + Contact via shared site.css selectors ── */}
       <section className="services-hero">
         <div className="services-hero-bg">
           <img
-            src="/images/elysian/elysian-focus-laptop-creative-space-7883.webp"
-            alt="Intentional focus in a calm, creative space"
+            src="/images/elysian/elysian-deep-work-laptop-rug-space-7888.webp"
+            alt="Quiet deep work and reflection in a warm, unhurried space"
           />
         </div>
         <div className="services-hero-content">

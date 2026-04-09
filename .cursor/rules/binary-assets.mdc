@@ -1,0 +1,11 @@
+---
+description: Keep committed video and large binaries small enough to push to git hosts
+globs: public/**/*.{mp4,webm,mov,MP4}
+alwaysApply: false
+---
+
+# Binary media in `public/`
+
+- **Git hosts** (e.g. GitHub) **block** pushes of files **over 100MB** and warn over **50MB**. Do not commit uncompressed 4K or mezzanine exports as the primary asset.
+- **Before committing** hero or intro videos under `public/videos/`, ensure they are **web-appropriate**: H.264 in MP4, **`yuv420p`**, **`+faststart`** (moov at beginning), AAC ~128k, and resolution capped (e.g. **1080×1920** for 9:16), unless the project explicitly uses **Git LFS** or external hosting.
+- **Typical re-encode** (adjust paths): scale to height 1920 for portrait 9:16, CRF ~26, medium preset — expect **~10–25MB/min** for talking-head/clean footage; re-check size with `(Get-Item file).Length` before push.

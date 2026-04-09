@@ -427,6 +427,20 @@ dt {
   .hero-ornament {
     margin-bottom: 14px;
   }
+
+  .hero-actions {
+    align-items: stretch;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .hero-actions .btn-primary,
+  .hero-actions .btn-ghost {
+    flex: 1 1 0;
+    min-width: 0;
+    text-align: center;
+    box-sizing: border-box;
+  }
 }
 
 /* Portrait tablets (e.g. iPad Pro): 100svh is excessive; cap so copy + image stay balanced */
@@ -1632,7 +1646,7 @@ footer {
   padding: 0;
   height: auto;
   aspect-ratio: 3 / 4;
-  max-height: 520px;
+  max-height: 540px;
   overflow: hidden;
   background: transparent;
   border-radius: 6px;
@@ -2291,10 +2305,18 @@ footer {
   background: var(--ink);
 }
 
-/* Gatherings list + Contact — same hero band height when switching routes (event detail excluded) */
+/* Gatherings list + Contact — identical hero band (height, surface, padding) when switching routes */
 .page-gatherings .services-hero:not(.event-detail-hero),
 .contact-page-hero.services-hero {
-  min-height: min(600px, 92svh);
+  /* Shared hero photo focal point when switching between /services and /contact */
+  --services-hero-shared-image-position: 60% 42%;
+  /* Fixed band height so /services and /contact match (min-height alone grows with copy) */
+  --services-hero-band-height: min(600px, 92svh);
+  background: #1c1a18;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  height: var(--services-hero-band-height);
+  min-height: var(--services-hero-band-height);
+  max-height: var(--services-hero-band-height);
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -2338,57 +2360,24 @@ footer {
   margin-top: 8px;
 }
 
-/* Contact — same laptop / rugs asset as Gatherings; crop further right than /services */
-.contact-page-hero .services-hero-bg {
-  overflow: hidden;
-}
-
-.contact-page-hero .services-hero-bg::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  z-index: 1;
-  pointer-events: none;
-  background: linear-gradient(
-    105deg,
-    rgba(24, 20, 18, 0.88) 0%,
-    rgba(32, 26, 22, 0.74) 22%,
-    rgba(40, 32, 28, 0.42) 48%,
-    rgba(12, 10, 9, 0.58) 100%
-  );
-}
-
-.contact-page-hero .services-hero-bg img {
-  opacity: 0.55;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  object-fit: cover;
-  object-position: center bottom;
-}
-
 /*
  * Gatherings (/services) — section rhythm:
  * Hero + Offerings: Warm Ivory → Upcoming: Muted Sand (panel) → Past: Warm Ivory → CTA: Dusty Rose → Footer: Warm Ivory
- * (Contact route keeps the dark .services-hero above.)
+ * (List hero uses the shared dark band above; Contact matches that hero via paired selectors.)
  */
 .page-gatherings .services-hero {
   background: var(--bg-warm-ivory);
   border-bottom: 1px solid rgba(184, 164, 122, 0.22);
 }
 
-.page-gatherings .services-hero:not(.event-detail-hero) {
-  background: #1c1a18;
-  border-bottom-color: rgba(0, 0, 0, 0.2);
-}
-
-/* Gatherings list hero only — event detail uses its own treatment */
-.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg {
+/* List hero + Contact hero — same scrim, image crop, and copy treatment (event detail excluded) */
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg,
+.contact-page-hero.services-hero .services-hero-bg {
   overflow: hidden;
 }
 
-/* Warm dark scrim (no white wash); eases off toward the right so the photo reads */
-.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg::after {
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg::after,
+.contact-page-hero.services-hero .services-hero-bg::after {
   content: "";
   position: absolute;
   inset: 0;
@@ -2403,30 +2392,39 @@ footer {
   );
 }
 
-/* Crop shifted right: founder moves off the text column; rugs / table fill the left */
-.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg img {
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-bg img,
+.contact-page-hero.services-hero .services-hero-bg img {
   opacity: 0.55;
-  object-position: 60% 42%;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: var(--services-hero-shared-image-position);
 }
 
-.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-label {
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-label,
+.contact-page-hero.services-hero .services-hero-content .section-label {
   color: rgba(212, 190, 152, 0.92);
 }
 
-.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-heading {
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-heading,
+.contact-page-hero.services-hero .services-hero-content .section-heading {
   color: var(--ivory);
   text-shadow: 0 2px 28px rgba(0, 0, 0, 0.35);
 }
 
-.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-heading em {
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .section-heading em,
+.contact-page-hero.services-hero .services-hero-content .section-heading em {
   color: #e5aeb4;
 }
 
-.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content p {
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content p,
+.contact-page-hero.services-hero .services-hero-content p {
   color: rgba(245, 241, 234, 0.78);
 }
 
-.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .divider {
+.page-gatherings .services-hero:not(.event-detail-hero) .services-hero-content .divider,
+.contact-page-hero.services-hero .services-hero-content .divider {
   background: rgba(184, 164, 122, 0.75);
 }
 
@@ -3527,7 +3525,7 @@ footer {
   .about-section:has(.about-video-wrap) .about-video-wrap {
     width: min(100%, 400px);
     max-width: 400px;
-    max-height: 480px;
+    max-height: 500px;
     border-radius: 6px;
   }
 
@@ -3640,7 +3638,10 @@ footer {
 
   .page-gatherings .services-hero:not(.event-detail-hero),
   .contact-page-hero.services-hero {
-    min-height: min(500px, 78svh);
+    --services-hero-band-height: min(500px, 78svh);
+    height: var(--services-hero-band-height);
+    min-height: var(--services-hero-band-height);
+    max-height: var(--services-hero-band-height);
   }
 
   .services-list,
@@ -4005,7 +4006,7 @@ footer {
     width: 100%;
     max-width: none;
     margin-inline: 0;
-    max-height: min(58vh, 420px);
+    max-height: min(58vh, 440px);
     aspect-ratio: 3 / 4;
     border-radius: 6px;
   }
@@ -4165,7 +4166,10 @@ footer {
 
   .page-gatherings .services-hero:not(.event-detail-hero),
   .contact-page-hero.services-hero {
-    min-height: min(400px, 58svh);
+    --services-hero-band-height: min(400px, 58svh);
+    height: var(--services-hero-band-height);
+    min-height: var(--services-hero-band-height);
+    max-height: var(--services-hero-band-height);
     display: flex;
     flex-direction: column;
     justify-content: center;
