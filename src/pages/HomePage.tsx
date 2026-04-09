@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { Link } from 'react-router-dom'
 import { Footer } from '../components/Footer'
 import { EventCard, toEventCardProps } from '../components/events'
+import { CALENDLY_INTRO_CALL_URL } from '../constants/contact'
 import { WHATSAPP_COMMUNITY_URL } from '../constants/social'
 import { getNextUpcomingEvent } from '../data/events'
 
@@ -38,6 +39,14 @@ export function HomePage() {
             <Link to="/services" className="btn-ghost">
               Our Offerings
             </Link>
+            <a
+              href={CALENDLY_INTRO_CALL_URL}
+              className="btn-ghost"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Book a 30-minute conversation
+            </a>
           </div>
         </div>
         <div className="hero-right">

@@ -499,6 +499,7 @@ dt {
 
 .hero-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 20px;
   align-items: center;
   opacity: 0;

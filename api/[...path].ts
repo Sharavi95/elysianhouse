@@ -4,7 +4,11 @@
  */
 import type { VercelRequest, VercelResponse } from '@vercel/node'
 
-type ApiHandler = (req: VercelRequest, res: VercelResponse) => void | Promise<void>
+/** Matches @vercel/node handlers that return after chaining on `res` (e.g. `return res.status(200).json(...)`). */
+type ApiHandler = (
+  req: VercelRequest,
+  res: VercelResponse,
+) => void | VercelResponse | Promise<void | VercelResponse>
 type ApiHandlerLoader = () => Promise<{ default: ApiHandler }>
 
 const routes: Record<string, ApiHandlerLoader> = {
