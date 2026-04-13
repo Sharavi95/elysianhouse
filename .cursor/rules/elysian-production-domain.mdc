@@ -1,0 +1,16 @@
+---
+description: Production domain for Elysian House is only elysianhouseglobal.com in server/CORS config
+globs: api/**/*.ts
+alwaysApply: false
+---
+
+# Elysian House production domain
+
+The live site uses **only** `elysianhouseglobal.com` (apex and `www`).
+
+When editing **`api/_send-contact.ts`** (or any API that validates **CORS** / allowed origins):
+
+- Include `https://elysianhouseglobal.com` and `https://www.elysianhouseglobal.com` for production.
+- Do **not** add or reintroduce `elysianhouse.com` or `www.elysianhouse.com` — that hostname is not in use.
+
+Keep localhost and Vercel preview origins as needed for development.

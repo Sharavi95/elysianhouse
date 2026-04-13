@@ -152,8 +152,6 @@ function getCorsHeaders(origin: string | null) {
   const allowedOrigins = [
     'http://localhost:5173',
     'http://localhost:3000',
-    'https://www.elysianhouse.com',
-    'https://elysianhouse.com',
     'https://www.elysianhouseglobal.com',
     'https://elysianhouseglobal.com',
     process.env.VERCEL_URL ? `https://${process.env.VERCEL_URL}` : null,
