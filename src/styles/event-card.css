@@ -137,6 +137,11 @@
   opacity: 1;
 }
 
+/* Inner-circle photography: center-weighted crop (hero slides default to center top) */
+.ec-slide[src*='elysian-community-event-inner-circle'] {
+  object-position: center;
+}
+
 /* ── Status pill ──────────────────────────────────────────── */
 
 .ec-pill {

@@ -23,7 +23,7 @@
       "badgeVariant": "default",
       "eventTypeTag": "Gathering",
       "timeRange": "Afternoon",
-      "location": "Dubai (venue to be announced)",
+      "location": "Novotel World Trade Center",
       "ticketPrice": "AED 120",
       "capacity": "Limited seats",
       "spotsLine": "Limited seats",
@@ -50,9 +50,9 @@
       "descriptionShort": "A one-day container to help you return home to your own knowing and begin making choices from that place.",
       "descriptionMedium": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them.\n\nRegistration and full details will open on 6 May 2026.",
       "descriptionFull": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them. We make space for honesty about what you need, what you are no longer available for, and how you want to move through the world.\n\nDetails and registration will open on 6 May 2026.",
-      "primaryImage": "/images/elysian/elysian-panel-discussion-resilience-prompt-0686.webp",
+      "primaryImage": "/images/elysian/elysian-community-event-inner-circle.jpeg",
       "galleryImages": [
-        { "src": "/images/elysian/elysian-founder-speaker-transform-thrive-screen-0680.webp", "alt": "Speaker presenting on stage" },
+        { "src": "/images/elysian/elysian-community-event-inner-circle.jpeg", "alt": "Women in an intimate circle discussion at an Elysian House community event" },
         { "src": "/images/elysian/elysian-founder-speaker-transform-thrive-podium-0705.webp", "alt": "Welcome and framing for the room" },
         { "src": "/images/elysian/elysian-event-transform-thrive-group-step-repeat-0571.webp", "alt": "Women together at Transform and Thrive" }
       ],

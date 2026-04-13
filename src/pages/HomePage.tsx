@@ -437,8 +437,8 @@ export function HomePage() {
         </div>
         <div className="photo-strip-item">
           <img
-            src="/images/elysian/elysian-community-event-group-selfie-0565.webp"
-            alt="Women celebrating together at a gathering"
+            src="/images/elysian/elysian-community-event-inner-circle.jpeg"
+            alt="Women in an intimate circle discussion at an Elysian House community event"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"A room full of presence."</p>
@@ -570,13 +570,15 @@ export function HomePage() {
       >
         <div className="cta-banner-text">
           <h2 id="home-prefooter-cta-heading" className="section-heading">
-            Questions, an idea, or a quiet{' '}
-            <em style={{ color: 'rgba(245,241,234,0.8)' }}>hello</em>. We&apos;re here.
+            Something is pulling you toward Elysian House.{' '}
+            <em style={{ color: 'rgba(245,241,234,0.8)' }}>Start here.</em>
           </h2>
           <p>
-            Book a short introductory call, or reach out through our contact page for
-            gatherings, one-to-one reflection, or anything you&apos;d like to explore together.
+            The Coming Home Call is a free 30-minute conversation with Zita. No agenda, no
+            pressure. Just an honest space to get clear on where you are and what you actually
+            need right now.
           </p>
+          <p>Come as you are. Leave with clarity.</p>
         </div>
         <a
           href={CALENDLY_INTRO_CALL_URL}
@@ -584,7 +586,7 @@ export function HomePage() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Book a 30-minute call
+          Book your call
         </a>
       </section>
 
