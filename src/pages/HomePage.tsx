@@ -460,8 +460,8 @@ export function HomePage() {
         </div>
         <div className="photo-strip-item">
           <img
-            src="/images/elysian/elysian-event-transform-thrive-group-step-repeat-0571.webp"
-            alt="Group of women at a Transform and Thrive celebration"
+            src="/images/elysian/elysian-founder-speaker-transform-thrive-podium-0705.webp"
+            alt="Speaker welcoming the room at Transform and Thrive"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"Nothing to prove here."</p>
