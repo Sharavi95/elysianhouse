@@ -433,6 +433,15 @@ export function HomePage() {
       <div className="photo-strip">
         <div className="photo-strip-item">
           <img
+            src="/images/elysian/elysian-becoming-her-gathering-5030.webp"
+            alt="Women gathered at the Becoming Her event in Dubai"
+          />
+          <div className="photo-strip-item-overlay">
+            <p className="photo-strip-caption">"A room full of presence."</p>
+          </div>
+        </div>
+        <div className="photo-strip-item">
+          <img
             src="/images/elysian/elysian-event-transform-thrive-attendee-seated-0527.webp"
             alt="Guest seated at an Elysian House event"
           />
@@ -446,22 +455,13 @@ export function HomePage() {
             alt="Women in an intimate circle discussion at an Elysian House community event"
           />
           <div className="photo-strip-item-overlay">
-            <p className="photo-strip-caption">"A room full of presence."</p>
+            <p className="photo-strip-caption">"She arrived. She stayed."</p>
           </div>
         </div>
         <div className="photo-strip-item">
           <img
             src="/images/elysian/elysian-event-transform-thrive-group-step-repeat-0571.webp"
             alt="Group of women at a Transform and Thrive celebration"
-          />
-          <div className="photo-strip-item-overlay">
-            <p className="photo-strip-caption">"She arrived. She stayed."</p>
-          </div>
-        </div>
-        <div className="photo-strip-item">
-          <img
-            src="/images/elysian/elysian-founder-speaker-transform-thrive-podium-0705.webp"
-            alt="Speaker welcoming the room at Transform and Thrive"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"Nothing to prove here."</p>
