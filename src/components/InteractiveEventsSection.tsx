@@ -203,13 +203,6 @@ export function InteractiveEventsSection({
       <p className="event-cardsys-avail-text">{selected.attendeeLine}</p>
     ) : null
 
-  const detailPath = `/gatherings/${encodeURIComponent(selected.id)}`
-  const readDetailsBtn = (
-    <Link to={detailPath} className="event-cardsys-btn event-cardsys-btn--ghost">
-      Read full details
-    </Link>
-  )
-
   const heroRegisterBtn =
     variant === 'upcoming' && !selected.ticketsOpenNote ? (
       selected.registrationUrl ? (
@@ -249,9 +242,7 @@ export function InteractiveEventsSection({
         {heroRegisterBtn}
         {heroPayBtn}
       </div>
-    ) : (
-      <div className="event-cardsys-primary-actions">{readDetailsBtn}</div>
-    )
+    ) : null
 
   const heroSecondaryActions = null
 

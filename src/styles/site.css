@@ -2444,7 +2444,7 @@ footer {
   background: var(--gold);
 }
 
-/* ─── Event detail (/gatherings/:id) ─── */
+/* ─── Gatherings page variants (no per-event detail route; hero holds story + CTAs) ─── */
 .event-detail-page .event-detail-hero .services-hero-bg img {
   opacity: 0.22;
 }

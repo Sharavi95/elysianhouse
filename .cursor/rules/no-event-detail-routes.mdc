@@ -1,0 +1,15 @@
+---
+description: Gatherings use Services page only; no per-event URL routes
+globs: src/App.tsx
+alwaysApply: false
+---
+
+# No `/gatherings/:eventId` routes
+
+Event narratives and CTAs live on **`/services`** via **`InteractiveEventsSection`** (hero + film strip). There are **no** standalone event detail pages.
+
+When editing **`src/App.tsx`**:
+
+- Do **not** add `<Route path="/gatherings/:eventId" …>` or a dedicated event detail component.
+- **`src/pages/EventDetailPage.tsx`** was removed intentionally.
+- Contact flows may still use **`/contact?eventId=…`** for context (`ContactPage`).
