@@ -48,8 +48,8 @@
       "subtitle": "Boundaries, self-trust, and living a life that is true to you",
       "date": "Saturday, 21 June 2026",
       "descriptionShort": "A one-day container to help you return home to your own knowing and begin making choices from that place.",
-      "descriptionMedium": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them.\n\nRegistration and full details will open on 6 May 2026.",
-      "descriptionFull": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them. We make space for honesty about what you need, what you are no longer available for, and how you want to move through the world.\n\nDetails and registration will open on 6 May 2026.",
+      "descriptionMedium": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them.",
+      "descriptionFull": "A gathering for women ready to honour their boundaries, deepen self-trust, and live more fully in alignment with what is true for them. We make space for honesty about what you need, what you are no longer available for, and how you want to move through the world.",
       "primaryImage": "/images/elysian/elysian-community-event-inner-circle.jpeg",
       "galleryImages": [
         { "src": "/images/elysian/elysian-community-event-inner-circle.jpeg", "alt": "Women in an intimate circle discussion at an Elysian House community event" },
@@ -59,13 +59,14 @@
       "dateDay": "21",
       "dateMonth": "June",
       "dateYear": "2026",
-      "badge": "Coming soon",
-      "badgeVariant": "coming-soon",
+      "badge": "Spaces open",
+      "badgeVariant": "default",
       "eventTypeTag": "Gathering",
       "location": "Dubai, UAE",
       "ticketPrice": "AED 150",
       "capacity": "30–50 women",
-      "ticketsOpenNote": "Tickets open 6 May 2026"
+      "spotsLine": "30–50 women",
+      "paymentUrl": "https://pay.ziina.com/Elysianhouseeve/yNtDHrbiv"
     },
     {
       "id": "healing-woman-within-aug-2026",
