@@ -3,3 +3,7 @@ export const SITE_CONTACT_EMAIL = 'Zitadeine@gmail.com'
 
 /** 30-minute introductory call (Calendly). */
 export const CALENDLY_INTRO_CALL_URL = 'https://calendly.com/zitadeine/30min'
+
+/** Inner Circle / waitlist (Google Form). */
+export const INNER_CIRCLE_WAITLIST_URL =
+  'https://docs.google.com/forms/d/e/1FAIpQLSc8FYQ1IOtAFjLbfRlniqL4ofsddGeDf0fecsoAdcFHXr1siw/viewform?usp=dialog'

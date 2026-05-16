@@ -2,6 +2,7 @@ import { Link } from 'react-router-dom'
 import { useRef, useCallback, useState } from 'react'
 import { Footer } from '../components/Footer'
 import { EventCard, EventCardScrollRow, toEventCardProps } from '../components/events'
+import { INNER_CIRCLE_WAITLIST_URL } from '../constants/contact'
 import { getPastEvents, getUpcomingEvents } from '../data/events'
 
 export function ServicesPage() {
@@ -109,9 +110,9 @@ export function ServicesPage() {
             </div>
           </div>
 
-          <div className="exp-card coming-soon fade-in">
-            <span className="exp-card-status exp-card-status--soon" aria-label="Coming soon">
-              Coming soon
+          <div className="exp-card available fade-in">
+            <span className="exp-card-status exp-card-status--open" aria-label="Open">
+              Open
             </span>
             <div className="exp-card-img">
               <img
@@ -132,9 +133,14 @@ export function ServicesPage() {
                 Small, closed groups for deeper reflective discussions. A consistent space
                 with the same women, building trust, continuity, and real depth over time.
               </p>
-              <Link to="/contact" className="exp-card-cta">
+              <a
+                href={INNER_CIRCLE_WAITLIST_URL}
+                className="exp-card-cta"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Join the waitlist
-              </Link>
+              </a>
             </div>
           </div>
 
