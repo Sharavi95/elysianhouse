@@ -1,49 +1,9 @@
 {
   "upcoming": [
     {
-      "id": "becoming-her-april-2026",
-      "type": "upcoming",
-      "featured": true,
-      "title": "Becoming Her",
-      "subtitle": "The Woman You're Meant to Be",
-      "date": "Saturday, 25 April 2026",
-      "descriptionShort": "After seasons of survival and healing, many women reach a moment of reflection: Who am I becoming now? This gathering is a space to pause, reflect, and reconnect with yourself.",
-      "descriptionMedium": "After seasons of survival and healing, many women arrive at a powerful moment of reflection: Who am I becoming now?\n\nBecoming Her is an invitation to pause, reflect, and reconnect with the woman emerging within you. Through honest conversations, shared experiences, and guided reflection, we will explore identity, courage, and the journey of becoming.",
-      "descriptionFull": "After seasons of survival and healing, many women arrive at a powerful moment of reflection: Who am I becoming now?\n\nBecoming Her is an invitation to pause, reflect, and reconnect with the woman emerging within you. Through honest conversations, shared experiences, and guided reflection, we will explore identity, courage, and the journey of becoming.\n\nThis gathering creates a space for women to transform past pain into personal power and begin stepping more confidently into the next chapter of their lives.",
-      "primaryImage": "/images/elysian/elysian-founder-keynote-elysian-house-slide-0517.webp",
-      "galleryImages": [
-        { "src": "/images/elysian/elysian-founder-keynote-roadmap-stage-0533.webp", "alt": "Facilitator on stage with a roadmap presentation" },
-        { "src": "/images/elysian/elysian-founder-keynote-audience-0536.webp", "alt": "Guests engaged during a gathering" },
-        { "src": "/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp", "alt": "Quiet moment of reflection" }
-      ],
-      "dateDay": "25",
-      "dateMonth": "April",
-      "dateYear": "2026",
-      "badge": "Spaces open",
-      "badgeVariant": "default",
-      "eventTypeTag": "Gathering",
-      "timeRange": "Afternoon",
-      "location": "Novotel World Trade Center",
-      "ticketPrice": "AED 120",
-      "capacity": "Limited seats",
-      "spotsLine": "Limited seats",
-      "ctaLabel": "Reserve your space",
-      "registrationUrl": "https://docs.google.com/forms/d/1pexDypt52VIAmDsnmaJPY-_fBIwOkaY6CBrpY94KVNg/viewform",
-      "paymentUrl": "https://pay.ziina.com/Elysianhouseeve/Fwk0uwF7Ez",
-      "communityUrl": "https://chat.whatsapp.com/ErrFgOSI5YP4rvySaLWHQE",
-      "exploreSectionTitle": "What you'll receive",
-      "exploreBullets": [
-        "Understanding emotional wounds and how they shape identity",
-        "Breaking generational patterns and societal expectations",
-        "Self-forgiveness and releasing the past",
-        "Rebuilding inner confidence and self-trust",
-        "Stepping into the woman you are becoming"
-      ],
-      "closingNote": "Come as you are. Leave with clarity, connection, and renewed confidence in the woman you are becoming."
-    },
-    {
       "id": "courage-choose-june-2026",
       "type": "upcoming",
+      "featured": true,
       "title": "The Courage to Choose Yourself",
       "subtitle": "Boundaries, self-trust, and living a life that is true to you",
       "date": "Saturday, 21 June 2026",
@@ -123,9 +83,43 @@
   ],
   "past": [
     {
-      "id": "transform-thrive-past",
+      "id": "becoming-her-april-2026",
       "type": "past",
       "featured": true,
+      "title": "Becoming Her",
+      "subtitle": "The Woman You're Meant to Be",
+      "date": "Saturday, 25 April 2026",
+      "descriptionShort": "After seasons of survival and healing, many women reach a moment of reflection: Who am I becoming now? This gathering is a space to pause, reflect, and reconnect with yourself.",
+      "descriptionMedium": "After seasons of survival and healing, many women arrive at a powerful moment of reflection: Who am I becoming now?\n\nBecoming Her was an invitation to pause, reflect, and reconnect with the woman emerging within you. Through honest conversations, shared experiences, and guided reflection, we explored identity, courage, and the journey of becoming.",
+      "descriptionFull": "After seasons of survival and healing, many women arrive at a powerful moment of reflection: Who am I becoming now?\n\nBecoming Her was an invitation to pause, reflect, and reconnect with the woman emerging within you. Through honest conversations, shared experiences, and guided reflection, we explored identity, courage, and the journey of becoming.\n\nThis gathering created a space for women to transform past pain into personal power and begin stepping more confidently into the next chapter of their lives.",
+      "experienceBlock": "Women showed up with honesty about survival, healing, and identity—and left with sharper clarity on who they are becoming, strengthened self-trust, and connection with others walking the same path.",
+      "primaryImage": "/images/elysian/elysian-founder-keynote-elysian-house-slide-0517.webp",
+      "galleryImages": [
+        { "src": "/images/elysian/elysian-founder-keynote-roadmap-stage-0533.webp", "alt": "Facilitator on stage with a roadmap presentation" },
+        { "src": "/images/elysian/elysian-founder-keynote-audience-0536.webp", "alt": "Guests engaged during a gathering" },
+        { "src": "/images/elysian/elysian-portrait-navy-dress-sofa-7802.webp", "alt": "Quiet moment of reflection" }
+      ],
+      "dateDay": "25",
+      "dateMonth": "April",
+      "dateYear": "2026",
+      "eventTypeTag": "Gathering",
+      "timeRange": "Afternoon",
+      "location": "Novotel World Trade Center",
+      "exploreSectionTitle": "What participants explored",
+      "exploreBullets": [
+        "Understanding emotional wounds and how they shape identity",
+        "Breaking generational patterns and societal expectations",
+        "Self-forgiveness and releasing the past",
+        "Rebuilding inner confidence and self-trust",
+        "Stepping into the woman you are becoming"
+      ],
+      "closingNote": "Come as you are. Leave with clarity, connection, and renewed confidence in the woman you are becoming.",
+      "pastStatusLabel": "Status: Completed"
+    },
+    {
+      "id": "transform-thrive-past",
+      "type": "past",
+      "featured": false,
       "title": "Transform and Thrive",
       "subtitle": "From Survival to Thriving",
       "date": "Past gathering",
