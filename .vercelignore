@@ -1,0 +1,6 @@
+workspace
+node_modules
+.git
+.cursor
+dist-ssr
+*.log
