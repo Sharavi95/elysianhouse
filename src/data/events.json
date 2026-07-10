@@ -62,6 +62,36 @@
       "ticketPrice": "AED 150",
       "capacity": "30–50 women",
       "ticketsOpenNote": "Tickets open 5 September 2026"
+    },
+    {
+      "id": "next-gathering-tba",
+      "type": "upcoming",
+      "title": "The Next Gathering",
+      "subtitle": "Another room in the making",
+      "date": "Dates to be announced",
+      "descriptionShort": "The Elysian House series continues. Join the waitlist to be first to hear when the next date and theme are announced.",
+      "primaryImage": "/images/elysian/elysian-community-event-group-celebration-0676.webp",
+      "galleryImages": [],
+      "badge": "Coming soon",
+      "badgeVariant": "coming-soon",
+      "eventTypeTag": "Gathering",
+      "location": "Dubai, UAE",
+      "ticketsOpenNote": "Dates to be announced"
+    },
+    {
+      "id": "more-gatherings-tba",
+      "type": "upcoming",
+      "title": "More Gatherings Ahead",
+      "subtitle": "Held with the same care",
+      "date": "Dates to be announced",
+      "descriptionShort": "New gatherings are planned through the year. Add your name to the waitlist and a seat will find you when the time is right.",
+      "primaryImage": "/images/elysian/elysian-community-event-group-selfie-0565.webp",
+      "galleryImages": [],
+      "badge": "Coming soon",
+      "badgeVariant": "coming-soon",
+      "eventTypeTag": "Gathering",
+      "location": "Dubai, UAE",
+      "ticketsOpenNote": "Dates to be announced"
     }
   ],
   "past": [
