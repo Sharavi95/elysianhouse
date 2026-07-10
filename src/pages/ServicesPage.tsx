@@ -87,7 +87,7 @@ export function ServicesPage() {
             </span>
             <div className="exp-card-img">
               <img
-                src="/images/elysian/elysian-gathering-circle-seating-wide-0684.webp"
+                src="/images/elysian/elysian-courage-choose-guests-portrait-8020.webp"
                 alt="Curated events and community gatherings"
               />
               <div className="exp-card-img-overlay" />
