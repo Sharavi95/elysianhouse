@@ -92,6 +92,21 @@
       "eventTypeTag": "Gathering",
       "location": "Dubai, UAE",
       "ticketsOpenNote": "Dates to be announced"
+    },
+    {
+      "id": "circle-continues-tba",
+      "type": "upcoming",
+      "title": "The Circle Continues",
+      "subtitle": "New rooms, same care",
+      "date": "Dates to be announced",
+      "descriptionShort": "Every gathering begins with a room and the women in it. Join the waitlist to grow with the circle as new dates open.",
+      "primaryImage": "/images/elysian/elysian-courage-choose-circle-seating-8114.webp",
+      "galleryImages": [],
+      "badge": "Coming soon",
+      "badgeVariant": "coming-soon",
+      "eventTypeTag": "Gathering",
+      "location": "Dubai, UAE",
+      "ticketsOpenNote": "Dates to be announced"
     }
   ],
   "past": [
