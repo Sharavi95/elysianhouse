@@ -451,8 +451,8 @@ export function HomePage() {
         </div>
         <div className="photo-strip-item">
           <img
-            src="/images/elysian/elysian-courage-choose-panel-sofa-7775.webp"
-            alt="Panellist speaking with two others on a lilac sofa at The Courage to Choose Yourself"
+            src="/images/elysian/elysian-courage-choose-guests-portrait-8020.webp"
+            alt="Guests together at The Courage to Choose Yourself gathering"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"She arrived. She stayed."</p>
