@@ -250,8 +250,8 @@ export function HomePage() {
               </span>
               <div className="exp-card-img">
                 <img
-                  src="/images/elysian/elysian-courage-choose-guests-portrait-8020.webp"
-                  alt="Guests together at The Courage to Choose Yourself gathering"
+                  src="/images/elysian/elysian-courage-choose-panel-conversation-8103.webp"
+                  alt="Women in a guided panel conversation at an Elysian House gathering"
                 />
                 <div className="exp-card-img-overlay" />
               </div>
