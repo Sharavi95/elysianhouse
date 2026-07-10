@@ -273,19 +273,22 @@
 /* Line-clamp only on xl+ where hero uses locked height (site: xl >= 1280) */
 
 @media (min-width: 1280px) {
+  /* Clamp by height, not -webkit-line-clamp: these paragraphs are flex items,
+     and the flex algorithm blockifies display:-webkit-box (killing line-clamp),
+     after which their overflow:hidden min-height of 0 lets the row shrink them
+     to nothing. flex-shrink:0 + max-height keeps them visible and bounded. */
   .ec-desc--past-gathering,
   .ec-desc--past-experience {
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
     overflow: hidden;
+    flex-shrink: 0;
   }
 
   .ec-desc--past-gathering {
-    -webkit-line-clamp: 5;
+    max-height: calc(1.65em * 6);
   }
 
   .ec-desc--past-experience {
-    -webkit-line-clamp: 3;
+    max-height: calc(1.65em * 4);
   }
 
   .ec--hero.ec--open .ec-body--hero > .ec-desc:first-of-type,

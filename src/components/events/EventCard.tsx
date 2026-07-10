@@ -213,7 +213,7 @@ export function EventCard(props: EventCardProps) {
             <p className="ec-desc">{description}</p>
           )}
 
-          {bullets && bullets.length > 0 && (
+          {status !== 'past' && bullets && bullets.length > 0 && (
             <>
               <p className="ec-section-label">What you'll receive</p>
               <ul className="ec-bullets">

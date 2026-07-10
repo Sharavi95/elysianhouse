@@ -250,8 +250,8 @@ export function HomePage() {
               </span>
               <div className="exp-card-img">
                 <img
-                  src="/images/elysian/elysian-gathering-circle-seating-wide-0684.webp"
-                  alt="Women gathered in circle for conversation"
+                  src="/images/elysian/elysian-courage-choose-panel-conversation-8103.webp"
+                  alt="Women in a guided panel conversation at an Elysian House gathering"
                 />
                 <div className="exp-card-img-overlay" />
               </div>
@@ -451,8 +451,8 @@ export function HomePage() {
         </div>
         <div className="photo-strip-item">
           <img
-            src="/images/elysian/elysian-community-event-inner-circle.jpeg"
-            alt="Women in an intimate circle discussion at an Elysian House community event"
+            src="/images/elysian/elysian-courage-choose-guests-portrait-8020.webp"
+            alt="Guests together at The Courage to Choose Yourself gathering"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"She arrived. She stayed."</p>
