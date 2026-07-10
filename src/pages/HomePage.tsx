@@ -451,8 +451,8 @@ export function HomePage() {
         </div>
         <div className="photo-strip-item">
           <img
-            src="/images/elysian/elysian-community-event-inner-circle.jpeg"
-            alt="Women in an intimate circle discussion at an Elysian House community event"
+            src="/images/elysian/elysian-courage-choose-group-celebration-7738.webp"
+            alt="Women celebrating together at The Courage to Choose Yourself gathering"
           />
           <div className="photo-strip-item-overlay">
             <p className="photo-strip-caption">"She arrived. She stayed."</p>
