@@ -2,48 +2,56 @@
 
 ## Production
 - **Host:** Vercel project `elysianhouse` under the **ElysianHouse** team (Hobby plan).
-- **Domain:** https://www.elysianhouseglobal.com (+ apex).
-- **Branch:** `main`. Every push to `main` auto-builds via the Vercel GitHub App.
+- **Domain:** https://www.elysianhouseglobal.com (+ apex `elysianhouseglobal.com`).
+- **Branch:** `main`. Every push/merge to `main` auto-builds via the Vercel GitHub
+  App (~20s) and is promoted to production automatically.
+
+## ⚠️ The repo must stay PUBLIC
+
+This is the load-bearing rule. **Vercel's Hobby plan does not allow deployments
+from non-owner commit authors on _private_ repositories.** While the repo is
+private, only the Vercel account owner's commits build — everyone else's are
+**"Blocked"** with:
+
+> "The deployment was blocked because the commit author did not have contributing
+> access to the project on Vercel. The Hobby Plan does not support collaboration
+> for private repositories."
+
+Keeping `Sharavi95/elysianhouse` **public** sidesteps this entirely — Hobby
+deploys public repos from **any** author. That is the working setup, and it's how
+production deployed successfully.
+
+**Do not switch the repo to private** unless the account is first upgraded to
+**Pro** (Pro supports private-repo collaboration / team members). Making it
+private again will silently break every non-owner deploy.
+
+> No secrets live in the repo — the `api/` functions read them from Vercel
+> environment variables — so a public repo does not expose credentials.
+
+## How to deploy
+
+- **Normal:** push or merge to `main`. Vercel builds and promotes automatically.
+- **Manual re-trigger (main already correct):** fire the deploy hook —
+  ```sh
+  curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
+  ```
+  Keep the hook URL in `~/.secrets` / an env var — **never commit it**.
+- **CLI (owner token), bypasses Git entirely:**
+  ```sh
+  vercel deploy --prod \
+    --token="$(cat ~/.secrets/elysianhouse-vercel-token.txt)" \
+    --scope=elysian-house
+  ```
 
 ## Developer mirror
-- `sharavis-projects/elysianhouse` → https://elysianhouse.vercel.app (no custom domain).
-- Also builds on push; use it to preview/verify a change before it hits production.
+- `sharavis-projects/elysianhouse` → https://elysianhouse.vercel.app (no custom
+  domain). Owned by the developer, so it builds on every push regardless of repo
+  visibility — use it to preview/verify a change before/independent of production.
 
-## Deploy rule — commit author
-
-The production build can show **"Blocked"** when the Git commit author email is
-not a recognised member of the Vercel account. Deploy-triggering commits on
-`main` must be authored with the developer's **Vercel member email**:
-
-```sh
-git -c user.name="Sharavi" -c user.email="sharavi.ravi@live.com" commit -m "…"
-git push origin main
-```
-
-To ship work already merged into `main`, an empty trigger commit is enough:
-
-```sh
-git -c user.name="Sharavi" -c user.email="sharavi.ravi@live.com" commit --allow-empty \
-  -m "chore(deploy): trigger production build"
-git push origin main
-```
-
-> Do **not** author deploy commits as the account owner's personal email — use
-> your own authorised member email above.
-
-## Alternative — deploy hook
-The project has a Deploy Hook that builds `main` under the project's own
-authority (no Git author needed). POST to it to trigger a production build:
-
-```sh
-curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
-```
-
-Keep the hook URL in `~/.secrets` / an env var — never commit it.
-
-## If a deployment is stuck "Blocked"
-1. Check the account isn't flagged — an **"Action required"** banner in the Vercel
-   dashboard blocks production builds at the account level (usage/limits/payment).
-   Clear it first.
-2. Confirm the commit author email (`git log -1 --format='%ae'`) is a Vercel member.
-3. Re-trigger with an authorised author (above) or the deploy hook.
+## Troubleshooting a "Blocked" deployment
+1. **"commit author did not have contributing access"** → the repo went
+   **private**. Make it public again (GitHub → Settings → General → Danger Zone →
+   Change visibility → Public), or upgrade the Vercel account to Pro.
+2. **Stuck `UNKNOWN` / build never runs (0 ms)** → check for an **"Action
+   required"** banner on the Vercel account and resolve it (usage / billing /
+   verification).
