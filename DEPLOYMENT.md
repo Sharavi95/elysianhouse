@@ -32,9 +32,12 @@ commit author:
 
 - **Deploy hook (primary):** builds the latest `main`.
   ```sh
-  curl -X POST "$VERCEL_DEPLOY_HOOK_URL"
+  npm run deploy
   ```
-  Keep the hook URL in `~/.secrets` / an env var — **never commit it.**
+  Wraps a POST to the Vercel deploy hook (`scripts/deploy.mjs`). The hook URL is
+  a secret read from `VERCEL_DEPLOY_HOOK_URL` or
+  `~/.secrets/elysianhouse-deploy-hook.txt` — **never committed.** Equivalent raw
+  call: `curl -X POST "$VERCEL_DEPLOY_HOOK_URL"`.
 
 - **Owner-token CLI (alternative):**
   ```sh
