@@ -60,11 +60,11 @@
 /* ── Past state ───────────────────────────────────────────── */
 
 .ec--past {
-  opacity: 0.82;
+  opacity: 0.95;
 }
 
 .ec--past .ec-slide {
-  filter: saturate(0.55);
+  filter: saturate(0.85);
 }
 
 /* ── Image pane ───────────────────────────────────────────── */
