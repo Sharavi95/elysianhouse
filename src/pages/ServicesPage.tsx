@@ -158,14 +158,19 @@ export function ServicesPage() {
             <div className="exp-card-body">
               <p className="exp-card-number">03</p>
               <div className="exp-card-labels">
-                <span className="exp-card-type-label">One-on-one sessions</span>
+                <span className="exp-card-type-label">One-on-one coaching</span>
               </div>
               <h3 className="exp-card-title">
-                One-on-One <em>Reflection Sessions</em>
+                The Live True <em>Journey</em>
               </h3>
               <p className="exp-card-desc">
-                Personal conversations to navigate life transitions. Private, unhurried, and
-                tailored entirely to where you are, no agenda except yours.
+                Get clear on what you want. Create a life that&apos;s true to you. A
+                personalised four-week coaching experience for women ready to expand their
+                mindset, challenge limiting beliefs, build self-trust, and take intentional
+                steps toward a more meaningful and fulfilling life.
+              </p>
+              <p className="exp-card-small-detail">
+                Four weeks · Private coaching · Online or in person
               </p>
               <Link to="/contact" className="exp-card-cta">
                 Express interest
