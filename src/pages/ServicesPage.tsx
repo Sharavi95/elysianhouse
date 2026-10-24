@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useRef, useCallback, useState } from 'react'
 import { Footer } from '../components/Footer'
 import { EventCard, EventCardScrollRow, toEventCardProps } from '../components/events'
-import { INNER_CIRCLE_WAITLIST_URL } from '../constants/contact'
+import { CALENDLY_INTRO_CALL_URL, INNER_CIRCLE_WAITLIST_URL } from '../constants/contact'
 import { getPastEvents, getUpcomingEvents } from '../data/events'
 
 export function ServicesPage() {
@@ -172,9 +172,19 @@ export function ServicesPage() {
               <p className="exp-card-small-detail">
                 Four weeks · Private coaching · Online or in person
               </p>
-              <Link to="/contact" className="exp-card-cta">
-                Express interest
-              </Link>
+              <div className="exp-card-ctas">
+                <Link to="/#live-true-journey" className="exp-card-cta">
+                  Explore the Journey
+                </Link>
+                <a
+                  href={CALENDLY_INTRO_CALL_URL}
+                  className="exp-card-cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book Your Free Clarity Call
+                </a>
+              </div>
             </div>
           </div>
         </div>

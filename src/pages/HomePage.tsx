@@ -325,24 +325,173 @@ export function HomePage() {
               <div className="exp-card-body">
                 <p className="exp-card-number">03</p>
                 <div className="exp-card-labels">
-                  <span className="exp-card-type-label">One-on-one sessions</span>
+                  <span className="exp-card-type-label">One-on-one coaching</span>
                 </div>
                 <h3 className="exp-card-title">
-                  One-on-One <em>Reflection Sessions</em>
+                  The Live True <em>Journey</em>
                 </h3>
                 <p className="exp-card-desc">
-                  Personal conversations to navigate life transitions. Private, unhurried, and
-                  tailored entirely to where you are, no agenda except yours.
+                  Get clear on what you want. Create a life that&apos;s true to you. A
+                  personalised four-week coaching experience for women ready to expand
+                  their mindset, challenge limiting beliefs, and build self-trust.
                 </p>
-                <div className="exp-card-footer">
-                  <Link to="/contact" className="exp-card-cta">
-                    Express interest
-                  </Link>
+                <p className="exp-card-small-detail">
+                  Four weeks · Private coaching · Online or in person
+                </p>
+                <div className="exp-card-footer exp-card-ctas">
+                  <a href="#live-true-journey" className="exp-card-cta">
+                    Explore the Journey
+                  </a>
+                  <a
+                    href={CALENDLY_INTRO_CALL_URL}
+                    className="exp-card-cta"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Book Your Free Clarity Call
+                  </a>
                 </div>
               </div>
             </div>
           </div>
         </div>
+      </section>
+
+      {/* ── LIVE TRUE JOURNEY (1:1 coaching detail) ── */}
+      <section className="pillars-section live-true-journey-section" id="live-true-journey">
+        <div className="pillars-header">
+          <span className="section-label">One-on-One Coaching</span>
+          <h2 className="section-heading">
+            The Live True <em>Journey</em>
+          </h2>
+          <div className="divider" />
+          <p className="live-true-journey-lede">
+            There comes a time when you begin to ask: Am I living the life I truly want?
+            What does fulfillment mean to me? What would I try if I trusted myself more?
+          </p>
+          <p className="live-true-journey-lede">
+            The Live True Journey is a personalised, four-week, one-on-one coaching
+            experience to explore your values, challenge unhelpful beliefs, develop a
+            growth mindset, and take realistic steps toward the life you want to create.
+          </p>
+        </div>
+
+        <h3 className="live-true-journey-subheading">Who it&apos;s for</h3>
+        <ul className="live-true-journey-list">
+          <li>Women who want more meaning, fulfillment, and possibility in everyday life.</li>
+          <li>Women who are ready to grow but want clarity on where to begin.</li>
+          <li>Women who want to understand their beliefs, patterns, and choices.</li>
+          <li>Women seeking greater self-trust and confidence in their decisions.</li>
+          <li>Women ready to turn reflection into intentional action.</li>
+        </ul>
+
+        <h3 className="live-true-journey-subheading">Your four-week journey</h3>
+        <div className="pillars-grid pillars-grid--four">
+          <div className="pillar-card fade-in">
+            <p className="pillar-num">Week 1</p>
+            <h3 className="pillar-title">
+              <em>Understand</em>
+            </h3>
+            <p className="pillar-text">
+              Where am I now? Explore what feels fulfilling, what feels out of alignment,
+              and the patterns influencing your choices.
+            </p>
+          </div>
+          <div className="pillar-card fade-in">
+            <p className="pillar-num">Week 2</p>
+            <h3 className="pillar-title">
+              Get <em>Clear</em>
+            </h3>
+            <p className="pillar-text">
+              What do I truly want? Identify your values, priorities, and personal
+              definition of success and fulfillment.
+            </p>
+          </div>
+          <div className="pillar-card fade-in">
+            <p className="pillar-num">Week 3</p>
+            <h3 className="pillar-title">
+              <em>Expand</em>
+            </h3>
+            <p className="pillar-text">
+              What else is possible? Explore self-doubt and limiting beliefs, and
+              practise approaching challenges with curiosity and a growth mindset.
+            </p>
+          </div>
+          <div className="pillar-card fade-in">
+            <p className="pillar-num">Week 4</p>
+            <h3 className="pillar-title">
+              Live <em>True</em>
+            </h3>
+            <p className="pillar-text">
+              How do I move forward? Turn your insights into practical choices and a
+              personalised 30-day action plan.
+            </p>
+          </div>
+        </div>
+
+        <h3 className="live-true-journey-subheading">What&apos;s included</h3>
+        <ul className="live-true-journey-list">
+          <li>Four private 60-minute sessions over four weeks.</li>
+          <li>Guided reflection exercises between sessions.</li>
+          <li>A personalised 30-day action plan.</li>
+          <li>Online or in-person session options.</li>
+        </ul>
+
+        <h3 className="live-true-journey-subheading">Founding client investment</h3>
+        <div className="pillars-grid pillars-grid--two">
+          <div className="pillar-card fade-in">
+            <p className="pillar-num">Online</p>
+            <h3 className="pillar-title">AED 400</h3>
+            <p className="pillar-text">
+              The complete four-week programme, four private video sessions.
+            </p>
+          </div>
+          <div className="pillar-card fade-in">
+            <p className="pillar-num">In person</p>
+            <h3 className="pillar-title">AED 500</h3>
+            <p className="pillar-text">
+              The complete four-week programme, four private sessions at an agreed
+              location. Any additional travel or venue costs are disclosed and agreed in
+              advance.
+            </p>
+          </div>
+        </div>
+        <p className="live-true-journey-note">
+          These introductory prices apply to the first five paying coaching clients.
+        </p>
+
+        <div className="cta-banner live-true-journey-cta fade-in">
+          <div className="cta-banner-text">
+            <h2 className="section-heading">
+              Not sure if coaching is <em style={{ color: 'rgba(245,241,234,0.8)' }}>right for you?</em>
+            </h2>
+            <p>
+              Book a complimentary 30-minute Clarity Call to discuss where you are, what
+              you hope to work toward, and whether The Live True Journey is a good fit.
+              There&apos;s no obligation to enrol.
+            </p>
+          </div>
+          <a
+            href={CALENDLY_INTRO_CALL_URL}
+            className="btn-white"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Book Your Free Clarity Call
+          </a>
+        </div>
+
+        <p className="live-true-journey-closing">
+          Personal growth isn&apos;t about becoming someone else or constantly trying to
+          fix yourself. It&apos;s about understanding yourself, recognising new
+          possibilities, and making choices that feel true to you.
+          <br />
+          Come Home. Get Clear. Live True.
+        </p>
+        <p className="live-true-journey-scope-note">
+          This is personal-development coaching, not psychotherapy, medical treatment, or
+          mental health care. Individual outcomes vary.
+        </p>
       </section>
 
       {/* ── GATHERINGS SECTION / DARK ──

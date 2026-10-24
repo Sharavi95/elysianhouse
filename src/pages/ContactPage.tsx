@@ -11,7 +11,7 @@ import { getEventById, getEventTitleById, getUpcomingEvents } from '../data/even
 
 const STATIC_INTEREST_LABELS: Record<string, string> = {
   'inner-circles-waitlist': 'Inner Circles waitlist',
-  'reflection-sessions': 'One-on-One Reflection Sessions',
+  'live-true-journey': 'The Live True Journey (1:1 Coaching)',
   'just-exploring': 'Just exploring',
 }
 
@@ -317,7 +317,7 @@ export function ContactPage() {
                 </option>
               ))}
               <option value="inner-circles-waitlist">Inner Circles waitlist</option>
-              <option value="reflection-sessions">One-on-One Reflection Sessions</option>
+              <option value="live-true-journey">The Live True Journey (1:1 Coaching)</option>
               <option value="just-exploring">Just exploring</option>
             </select>
           </div>
