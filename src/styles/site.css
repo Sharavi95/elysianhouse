@@ -2037,6 +2037,15 @@ footer {
   margin: 0;
 }
 
+.live-true-journey-list--card {
+  max-width: none;
+  margin-top: 16px;
+}
+
+.live-true-journey-list--card li {
+  font-size: 0.88rem;
+}
+
 .live-true-journey-list li {
   font-size: 0.9rem;
   line-height: 1.85;
@@ -2059,13 +2068,15 @@ footer {
   margin-top: 16px;
 }
 
-.live-true-journey-cta {
-  margin-top: 56px;
+.live-true-journey-closing-section {
+  padding: var(--space-section-y) var(--space-section-x);
+  background: var(--ivory);
+  text-align: center;
 }
 
 .live-true-journey-closing {
   max-width: 560px;
-  margin: 56px auto 0;
+  margin: 0 auto;
   font-family: "Cormorant Garamond", serif;
   font-size: 1.3rem;
   font-style: italic;

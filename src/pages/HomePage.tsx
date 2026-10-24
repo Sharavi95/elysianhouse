@@ -439,58 +439,61 @@ export function HomePage() {
           </div>
         </div>
 
-        <h3 className="live-true-journey-subheading">What&apos;s included</h3>
-        <ul className="live-true-journey-list">
-          <li>Four private 60-minute sessions over four weeks.</li>
-          <li>Guided reflection exercises between sessions.</li>
-          <li>A personalised 30-day action plan.</li>
-          <li>Online or in-person session options.</li>
-        </ul>
-
         <h3 className="live-true-journey-subheading">Founding client investment</h3>
         <div className="pillars-grid pillars-grid--two">
           <div className="pillar-card fade-in">
             <p className="pillar-num">Online</p>
             <h3 className="pillar-title">AED 400</h3>
-            <p className="pillar-text">
-              The complete four-week programme, four private video sessions.
-            </p>
+            <p className="pillar-text">The complete four-week programme, online.</p>
+            <ul className="live-true-journey-list live-true-journey-list--card">
+              <li>Four private 60-minute video sessions over four weeks</li>
+              <li>Guided reflection exercises between sessions</li>
+              <li>A personalised 30-day action plan</li>
+            </ul>
           </div>
           <div className="pillar-card fade-in">
             <p className="pillar-num">In person</p>
             <h3 className="pillar-title">AED 500</h3>
             <p className="pillar-text">
-              The complete four-week programme, four private sessions at an agreed
-              location. Any additional travel or venue costs are disclosed and agreed in
-              advance.
+              The complete four-week programme, at an agreed location.
             </p>
+            <ul className="live-true-journey-list live-true-journey-list--card">
+              <li>Four private 60-minute sessions over four weeks</li>
+              <li>Guided reflection exercises between sessions</li>
+              <li>A personalised 30-day action plan</li>
+              <li>Any additional travel or venue costs disclosed and agreed in advance</li>
+            </ul>
           </div>
         </div>
         <p className="live-true-journey-note">
           These introductory prices apply to the first five paying coaching clients.
         </p>
+      </section>
 
-        <div className="cta-banner live-true-journey-cta fade-in">
-          <div className="cta-banner-text">
-            <h2 className="section-heading">
-              Not sure if coaching is <em style={{ color: 'rgba(245,241,234,0.8)' }}>right for you?</em>
-            </h2>
-            <p>
-              Book a complimentary 30-minute Clarity Call to discuss where you are, what
-              you hope to work toward, and whether The Live True Journey is a good fit.
-              There&apos;s no obligation to enrol.
-            </p>
-          </div>
-          <a
-            href={CALENDLY_INTRO_CALL_URL}
-            className="btn-white"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Book Your Free Clarity Call
-          </a>
+      {/* ── LIVE TRUE JOURNEY: CTA BANNER (full width, matches other banners) ── */}
+      <div className="cta-banner live-true-journey-cta fade-in">
+        <div className="cta-banner-text">
+          <h2 className="section-heading">
+            Not sure if coaching is <em style={{ color: 'rgba(245,241,234,0.8)' }}>right for you?</em>
+          </h2>
+          <p>
+            Book a complimentary 30-minute Clarity Call to discuss where you are, what
+            you hope to work toward, and whether The Live True Journey is a good fit.
+            There&apos;s no obligation to enrol.
+          </p>
         </div>
+        <a
+          href={CALENDLY_INTRO_CALL_URL}
+          className="btn-white"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Book Your Free Clarity Call
+        </a>
+      </div>
 
+      {/* ── LIVE TRUE JOURNEY: CLOSING MESSAGE ── */}
+      <div className="live-true-journey-closing-section">
         <p className="live-true-journey-closing">
           Personal growth isn&apos;t about becoming someone else or constantly trying to
           fix yourself. It&apos;s about understanding yourself, recognising new
@@ -502,7 +505,7 @@ export function HomePage() {
           This is personal-development coaching, not psychotherapy, medical treatment, or
           mental health care. Individual outcomes vary.
         </p>
-      </section>
+      </div>
 
       {/* ── GATHERINGS SECTION / DARK ──
       <section className="gatherings-section">
