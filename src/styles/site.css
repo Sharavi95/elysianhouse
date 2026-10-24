@@ -1981,12 +1981,6 @@ footer {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-.pillars-grid--two {
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  max-width: 720px;
-  margin: 0 auto;
-}
-
 .live-true-journey-section {
   text-align: center;
 }
@@ -2037,13 +2031,11 @@ footer {
   margin: 0;
 }
 
-.live-true-journey-list--card {
-  max-width: none;
-  margin-top: 16px;
-}
-
-.live-true-journey-list--card li {
-  font-size: 0.88rem;
+.live-true-journey-lede--centered {
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
 }
 
 .live-true-journey-list li {
@@ -2099,10 +2091,60 @@ footer {
 
 @media (max-width: 560px) {
   .pillars-grid--four,
-  .pillars-grid--two,
   .live-true-journey-intro {
     grid-template-columns: 1fr;
   }
+
+  .live-true-journey-price-row {
+    flex-direction: column;
+    gap: 28px;
+  }
+
+  .live-true-journey-price-divider {
+    width: 48px;
+    height: 1px;
+  }
+}
+
+.live-true-journey-price-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: clamp(40px, 6vw, 72px);
+}
+
+.live-true-journey-price-tile {
+  min-width: 160px;
+}
+
+.live-true-journey-price-label {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+}
+
+.live-true-journey-price-amount {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 2.2rem;
+  font-weight: 300;
+  color: var(--ink);
+}
+
+.live-true-journey-price-note {
+  max-width: 220px;
+  margin: 10px auto 0;
+  font-size: 0.78rem;
+  line-height: 1.6;
+  color: rgba(46, 46, 46, 0.6);
+}
+
+.live-true-journey-price-divider {
+  width: 1px;
+  height: 64px;
+  background: rgba(184, 164, 122, 0.4);
 }
 
 /* ─── HOME: HOW WOMEN EXPERIENCE (index6 — two column + exp cards) ─── */

@@ -439,30 +439,26 @@ export function HomePage() {
           </div>
         </div>
 
+        <h3 className="live-true-journey-subheading">What&apos;s included</h3>
+        <p className="live-true-journey-lede live-true-journey-lede--centered">
+          Every Live True Journey includes four private 60-minute sessions over four
+          weeks, guided reflection exercises between sessions, and a personalised 30-day
+          action plan, whether you meet online or in person.
+        </p>
+
         <h3 className="live-true-journey-subheading">Founding client investment</h3>
-        <div className="pillars-grid pillars-grid--two">
-          <div className="pillar-card fade-in">
-            <p className="pillar-num">Online</p>
-            <h3 className="pillar-title">AED 400</h3>
-            <p className="pillar-text">The complete four-week programme, online.</p>
-            <ul className="live-true-journey-list live-true-journey-list--card">
-              <li>Four private 60-minute video sessions over four weeks</li>
-              <li>Guided reflection exercises between sessions</li>
-              <li>A personalised 30-day action plan</li>
-            </ul>
+        <div className="live-true-journey-price-row">
+          <div className="live-true-journey-price-tile fade-in">
+            <p className="live-true-journey-price-label">Online</p>
+            <p className="live-true-journey-price-amount">AED 400</p>
           </div>
-          <div className="pillar-card fade-in">
-            <p className="pillar-num">In person</p>
-            <h3 className="pillar-title">AED 500</h3>
-            <p className="pillar-text">
-              The complete four-week programme, at an agreed location.
+          <div className="live-true-journey-price-divider" aria-hidden="true" />
+          <div className="live-true-journey-price-tile fade-in">
+            <p className="live-true-journey-price-label">In person</p>
+            <p className="live-true-journey-price-amount">AED 500</p>
+            <p className="live-true-journey-price-note">
+              Plus any travel or venue costs, disclosed and agreed in advance
             </p>
-            <ul className="live-true-journey-list live-true-journey-list--card">
-              <li>Four private 60-minute sessions over four weeks</li>
-              <li>Guided reflection exercises between sessions</li>
-              <li>A personalised 30-day action plan</li>
-              <li>Any additional travel or venue costs disclosed and agreed in advance</li>
-            </ul>
           </div>
         </div>
         <p className="live-true-journey-note">
