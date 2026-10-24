@@ -1991,12 +1991,25 @@ footer {
   text-align: center;
 }
 
+.live-true-journey-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(40px, 6vw, 80px);
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: left;
+  align-items: start;
+}
+
+.live-true-journey-intro-col {
+  min-width: 0;
+}
+
 .live-true-journey-lede {
-  max-width: 640px;
-  margin: 0 auto 16px;
   font-size: 0.95rem;
   line-height: 1.8;
   color: rgba(46, 46, 46, 0.8);
+  margin-bottom: 16px;
 }
 
 .live-true-journey-subheading {
@@ -2007,12 +2020,21 @@ footer {
   margin: 48px 0 20px;
 }
 
+.live-true-journey-subheading--left {
+  margin-top: 0;
+}
+
 .live-true-journey-list {
   list-style: none;
   max-width: 640px;
   margin: 0 auto;
   padding: 0;
   text-align: left;
+}
+
+.live-true-journey-intro-col .live-true-journey-list {
+  max-width: none;
+  margin: 0;
 }
 
 .live-true-journey-list li {
@@ -2066,7 +2088,8 @@ footer {
 
 @media (max-width: 560px) {
   .pillars-grid--four,
-  .pillars-grid--two {
+  .pillars-grid--two,
+  .live-true-journey-intro {
     grid-template-columns: 1fr;
   }
 }

@@ -144,9 +144,9 @@ export function ServicesPage() {
             </div>
           </div>
 
-          <div className="exp-card coming-soon fade-in">
-            <span className="exp-card-status exp-card-status--soon" aria-label="Coming soon">
-              Coming soon
+          <div className="exp-card available fade-in">
+            <span className="exp-card-status exp-card-status--open" aria-label="Open">
+              Open
             </span>
             <div className="exp-card-img">
               <img

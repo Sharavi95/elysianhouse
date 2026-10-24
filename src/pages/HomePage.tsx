@@ -311,9 +311,9 @@ export function HomePage() {
               </div>
             </div>
 
-            <div className="exp-card coming-soon fade-in">
-              <span className="exp-card-status exp-card-status--soon" aria-label="Coming soon">
-                Coming soon
+            <div className="exp-card available fade-in">
+              <span className="exp-card-status exp-card-status--open" aria-label="Open">
+                Open
               </span>
               <div className="exp-card-img">
                 <img
@@ -365,25 +365,35 @@ export function HomePage() {
             The Live True <em>Journey</em>
           </h2>
           <div className="divider" />
-          <p className="live-true-journey-lede">
-            There comes a time when you begin to ask: Am I living the life I truly want?
-            What does fulfillment mean to me? What would I try if I trusted myself more?
-          </p>
-          <p className="live-true-journey-lede">
-            The Live True Journey is a personalised, four-week, one-on-one coaching
-            experience to explore your values, challenge unhelpful beliefs, develop a
-            growth mindset, and take realistic steps toward the life you want to create.
-          </p>
         </div>
 
-        <h3 className="live-true-journey-subheading">Who it&apos;s for</h3>
-        <ul className="live-true-journey-list">
-          <li>Women who want more meaning, fulfillment, and possibility in everyday life.</li>
-          <li>Women who are ready to grow but want clarity on where to begin.</li>
-          <li>Women who want to understand their beliefs, patterns, and choices.</li>
-          <li>Women seeking greater self-trust and confidence in their decisions.</li>
-          <li>Women ready to turn reflection into intentional action.</li>
-        </ul>
+        <div className="live-true-journey-intro">
+          <div className="live-true-journey-intro-col">
+            <p className="live-true-journey-lede">
+              There comes a time when you begin to ask: Am I living the life I truly
+              want? What does fulfillment mean to me? What would I try if I trusted
+              myself more?
+            </p>
+            <p className="live-true-journey-lede">
+              The Live True Journey is a personalised, four-week, one-on-one coaching
+              experience to explore your values, challenge unhelpful beliefs, develop a
+              growth mindset, and take realistic steps toward the life you want to
+              create.
+            </p>
+          </div>
+          <div className="live-true-journey-intro-col">
+            <h3 className="live-true-journey-subheading live-true-journey-subheading--left">
+              Who it&apos;s for
+            </h3>
+            <ul className="live-true-journey-list">
+              <li>Women who want more meaning, fulfillment, and possibility in everyday life.</li>
+              <li>Women who are ready to grow but want clarity on where to begin.</li>
+              <li>Women who want to understand their beliefs, patterns, and choices.</li>
+              <li>Women seeking greater self-trust and confidence in their decisions.</li>
+              <li>Women ready to turn reflection into intentional action.</li>
+            </ul>
+          </div>
+        </div>
 
         <h3 className="live-true-journey-subheading">Your four-week journey</h3>
         <div className="pillars-grid pillars-grid--four">
