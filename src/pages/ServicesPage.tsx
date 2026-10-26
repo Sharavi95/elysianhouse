@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import { useRef, useCallback, useState } from 'react'
 import { Footer } from '../components/Footer'
 import { EventCard, EventCardScrollRow, toEventCardProps } from '../components/events'
-import { INNER_CIRCLE_WAITLIST_URL } from '../constants/contact'
+import { CALENDLY_INTRO_CALL_URL, INNER_CIRCLE_WAITLIST_URL } from '../constants/contact'
 import { getPastEvents, getUpcomingEvents } from '../data/events'
 
 export function ServicesPage() {
@@ -144,9 +144,9 @@ export function ServicesPage() {
             </div>
           </div>
 
-          <div className="exp-card coming-soon fade-in">
-            <span className="exp-card-status exp-card-status--soon" aria-label="Coming soon">
-              Coming soon
+          <div className="exp-card available fade-in">
+            <span className="exp-card-status exp-card-status--open" aria-label="Open">
+              Open
             </span>
             <div className="exp-card-img">
               <img
@@ -158,18 +158,33 @@ export function ServicesPage() {
             <div className="exp-card-body">
               <p className="exp-card-number">03</p>
               <div className="exp-card-labels">
-                <span className="exp-card-type-label">One-on-one sessions</span>
+                <span className="exp-card-type-label">One-on-one coaching</span>
               </div>
               <h3 className="exp-card-title">
-                One-on-One <em>Reflection Sessions</em>
+                The Live True <em>Journey</em>
               </h3>
               <p className="exp-card-desc">
-                Personal conversations to navigate life transitions. Private, unhurried, and
-                tailored entirely to where you are, no agenda except yours.
+                Get clear on what you want. Create a life that&apos;s true to you. A
+                personalised four-week coaching experience for women ready to expand their
+                mindset, challenge limiting beliefs, build self-trust, and take intentional
+                steps toward a more meaningful and fulfilling life.
               </p>
-              <Link to="/contact" className="exp-card-cta">
-                Express interest
-              </Link>
+              <p className="exp-card-small-detail">
+                Four weeks · Private coaching · Online or in person
+              </p>
+              <div className="exp-card-ctas">
+                <Link to="/#live-true-journey" className="exp-card-cta">
+                  Explore the Journey
+                </Link>
+                <a
+                  href={CALENDLY_INTRO_CALL_URL}
+                  className="exp-card-cta"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Book Your Free Clarity Call
+                </a>
+              </div>
             </div>
           </div>
         </div>
